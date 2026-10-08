@@ -1,12 +1,12 @@
-# Évora Pulse Capability Routing Standard v1.0
+# Évora Pulse Capability Routing Standard v1.0.1
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | Évora Pulse Capability Routing Standard v1.0 |
+| Nome oficial | Évora Pulse Capability Routing Standard v1.0.1 |
 | Identificador | Standard 03 |
-| Versão | 1.0 |
+| Versão | 1.0.1 |
 | Estado canônico | Stable |
 | Finalidade | Definir como identificar, selecionar, consultar e reavaliar capacidades para executar tarefas com qualidade, segurança e contexto proporcional. |
 | Aplicabilidade | Criação, análise, manutenção, correção, refatoração, revisão e preparação de entrega de software e experiências digitais. |
@@ -118,12 +118,16 @@ Relação entre Skills indica colaboração possível, não ativação automáti
 | --- | --- |
 | [Product System v4.0](product-system-v4.md) | Política central em toda tarefa do sistema. Recuperar regras aplicáveis de contexto, autonomia, limites, segurança, qualidade e evidências; aprofundar ciclo, revisão e entrega conforme a atividade. |
 | [Web Experience & Business Systems v1.0](web-experience-business-systems-v1.md) | Quando interface ou experiência estiver no escopo, inclusive GUI local. Consultar critérios das superfícies afetadas, como conteúdo, estados, acessibilidade, regras de negócio e QA. Não exigir leitura de SEO para UI privada sem descoberta pública. |
-| [Capability Routing Standard v1.0](capability-routing-v1.md) | Quando for necessário determinar ou reavaliar a seleção. Usar inventário, matriz, exclusões e gatilhos pertinentes, sem releitura integral automática. |
+| [Capability Routing Standard v1.0.1](capability-routing-v1.md) | Quando for necessário determinar ou reavaliar a seleção. Usar inventário, matriz, exclusões e gatilhos pertinentes, sem releitura integral automática. |
+| [Authentication & Security v1.1](authentication-security-v1.md), Standard 04, Stable | Quando identidade, AuthN, AuthZ, permissões por ação/recurso, sessões, controle de acesso, isolamento entre usuários/tenants ou segurança de dados estiverem envolvidos. Preservar a distinção entre autenticação e autorização e a validação no componente confiável; consultar somente as orientações pertinentes à superfície. |
+| [Environment Variables & Secrets v1.0](environment-variables-secrets-v1.md), Standard 05, Stable | Quando configuração, variáveis de ambiente, chaves, credenciais, exposição de secrets, separação de ambientes ou seus fluxos de consumo forem pertinentes. Consultar classificação e proteção aplicáveis sem exigir leitura de valores reais de secrets. |
+| [AI Engineering v1.0](ai-engineering-v1.md), Standard 06, Candidate | Quando houver funcionalidade efetiva de IA no produto ou necessidade especializada pertinente, como modelos, provedores, contratos de saída, RAG, Evals, ferramentas ou operação. O uso do Codex como executor de desenvolvimento não torna AI Engineering obrigatório. |
+| [AI-Assisted Secure Development Threat v1.0](ai-assisted-secure-development-threat-v1.md), Standard 07, Candidate | Para controles pertinentes à segurança do processo de desenvolvimento assistido por IA: fronteiras de confiança, entradas não confiáveis, prompt/tool-output injection, comandos e ferramentas, dependências, integridade de testes, evidências e autorizações. Aplicar proporcionalmente à superfície e ao risco, sem exigir ferramentas novas. |
 | [standards/README.md](README.md) e estrutura de `standards/` | Apoio ao inventário. Conferir arquivos reais; o README atual é descritivo e não constitui catálogo detalhado nem prova de existência de Standards planejados. |
 
-Os demais Standards planejados ainda não estão materializados nesta versão. Não deduzir sua existência a partir de referências futuras. O relato histórico de inventário do Product System descreve sua autoria, não o estado atual de `standards/`.
+Os Standards 01 a 07 estão materializados no inventário conferido para esta revisão. Verificar o inventário real ao iniciar ou retomar o trabalho; a presença de um arquivo não permite inferir estado Stable. Preservar os estados declarados nas fontes: os Standards 06 e 07 permanecem Candidate. Candidate não significa inexistência; documentos nesse estado podem orientar o trabalho dentro de seu alcance e governança. Existência documental não comprova eficácia operacional nem ativação automática de Skills. O relato histórico de inventário do Product System descreve sua autoria, não o estado atual de `standards/`.
 
-Quando novos Standards forem efetivamente criados e aprovados, integrar sua seleção mediante revisão autorizada da governança e deste roteamento. Até lá, aplicar os documentos existentes e as Skills pertinentes. Não duplicar integralmente suas regras neste documento nem usar sua ausência para suspender controles centrais.
+Selecionar somente os Standards pertinentes ao objetivo, à superfície, ao risco e à fase, sem leitura integral de todos os sete por padrão. Não duplicar integralmente suas regras nem presumir a existência de Standards futuros. Quando novos Standards forem efetivamente criados e aprovados para seu alcance, incorporar sua seleção mediante revisão autorizada da governança e deste roteamento. A ausência de documento futuro não suspende os controles centrais.
 
 ## G. Estratégia de leitura e contexto
 
@@ -338,5 +342,6 @@ Aplicar a política de versionamento do Product System: incremento maior para in
 | Versão | Estado | Mudança e limite de evidência |
 | --- | --- | --- |
 | 1.0 | Stable | Definição inicial da política de roteamento proporcional, inventário das 12 Skills, matriz, exclusões e critérios de revisão. Fundamentada na inspeção das fontes existentes; validação operacional controlada permanece posterior. |
+| 1.0.1 | Stable | Revisão corretiva de consistência documental: atualização do inventário e da matriz após a publicação dos Standards 04 a 07, com reconhecimento das fontes existentes e correção de referências históricas. Sem criação de obrigação operacional, alteração de Gates ou mudança arquitetural. Aprovada expressamente pelo responsável na conversa de 08/10/2026, para edição das seções A, F e Q. A alteração é documental e não demonstra ativação automática de Skills ou eficácia operacional do roteamento. |
 
 Recomenda-se que a validação futura examine ajustes triviais, interfaces públicas/privadas, APIs, dados, aplicações locais, IA e preparação de release. Avaliar omissões, excessos, gatilhos de ampliação, respeito aos Gates e limitações de execução; corrigir a política por revisão autorizada. Essa recomendação não instala mecanismo nem inicia testes ou novo Standard fora do escopo aprovado.
