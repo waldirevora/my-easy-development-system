@@ -1,6 +1,6 @@
-# Évora Pulse QA & Review Report v1.0
+# Évora Pulse QA & Review Report v1.0.1
 
-**Versão:** 1.0. **Estado inicial:** Candidate.
+**Versão:** 1.0.1. **Estado inicial:** Candidate.
 
 ## A. Identificação e uso
 
@@ -143,7 +143,7 @@ Revisão independente obrigatória ausente impede prontidão. Não exigir reviso
 | `CHANGES_REQUIRED` | Correção ou verificação adicional necessária e possível no escopo autorizado; corrigir/reverificar sem microaprovações. |
 | `BLOCKED` | Falta condição necessária, como autorização, ambiente, acesso ou decisão material; registrar causa e interromper ação dependente. |
 
-Um parecer técnico APPROVED não comprova conformidade universal nem substitui Security Gate ou autorização humana de Gate B. Também não prova publicação nem autoriza operação destrutiva. Quando segurança for pertinente, referenciar o Security Gate já previsto pelos Standards, com alcance, resultado e pendências; não reproduzir seu relatório especializado. O Template 04 é futuro e não constitui dependência existente. Falha crítica conhecida bloqueia release; evidência essencial ausente impede aprovação geral.
+Um parecer técnico APPROVED não comprova conformidade universal nem substitui Security Gate ou autorização humana de Gate B. Também não prova publicação nem autoriza operação destrutiva. Quando segurança for pertinente, referenciar o Security Gate já previsto pelos Standards, com alcance, resultado e pendências; não reproduzir seu relatório especializado. O Template 04, [Security Gate Review v1.0](security-gate-review.md), em estado Candidate, já está publicado e oferece um modelo operacional para registrar revisões de segurança. A avaliação pertinente continua regida pelos Standards e pelos riscos reais da tarefa; não é obrigatório criar ou preencher um arquivo Security Gate separado em toda alteração. O Template 03 permanece responsável pelo QA geral e pela revisão técnica; o parecer de segurança continua distinto da autorização humana de Gate B. Falha crítica conhecida bloqueia release; evidência essencial ausente impede aprovação geral.
 
 Separar trabalho implementado, inspecionado, testado e revisado de autorização humana de entrega, publicação executada e verificação pós-publicação. Encaminhar decisão protegida ao Template 02 ou conversa suficiente, respeitando autorização anterior válida e proibições expressas. Não executar Git ou deploy para concluir artificialmente este relatório. Verificação operacional requer autorização e resultado real no destino.
 
@@ -209,3 +209,4 @@ Avaliar usabilidade na integração/testes autorizados com Codex e no piloto rea
 | Versão | Estado | Registro |
 | --- | --- | --- |
 | 1.0 | Candidate | Modos rápido/completo, métodos, resultados, evidências, revisão e três exemplos planejados; validação operacional e de uso permanece posterior. |
+| 1.0.1 | Candidate | Revisão corretiva documental: reconhecimento do Template 04 já publicado e correção da afirmação histórica desatualizada na seção J. Correção factual da referência e atualização editorial da identificação, sem alterar critérios de QA, Security Gate, Gate A, Gate B ou obrigações operacionais. Autorizada pelo responsável mediante envio do prompt específico da rodada 5.1B ao Codex, em 08/10/2026. Não representa teste operacional do template, revisão independente já realizada ou promoção a Stable. |
