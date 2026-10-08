@@ -1,1 +1,1 @@
-Standards e normas do Évora Pulse Development System.
+Standards e normas do Ã‰vora Pulse Development System.

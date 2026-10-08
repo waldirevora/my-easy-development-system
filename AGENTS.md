@@ -2,55 +2,57 @@
 
 ## Objetivo
 
-Este repositÛrio contÈm o …vora Pulse Development System.
+Este reposit√≥rio cont√©m o √âvora Pulse Development System.
 
 ## Regra principal
 
 Antes de executar uma tarefa:
 
-1. identificar propÛsito, domÌnio, risco e superfÌcie afetada;
-2. ativar apenas os Standards e Skills necess·rios;
+1. identificar prop√≥sito, dom√≠nio, risco e superf√≠cie afetada;
+2. ativar apenas os Standards e Skills necess√°rios;
 3. evitar overengineering;
 4. trabalhar autonomamente dentro do escopo aprovado;
-5. testar, revisar e corrigir antes de declarar conclus„o.
+5. testar, revisar e corrigir antes de declarar conclus√£o.
 
 ## Autonomous Mode
 
-Gate A:
-- objetivo;
-- escopo;
-- autonomia.
+Gate A humano:
+O usu√°rio aprova objetivo, escopo e limites de autonomia. A instru√ß√£o inicial pode constituir essa autoriza√ß√£o quando for suficientemente clara.
 
-Entre Gate A e Gate B:
+Entre Gate A e Gate B, atuar sem microaprova√ß√µes dentro do escopo autorizado:
 - planejar;
 - implementar;
 - testar;
 - revisar;
 - corrigir;
-- executar QA e Security Gate quando aplic·vel;
-- atualizar documentaÁ„o.
+- executar QA e Security Gate quando aplic√°vel;
+- atualizar documenta√ß√£o.
 
-Interromper apenas por blocker material:
-- perda de dados;
-- migration destrutiva;
-- credencial ausente;
+Distinguir autor e revisor quando houver capacidade real de revis√£o independente. Se a revis√£o for feita pelo executor, declarar autorrevis√£o, sem alegar independ√™ncia.
+
+Interromper apenas por blocker material e solicitar nova decis√£o humana quando houver:
+- destrui√ß√£o ou migration com risco de perda de dados;
+- credencial ausente ou uso de credenciais reais fora do escopo;
 - custo novo;
-- acesso a produÁ„o n„o autorizado;
-- conflito com decis„o aprovada;
-- mudanÁa material de escopo;
-- aÁ„o irreversÌvel.
+- acesso a produ√ß√£o n√£o autorizado;
+- conflito material de requisitos ou com decis√£o aprovada;
+- mudan√ßa material de escopo;
+- mudan√ßa relevante de seguran√ßa;
+- a√ß√£o irrevers√≠vel.
 
-Gate B:
+Gate B humano:
 - apresentar resultado;
-- evidÍncias;
+- evid√™ncias;
 - testes;
 - riscos residuais;
-- aguardar autorizaÁ„o para merge, release ou deploy.
+- aguardar autoriza√ß√£o humana para merge, push a branch protegida, release ou deploy.
 
 ## Routing
 
 Consultar:
-- `standards/`
-- `skills/`
+- `standards/`: aplicar apenas standards existentes e pertinentes;
+- `.agents/skills/`: diret√≥rio can√¥nico das Skills descobertas pelo Codex.
 
-N„o carregar todas as capacidades por padr„o.
+`skills/` √© legado/documental, n√£o o diret√≥rio runtime das Skills.
+
+N√£o carregar todas as capacidades por padr√£o.

@@ -1,16 +1,16 @@
-# …vora Pulse Development System
+# √âvora Pulse Development System
 
-Framework interno de desenvolvimento da …vora Pulse.
+Framework interno de desenvolvimento da √âvora Pulse.
 
 Arquitetura principal:
 
-VS Code + Codex nativo + Product System + Standards + Skills …vora Pulse
+VS Code + Codex nativo + Product System + Standards + Skills √âvora Pulse
 
-PrincÌpios:
-- execuÁ„o autÙnoma com Gate A e Gate B;
-- Capability Routing por propÛsito e risco;
-- Clean Code pragm·tico;
+Princ√≠pios:
+- execu√ß√£o aut√¥noma com Gate A e Gate B;
+- Capability Routing por prop√≥sito e risco;
+- Clean Code pragm√°tico;
 - SOLID proporcional;
-- seguranÁa e privacidade por padr„o;
+- seguran√ßa e privacidade por padr√£o;
 - Context as Code;
-- evidÍncia antes de declarar conclus„o.
+- evid√™ncia antes de declarar conclus√£o.
