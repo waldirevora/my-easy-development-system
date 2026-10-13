@@ -375,5 +375,5 @@ Standards especializados futuros devem detalhar roteamento, controles de domíni
 
 | Versão | Mudança e autorização | Limite de evidência |
 | --- | --- | --- |
-| 4.0 | Baseline anterior preservado no backup da consolidação final. | Estado canônico documental não comprova operação. |
-| 4.1 | Regra operacional compatível de raízes de escrita, autoria agente/runtime, confinamento condicional, bloqueios e processos novos. Autorizada expressamente no Gate A FINAL; arquivo `product-system-v4.md` e arquitetura preservados. | Incorporação e verificações locais descritas em `../auditoria-encerramento-final/RELATORIO_FINAL.md`; não concede Gate B nem valida isolamento universal. Referências anteriores a v4.0 continuam identificando a edição histórica. |
+| 4.0 | Edição anterior conservada no histórico Git do framework. | Estado canônico documental não comprova operação. |
+| 4.1 | Regra operacional compatível de raízes de escrita, autoria agente/runtime, confinamento condicional, bloqueios e processos novos. Autorizada expressamente no Gate A FINAL; arquivo `product-system-v4.md` e arquitetura preservados. | Incorporação e verificações locais concluídas na consolidação Gate A FINAL; os artefatos de auditoria foram removidos da árvore operacional por decisão do responsável. Não concede Gate B nem valida isolamento universal. Referências anteriores a v4.0 continuam identificando a edição histórica. |

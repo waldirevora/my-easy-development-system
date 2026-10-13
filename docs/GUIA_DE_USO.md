@@ -1,6 +1,6 @@
 # Guia de uso do Évora Pulse Development System
 
-Referência operacional em português do Brasil. Rodada documental Gate A 7.1, de 11/10/2026. Este guia complementa as fontes canônicas; não altera suas regras nem concede acesso, instalação ou publicação. Consolidação final: regra prática de escrita incorporada por autorização do Gate A FINAL, com evidências locais não versionadas em `auditoria-encerramento-final/RELATORIO_FINAL.md`. Os relatos da rodada 7.1 abaixo são históricos, não resultados desta execução.
+Referência operacional em português do Brasil. Rodada documental Gate A 7.1, de 11/10/2026. Este guia complementa as fontes canônicas; não altera suas regras nem concede acesso, instalação ou publicação. Consolidação final: regra prática de escrita incorporada por autorização do Gate A FINAL. Os artefatos de auditoria foram removidos da árvore operacional por decisão do responsável, mantendo os resultados como fatos históricos. Os relatos da rodada 7.1 abaixo são históricos, não resultados desta execução.
 
 ## 1. Propósito, componentes e limitações
 
@@ -139,7 +139,6 @@ Abra exatamente o destino impresso no VS Code/Codex. Não inicialize Git se isso
 | [.agents/skills/](../.agents/skills/) | 12 Skills canônicas, com nome e descrição em SKILL.md. |
 | [templates/](../templates/README.md) | 5 modelos operacionais; READMEs não contam como templates. |
 | [docs/](README.md) | Guia e navegação documental. |
-| [skills/](../skills/README.md) | Legado documental, sem papel runtime. |
 | [examples/](../examples/README.md) | Diretório documental de exemplos; não presumir solução pronta. |
 | [codex_lab_5_5/](../codex_lab_5_5/) | Código e testes sintéticos locais. |
 

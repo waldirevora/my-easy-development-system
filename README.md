@@ -21,7 +21,6 @@ Consulte o [guia completo](docs/GUIA_DE_USO.md) para implementação, QA, Securi
 | [.agents/skills/](.agents/skills/) | 12 Skills canônicas, cada uma com `SKILL.md`. Consultar apenas as pertinentes. |
 | [templates/](templates/README.md) | 5 modelos de brief, QA, segurança, aprovação e continuidade. |
 | [docs/](docs/README.md) | Guia operacional e limites da validação. |
-| [skills/](skills/README.md) | Legado documental; não é diretório runtime de Skills. |
 | [codex_lab_5_5/](codex_lab_5_5/) | Laboratório Python com testes locais determinísticos; não comprova integração com Codex. |
 
 ## Governança e limites
@@ -34,7 +33,7 @@ Os documentos descrevem o comportamento esperado. Presença de arquivos, estado 
 
 A auditoria anterior de 11/10/2026 reportou 28 PASS limitados, 3 FAIL documentais, 3 BLOCKED e 10 NOT TESTED. Esses números não representam uma porcentagem de conformidade operacional. A correção de onboarding, guia e identificação do legado não aprova integralmente o framework.
 
-Estado consolidado: **encerrado com ressalvas, pronto para uso interno**. A governança de escrita foi incorporada, com Product System 4.1, 24 testes Python e 18 verificações documentais aprovados na consolidação. QA em navegador real permanece **BLOCKED**; Habblaud é integração opcional pendente. Bootstrap 7.2 e retomada 7.4 conservam **PASS limitado histórico**; o **FAIL histórico 7.3-R permanece preservado**. Os relatos de rodadas anteriores acima são históricos. Evidências completas ficam em auditorias locais, excluídas do versionamento. Publicar este código-fonte não concede Gate B, deploy ou homologação universal.
+Estado consolidado: **encerrado com ressalvas, pronto para uso interno**. A governança de escrita foi incorporada, com Product System 4.1, 24 testes Python e 18 verificações documentais aprovados na consolidação. QA em navegador real permanece **BLOCKED**; Habblaud é integração opcional pendente. Bootstrap 7.2 e retomada 7.4 conservam **PASS limitado histórico**; o **FAIL histórico 7.3-R permanece preservado**. Os relatos de rodadas anteriores acima são históricos. Os artefatos dessas auditorias foram removidos da árvore operacional por decisão do responsável; seus resultados permanecem registrados como históricos. Publicar este código-fonte não concede Gate B, deploy ou homologação universal.
 
 ## Verificação local disponível
 

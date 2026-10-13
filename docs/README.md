@@ -2,7 +2,7 @@
 
 O [GUIA_DE_USO.md](GUIA_DE_USO.md) é o ponto de entrada operacional: ambiente, projeto novo, especificação, roteamento, Gates, desenvolvimento, QA, segurança, feedback, continuidade, recuperação e validação de bootstrap em sessão limpa.
 
-As fontes normativas permanecem [AGENTS.md](../AGENTS.md), [standards/](../standards/README.md) e [.agents/skills/](../.agents/skills/). Os [templates](../templates/README.md) apoiam o registro proporcional; não são formulários obrigatórios para toda tarefa. [skills/](../skills/README.md) é legado documental.
+As fontes normativas permanecem [AGENTS.md](../AGENTS.md), [standards/](../standards/README.md) e [.agents/skills/](../.agents/skills/). Os [templates](../templates/README.md) apoiam o registro proporcional; não são formulários obrigatórios para toda tarefa.
 
 ## Estado das evidências da rodada 7.1
 
