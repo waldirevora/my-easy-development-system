@@ -122,10 +122,14 @@ def main() -> int:
         print("Suíte Python não executada (--skip-tests).")
         return 0
     sys.stdout.flush()
-    return subprocess.run(
-        [sys.executable, "-B", "-m", "unittest", "discover", "-s",
-         "codex_lab_5_5", "-p", "test_*.py", "-v"], cwd=root, check=False
-    ).returncode
+    for directory in ("codex_lab_5_5", "scripts"):
+        result = subprocess.run(
+            [sys.executable, "-B", "-m", "unittest", "discover", "-s",
+             directory, "-p", "test_*.py", "-v"], cwd=root, check=False
+        )
+        if result.returncode:
+            return result.returncode
+    return 0
 
 
 if __name__ == "__main__":

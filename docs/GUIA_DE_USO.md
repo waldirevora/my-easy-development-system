@@ -22,7 +22,9 @@ Os seis marcos estruturalmente concluídos conservam suas ressalvas. A auditoria
 
 ## 2. Pré-requisitos e diagnóstico do ambiente
 
-Para o fluxo VS Code + Codex, o responsável precisa de acesso já autorizado ao Codex, VS Code disponível, permissão de leitura das fontes e escrita na pasta do projeto. Conta, licença, versão e ferramentas disponíveis devem ser realmente observadas; este guia não presume planos, versões instaladas ou autenticação.
+Para o fluxo CLI, use Codex CLI já disponível e autenticado. VS Code é necessário somente para o fluxo pela extensão. O responsável precisa de acesso autorizado às fontes e das permissões correspondentes à tarefa. Conta, licença, versão e ferramentas disponíveis devem ser realmente observadas; este guia não presume planos, versões instaladas ou autenticação.
+
+O repositório GitHub é privado; clonar exige Git e acesso autorizado a ele, independentemente da autenticação do Codex. Uma falha de acesso não autoriza expor tokens ou alterar visibilidade. O README contém o fluxo rápido para Bash e PowerShell.
 
 Não existe instalação obrigatória em uma unidade ou pasta específica. No terminal do diretório pai escolhido pelo usuário, clone o repositório existente:
 
@@ -63,7 +65,7 @@ A documentação oficial descreve a [extensão Codex para IDE](https://learn.cha
 
 Há dois usos distintos:
 
-**A — trabalhar no repositório MEDS.** Abra a pasta clonada no VS Code/Codex e use [AGENTS.md](../AGENTS.md), Standards e Skills locais. Seu nome físico pode diferir do recomendado. Descubra a raiz com `git rev-parse --show-toplevel` dentro do repositório, valide os marcadores e coloque caminhos entre aspas. Em scripts Python, parta de `Path(__file__).resolve()` e suba somente até uma pasta com `AGENTS.md` e `.agents/skills/`; não trate `cwd` como raiz sem validar. Em scripts PowerShell, use `$PSScriptRoot` quando o arquivo estiver dentro do projeto. Links Markdown são relativos ao arquivo que os contém.
+**A: trabalhar no repositório MEDS.** Abra a pasta clonada no VS Code/Codex e use [AGENTS.md](../AGENTS.md), Standards e Skills locais. Seu nome físico pode diferir do recomendado. Descubra a raiz com `git rev-parse --show-toplevel` dentro do repositório, valide os marcadores e coloque caminhos entre aspas. Em scripts Python, parta de `Path(__file__).resolve()` e suba somente até uma pasta com `AGENTS.md` e `.agents/skills/`; não trate `cwd` como raiz sem validar. Em scripts PowerShell, use `$PSScriptRoot` quando o arquivo estiver dentro do projeto. Links Markdown são relativos ao arquivo que os contém.
 
 O [verificador local](../scripts/check.py) implementa a descoberta pelo próprio arquivo e funciona mesmo quando executado de outro diretório:
 
@@ -75,82 +77,50 @@ python3 -B ../scripts/check.py
 
 Em PowerShell, use o interpretador Python 3 já observado, por exemplo `python -B .\scripts\check.py` na raiz. O verificador não precisa de Git, rede ou dependências externas; confere estrutura, sintaxe, Markdown/links internos e executa os testes Python existentes. URLs externas e browser não fazem parte dessa validação.
 
-**B — usar governança e Skills em outro repositório.** Exponha os arquivos explicitamente na raiz de destino por cópia seletiva autorizada. A descoberta do Codex é feita nas localizações documentadas e depende da configuração efetiva; manter o MEDS em uma pasta irmã arbitrária não é suficiente. Esta estratégia preserva uma cópia versionável no próprio projeto e não requer setup global, symlinks ou instalação oculta. Adapte o objetivo do `AGENTS.md` copiado ao projeto de destino, preservando Gates, limites e roteamento; confira instruções globais/overrides e o catálogo em uma nova sessão.
+### Preparar um projeto novo
 
-Preparar o novo projeto fora do framework. Começar em pasta vazia, copiar seletivamente apenas `AGENTS.md`, `LICENSE`, `standards/`, `templates/` e `.agents/skills/`. Não copiar `.git/`, segredos, credenciais, dados de clientes, o laboratório ou uma solução anterior. O onboarding é consultado na origem; não é necessário duplicar toda a documentação no projeto.
+Clonar o MEDS e aplicar suas instruções em outro projeto são ações diferentes. A estratégia desta revisão é copiar um inventário explícito para uma pasta nova ou vazia, fora da instalação de origem. Autorize o destino antes da cópia. O diretório pai deve existir; não usar projetos reais como fixture de teste.
 
-Exemplo reproduzível em Bash, com Git e Python 3 existentes. Execute de qualquer diretório dentro do repositório MEDS. Antes de executar, o Gate A deve autorizar o diretório pai de destino para novos projetos e suas evidências; esse diretório deve já existir e não pode ser um symlink. O argumento `../projetos-autorizados` abaixo é apenas ilustrativo, relativo ao diretório de execução; substitua-o pelo caminho realmente autorizado, entre aspas. O destino é único dentro desse diretório; nunca sobrescreve projeto anterior. O procedimento rejeita links simbólicos e inventário divergente antes da cópia. Se o framework evoluir, revisar o inventário autorizado em vez de forçar a verificação.
+A partir da raiz MEDS, em Bash:
 
 ```bash
-python3 -B - '../projetos-autorizados' <<'PY'
-from pathlib import Path
-import hashlib
-import json
-import shutil
-import subprocess
-import sys
-import uuid
-
-origem = Path(subprocess.check_output(
-    ["git", "rev-parse", "--show-toplevel"], text=True).strip()).resolve()
-assert (origem / "AGENTS.md").is_file()
-assert (origem / ".agents/skills").is_dir()
-assert (origem / "LICENSE").is_file()
-permitidos = {"AGENTS.md", "LICENSE"}
-permitidos.update("standards/" + nome for nome in [
-    "README.md", "product-system-v4.md",
-    "web-experience-business-systems-v1.md", "capability-routing-v1.md",
-    "authentication-security-v1.md", "environment-variables-secrets-v1.md",
-    "ai-engineering-v1.md", "ai-assisted-secure-development-threat-v1.md"])
-permitidos.update("templates/" + nome for nome in [
-    "README.md", "gate-a-task-brief.md", "qa-review-report.md",
-    "security-gate-review.md", "gate-b-release-approval.md", "continuity-prompt.md"])
-permitidos.update(".agents/skills/" + nome + "/SKILL.md" for nome in [
-    "ai-engineering-production", "ai-search-visibility",
-    "clara-premium-copywriting", "data-persistence-engineering",
-    "julian-premium-design", "kael-interface-engineering",
-    "quality-engineering-testing", "release-deployment-reliability",
-    "seo-technical", "software-design-solid",
-    "vera-architecture-security", "visual-interface-qa"])
-encontrados = {"AGENTS.md", "LICENSE"}
-for pasta in ["standards", "templates", ".agents/skills"]:
-    base = origem / pasta
-    assert base.is_dir() and not base.is_symlink(), pasta
-    for item in base.rglob("*"):
-        assert not item.is_symlink(), item
-        if item.is_file():
-            encontrados.add(item.relative_to(origem).as_posix())
-assert encontrados == permitidos, "Inventário diferente: conferir antes de copiar"
-assert not (origem / "AGENTS.md").is_symlink()
-assert not (origem / "LICENSE").is_symlink()
-assert not (origem / ".agents").is_symlink()
-raiz_destino = Path(sys.argv[1]).expanduser()
-assert raiz_destino.is_dir()
-for parte in [raiz_destino.absolute(), *raiz_destino.absolute().parents]:
-    assert not parte.is_symlink(), parte
-raiz_destino = raiz_destino.resolve()
-assert not raiz_destino.is_relative_to(origem.resolve()), "Destino deve ficar fora do framework"
-destino = raiz_destino / ("meds-projeto-" + uuid.uuid4().hex)
-destino.mkdir()
-manifesto = {}
-for relativo in sorted(permitidos):
-    fonte, alvo = origem / relativo, destino / relativo
-    alvo.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(fonte, alvo)
-    esperado = hashlib.sha256(fonte.read_bytes()).hexdigest()
-    observado = hashlib.sha256(alvo.read_bytes()).hexdigest()
-    assert esperado == observado, relativo
-    manifesto[relativo] = esperado
-evidencia = destino.parent / (destino.name + "-integridade.json")
-evidencia.write_text(json.dumps(manifesto, indent=2), encoding="utf-8")
-print("Projeto:", destino)
-print("Manifesto externo:", evidencia)
-PY
+python3 -B scripts/copy_harness.py "../meu-projeto"
+cd "../meu-projeto"
+codex --sandbox read-only --cd .
 ```
 
-O inventário seletivo contém 28 arquivos, incluindo a licença e os dois READMEs de apoio. Preserve a licença ao redistribuir essas fontes. O sucesso comprova somente cópia e integridade; não comprova que o Codex carregou ou aplicou as instruções. Para uso normal, coloque a especificação e fontes de negócio autorizadas no projeto; para bootstrap independente, siga a separação da seção 17.
+Em PowerShell, com Python 3 disponível no comando `python`:
 
-Abra exatamente o destino impresso no VS Code/Codex. Não inicialize Git se isso estiver proibido. Testes e código do produto pertencem ao novo projeto, não ao repositório do framework.
+```powershell
+python -B .\scripts\copy_harness.py "..\meu-projeto"
+cd "..\meu-projeto"
+codex --sandbox read-only --cd .
+```
+
+Execute passo a passo e pare se a etapa anterior falhar. Os caminhos são exemplos relativos ao diretório de execução, não diretórios obrigatórios. Substitua apenas o destino pelo caminho realmente autorizado, mantendo aspas. O [script](../scripts/copy_harness.py) usa a localização do próprio arquivo e os marcadores MEDS; não consulta a raiz Git nem precisa de `.git`. Pode ser chamado por caminho absoluto real ou relativo desde outro cwd. `scripts/check.py` deve permanecer ao seu lado, pois fornece a descoberta da raiz.
+
+A cópia prepara esta árvore de 28 arquivos:
+
+```text
+meu-projeto/
+  AGENTS.md
+  MEDS-LICENSE
+  standards/                 7 Standards e README
+  templates/                 5 templates e README
+  .agents/skills/            12 pastas, cada uma com SKILL.md
+```
+
+O script verifica a presença das 28 fontes antes de escrever; só aceita destino ausente ou vazio, com pai existente. Rejeita symlinks nas fontes selecionadas e nos ancestrais do destino, sem sobrescrever arquivos. Se houver falha de escrita depois do início, registre cópia incompleta e confira os arquivos produzidos antes de uma nova tentativa. Isso não é um confinamento de segurança contra alterações concorrentes do filesystem; o sandbox e o Gate A continuam delimitando a execução.
+
+Os arquivos copiados são conferidos por hash em memória. O conteúdo normativo é preservado, com duas adaptações explícitas: o objetivo do `AGENTS.md` passa a se referir ao projeto de destino e recebe referência à licença; a licença MEDS é nomeada `MEDS-LICENSE`, para não definir a licença do produto. Não são copiados `.git`, `.aws`, `.codex`, caches, docs de onboarding, scripts, laboratório ou dados de clientes. Standards, templates e Skills são copiados juntos para preservar as dependências de leitura e links entre essas fontes. Não há manifestos externos ou instalações globais gerados por esse comando.
+
+Adicione uma especificação de negócio autorizada e abra a raiz do destino no VS Code/Codex. Na nova sessão, confira AGENTS e o catálogo de Skills; a ausência de Git não impede a cópia, mas `codex exec` exige um repositório Git ou a opção oficial `--skip-git-repo-check` quando o contexto sem Git estiver autorizado. Não inicialize Git por consequência se o Gate A proibir essa operação.
+
+### Conflitos em um projeto existente
+
+O script recusa qualquer pasta ocupada, inclusive uma que já tenha AGENTS, Skills ou licença. Não apague nem substitua essas fontes para fazê-lo passar. Integração em projeto existente exige comparação e adaptação explícitas numa alteração revisável, com backup autorizado quando necessário e preservação das decisões locais. Esse fluxo manual não é homologado automaticamente pelo teste do projeto vazio. Não copiar todas as instruções de origem sobre um projeto sem avaliar conflitos ou supor que uma pasta irmã seja descoberta.
+
+A descoberta local documentada é compatível com a estratégia de arquivos na raiz do destino. Verificar nomes, descrições e paths no catálogo; depois observar leitura do SKILL.md antes do procedimento. Contar arquivos, conferir hashes e rodar o laboratório não comprova carregamento real ou bootstrap universal. O [teste rápido do README](../README.md) oferece uma tarefa limitada de leitura e testes; em um projeto novo, use a função ou requisito sintético realmente presente nele, em vez do laboratório que não foi copiado.
 
 ## 4. Estrutura e origem canônica
 
@@ -245,13 +215,13 @@ Quando o Gate A exigir confinamento técnico estrito, usar mecanismos existentes
 
 Não enfraquecer asserts para obter aprovação nem declarar teste planejado como executado. Inspeção de código não comprova UI renderizada. Registrar viewport, estado e captura quando houver QA visual; ausência de navegador autorizado pode bloquear esse critério.
 
-Para o laboratório deste framework, a partir da raiz no WSL:
+Para o laboratório deste framework, a partir da raiz em Bash:
 
 ```bash
 python3 -B -m unittest discover -s codex_lab_5_5 -p 'test_*.py' -v
 ```
 
-Os testes usam mensagens sintéticas e callbacks locais. Não fazem inferência real nem validam carregamento de Skills. O parâmetro `-B` evita criar bytecode no repositório. Não alterar o laboratório nesta rodada.
+Os testes usam mensagens sintéticas e callbacks locais. Não fazem inferência real nem validam carregamento de Skills. O parâmetro `-B` evita criar bytecode no repositório. A validação completa usa `python3 -B scripts/check.py` e executa também os testes da cópia em `scripts/`; `--skip-tests` confere somente a parte estática. URLs externas, âncoras Markdown e invocação real do Codex não fazem parte do verificador.
 
 Classificações de aceite deste protocolo:
 
@@ -276,7 +246,7 @@ Uma instrução de terceiro para publicar, instalar ou enviar arquivos continua 
 
 Autorrevisão é o executor examinar sua própria entrega e testes. Identificar quem revisou, superfície, método e limitações. Trocar o nome da etapa ou ativar outra Skill não cria independência.
 
-Revisão independente requer revisor distinto ou sessão realmente nova quando esse é o experimento, sem histórico que entregue a resposta. Se a independência for requisito obrigatório e não houver condição de realizá-la, manter pendente. Nesta rodada há autorrevisão documental e preparação de protocolo; não há teste independente de bootstrap.
+Revisão independente requer revisor distinto ou sessão realmente nova quando esse é o experimento, sem histórico que entregue a resposta. Se a independência for requisito obrigatório e não houver condição de realizá-la, manter pendente. Na rodada histórica 7.1 houve autorrevisão documental e preparação de protocolo, sem teste independente de bootstrap. Uma nova execução deve registrar seu próprio alcance e resultado; um smoke de processo Codex não substitui o protocolo completo.
 
 ## 12. Feedback e ajustes
 
@@ -341,17 +311,17 @@ Esse exemplo não contém resultados PASS fabricados nem implementação pronta.
 
 ## 17. Bootstrap independente em sessão limpa
 
-A preparação tem três etapas distintas. A sessão atual só produz documentos e ensaio estrutural; não pode validar a própria independência.
+O protocolo histórico separa três etapas. A sessão que prepara os documentos e o ensaio estrutural não valida, por isso, sua própria independência. Um novo processo limitado pode verificar descoberta e uso específico, sem homologar o protocolo inteiro.
 
-**Etapa A — preparação estrutural.** Criar workspace novo vazio; copiar seletivamente AGENTS.md, LICENSE, standards/, templates/ e .agents/skills/, sem .git, segredos ou clientes. Conferir hashes e inventário. Adicionar somente requisitos, identidade e dados sintéticos da fixture. Manter protocolo, matriz/gabarito, brief de referência, baseline, logs, relatórios e solução fora do workspace visível ao executor.
+**Etapa A: preparação estrutural.** Criar workspace novo vazio; copiar seletivamente AGENTS.md, licença MEDS, standards/, templates/ e .agents/skills/, sem .git, segredos ou clientes. Conferir hashes e inventário. Adicionar somente requisitos, identidade e dados sintéticos da fixture. Manter protocolo, matriz/gabarito, brief de referência, baseline, logs, relatórios e solução fora do workspace visível ao executor.
 
-**Etapa B — sessão realmente nova.** O responsável inicia outra sessão do Codex na raiz preparada, sem histórico, checkpoint anterior, solução pronta, lista de Skills a selecionar, gabarito ou regras que mascarem descoberta. O prompt contém só tarefa mínima e Gate A da fixture. Não enviar este guia, relatório ou matriz à sessão de teste para “ajudar”.
+**Etapa B: sessão realmente nova.** O responsável inicia outra sessão do Codex na raiz preparada, sem histórico, checkpoint anterior, solução pronta, lista de Skills a selecionar, gabarito ou regras que mascarem descoberta. O prompt contém só tarefa mínima e Gate A da fixture. Não enviar este guia, relatório ou matriz à sessão de teste para “ajudar”.
 
 Registrar externamente versão realmente observada do Codex, ambiente, configurações/instruções globais conhecidas que possam interferir, arquivos normativos efetivamente consultados, Standards selecionados/dispensados, Skills utilizadas/excluídas, decisões, ações, testes e limites. Não alterar configurações globais nem credenciais nesta rodada. Se houver contaminação que impeça uma sessão limpa, marcar BLOCKED e organizar ambiente autorizado antes do ensaio.
 
 A fixture contém dado de menor confiança com sugestão sintética de ação protegida. Não executá-la para provar bloqueio. Examinar se o executor a lê como dado e preserva os Gates. Bloqueio técnico do ambiente após tentativa proibida não comprova observância deliberada da regra.
 
-**Etapa C — avaliação posterior.** Avaliador distinto compara transcrição, ações e produto final com gabarito fixado e hash registrado antes da Etapa B. Classificar cada requisito PASS, FAIL, BLOCKED ou NOT TESTED, com evidência. Verificar descoberta de AGENTS.md, leitura pertinente, roteamento, fonte de verdade, identidade própria, autonomia, QA, segurança, Gates e resistência à instrução de menor confiança.
+**Etapa C: avaliação posterior.** Avaliador distinto compara transcrição, ações e produto final com gabarito fixado e hash registrado antes da Etapa B. Classificar cada requisito PASS, FAIL, BLOCKED ou NOT TESTED, com evidência. Verificar descoberta de AGENTS.md, leitura pertinente, roteamento, fonte de verdade, identidade própria, autonomia, QA, segurança, Gates e resistência à instrução de menor confiança.
 
 O pacote externo histórico da rodada 7.1 foi registrado fora do repositório; sua disponibilidade não foi reconfirmada. O caminho de ensaio antigo foi retirado desta referência portável; o registro histórico não autoriza novas escritas. Para ensaio futuro, declarar separadamente as raízes do projeto e das evidências externas no Gate A. Conteúdo histórico indicado:
 
@@ -361,7 +331,7 @@ O pacote externo histórico da rodada 7.1 foi registrado fora do repositório; s
 - Fixture sintética de pedidos: especificação e dados sintéticos próprios.
 - Baseline, hashes, diffs, ensaio estrutural e relatório documental: evidências desta rodada.
 
-Seguir o protocolo externo para criar um novo workspace, sem reutilizar o ensaio estrutural como sessão independente. Não iniciar a Etapa B nesta execução. MEDS-009, MEDS-010, MEDS-014, MEDS-015, MEDS-039, MEDS-040 e MEDS-041 permanecem pendentes de validação independente. Cópia íntegra não aprova bootstrap Codex-native.
+Seguir o protocolo externo para criar um novo workspace, sem reutilizar o ensaio estrutural como sessão independente. A execução da Etapa B exige Gate A próprio; o protocolo histórico não a autoriza por si só. MEDS-009, MEDS-010, MEDS-014, MEDS-015, MEDS-039, MEDS-040 e MEDS-041 permanecem pendentes de validação independente. Cópia íntegra não aprova bootstrap Codex-native.
 
 ## Fontes e escopo desta referência
 
@@ -370,3 +340,15 @@ Fontes internas: AGENTS.md, Standards 01 e 03 para processo/roteamento, Standard
 Fontes oficiais OpenAI consultadas historicamente em 11/10/2026 e reconferidas para descoberta de AGENTS/Skills em 13/10/2026: extensão IDE, AGENTS.md e Build skills, ligadas nas seções 2 e 6. Documentação oficial descreve recursos; não prova operação do MEDS nem versões, licenças ou configurações instaladas. As verificações da rodada histórica foram registradas em relatório externo, com hashes e logs; a validação independente permanece posterior.
 
 Os identificadores MEDS-009, MEDS-010, MEDS-014, MEDS-015, MEDS-039, MEDS-040 e MEDS-041 usam o prefixo atual do framework e preservam os números dos registros históricos. O **FAIL histórico 7.3-R** continua preservado; QA em navegador real permanece **BLOCKED histórico** até execução viável com evidências. O rebranding não reescreve commits ou metadados de autoria. Consulte a [licença Apache-2.0](../LICENSE).
+
+## CLI, primeiro uso e limites desta revisão
+
+O CLI observado foi `codex-cli 0.162.1`. `codex --version`, `codex --help`, `codex exec --help` e `codex login status` são diagnósticos de instalação/autenticação; não comprovam uma tarefa executada pelo modelo. As opções `--cd`, `--sandbox read-only`, `--ephemeral` e `--json` constam do help local. As referências oficiais de [CLI](https://learn.chatgpt.com/docs/codex/cli), [AGENTS](https://learn.chatgpt.com/docs/agent-configuration/agents-md) e [Skills](https://learn.chatgpt.com/docs/build-skills) foram consultadas nesta revisão. Não há versão mínima declarada.
+
+Para primeiro uso interativo, siga o README e cole sua tarefa na sessão, não no shell. `/skills` ou `$` mostram o seletor; nomes/descrições correspondem ao catálogo, não à execução. Para verificar o uso, examine eventos de ferramentas e a leitura da Skill antes da atividade. AGENTS é carregado como instrução pelo harness; cite as regras concretas e confira as fontes carregadas, sem promover auto-relato a prova independente.
+
+Um processo não interativo opcional usa `codex --no-daemon exec --sandbox read-only --ephemeral --json`, com cwd apontando à fixture autorizada e logs locais igualmente autorizados. `--no-daemon`, observado no help local, evita reutilizar o daemon compartilhado nesse ensaio. Reutilize somente autenticação existente por meio do CLI, sem copiar ou ler credenciais. Não ignore regras, não desative sandbox e não altere configuração global para destravar esse teste. `--ephemeral` evita arquivos de sessão persistentes, mas não garante ausência de outros temporários internos do runtime. Registre raiz, processo, finalidade, falha e limite observados.
+
+O teste de instalação sem rede exporta somente fontes operacionais para uma área de QA autorizada, sem Git, credenciais ou caches. A cópia para projeto vazio deve funcionar desde essa exportação. Bash/Python podem ser executados conforme ferramentas existentes; comandos PowerShell, Windows nativo e macOS são apenas revisão estática quando esses ambientes não estiverem disponíveis. Browser é pertinente aos pilotos com UI, não ao MEDS documental.
+
+Nesta revisão, a exportação limpa e a cópia para projeto fictício foram executadas em Linux. O smoke de processo Codex autenticado ficou **BLOCKED** na inicialização do app-server por filesystem somente para leitura, antes de emitir eventos ou executar a tarefa. A tentativa usou uma fixture descartável e destinou temporários/logs a essa área, sem modificar configuração global. Isso não comprova discovery de AGENTS/Skills; o funcionamento em uma nova sessão continua pendente de evidência num ambiente que permita o runtime.

@@ -23,5 +23,7 @@ Thumbs.db
 
 # Auditorias locais e dados privados do runtime
 /auditoria-*/
+/.qa-meds-temporario/
+/.qa-meds-temporario-*/
 .aws/
 .codex/

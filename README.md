@@ -1,76 +1,137 @@
 # My Easy Development System
 
-Framework para orientar desenvolvimento com VS Code, Codex nativo, Product System, Standards e Skills. Reúne instruções versionáveis, roteamento por propósito e risco, execução autônoma com Gate A e Gate B, segurança proporcional e evidências de qualidade. A sigla técnica **MEDS** significa **My Easy Development System**; o slug e nome recomendado da pasta são `my-easy-development-system`.
+O **My Easy Development System (MEDS)** é uma camada de instruções versionadas para desenvolver software com Codex. Reúne Skills, padrões de engenharia e limites de autorização para ajudar desenvolvedores e equipes a definir tarefas, escolher verificações e entregar evidências do trabalho.
 
-## Comece por aqui
+É um harness de instruções, não um aplicativo com servidor próprio ou um instalador automático de agentes. Seus arquivos orientam o Codex; não comprovam autonomia irrestrita, segurança de produção ou execução correta de qualquer projeto. O nome recomendado da pasta é `my-easy-development-system`, mas a localização e o nome físico não são requisitos de funcionamento.
 
-Não existe diretório de instalação obrigatório. Escolha qualquer pasta com as permissões normais de acesso, no Windows, WSL, Linux ou macOS. Este repositório não instala Git, Python, VS Code ou Codex.
+## Pré-requisitos
 
-1. Abra um terminal no diretório **pai escolhido por você**.
-2. Clone o repositório existente com Git já disponível:
+- **Para clonar:** Git e acesso autorizado ao repositório GitHub, que atualmente é **privado**. Autenticação do GitHub e autenticação do Codex são independentes.
+- **Para usar as instruções:** Codex CLI ou extensão Codex compatível, já instalada e autenticada conforme a [documentação oficial](https://learn.chatgpt.com/docs/codex/cli). VS Code é opcional para o fluxo CLI e necessário para o fluxo pela extensão.
+- **Para verificar ou copiar automaticamente:** Python 3 já disponível. Ele é usado pelo validador, laboratório e script de cópia; não é necessário apenas para ler as instruções.
 
-   ```bash
-   git clone https://github.com/waldirevora/my-easy-development-system.git
-   ```
+Nesta revisão foram observados Linux, Bash, Python 3.12.3 e `codex-cli 0.162.1`. Essas são versões testadas, não versões mínimas prometidas. Confira o executável Python do seu ambiente antes de usar os exemplos; os comandos PowerShell abaixo usam `python` quando ele corresponde ao Python 3 disponível.
 
-3. Entre na pasta criada, relativamente ao diretório pai. Em Bash:
+## Instalação rápida
 
-   ```bash
-   cd my-easy-development-system
-   ```
+Abra o terminal no **diretório pai escolhido por você**, com permissão normal de acesso. Não existe unidade, montagem WSL ou pasta de instalação obrigatória. Os comandos criam uma nova pasta; se ela já existir, confira seu conteúdo e escolha outro destino, sem sobrescrever.
 
-   Em PowerShell:
-
-   ```powershell
-   cd .\my-easy-development-system
-   ```
-
-4. Abra essa pasta no VS Code/Codex e leia [AGENTS.md](AGENTS.md). A descoberta das instruções e de [.agents/skills/](.agents/skills/) depende da configuração efetiva do Codex; confira o catálogo e as instruções carregadas.
-5. Para trabalhar **no MEDS**, use seus arquivos locais. Para usar sua governança **em outro repositório**, copie seletivamente `AGENTS.md`, `LICENSE`, `standards/`, `templates/` e `.agents/skills/` para uma raiz de projeto autorizada, seguindo o [guia operacional](docs/GUIA_DE_USO.md). Uma pasta irmã arbitrária não é fonte automática de Skills. Não copie `.git/`, credenciais, caches ou dados de clientes.
-6. Descreva problema, requisitos, aceite e limites no Gate A, usando uma instrução suficiente ou o [brief](templates/gate-a-task-brief.md). Trabalhe no escopo aprovado e apresente evidências antes de ações protegidas.
-
-Os comandos abaixo são relativos à raiz validada. O [verificador](scripts/check.py) descobre a raiz pela localização do próprio arquivo, usando `AGENTS.md` e `.agents/skills/` como marcadores; não depende do nome físico da pasta ou do diretório de execução. No WSL, a montagem de uma pasta Windows depende da unidade e configuração locais: use a localização real escolhida por você.
-
-Consulte o [guia completo](docs/GUIA_DE_USO.md) para implementação, QA, Security Gate, feedback, checkpoints, recuperação e teste de bootstrap em sessão limpa.
-
-## Fontes e estrutura
-
-| Fonte | Papel |
-| --- | --- |
-| [AGENTS.md](AGENTS.md) | Instruções do workspace e limites de autonomia. |
-| [standards/](standards/README.md) | 7 Standards: 5 Stable e 2 Candidate, conforme seus próprios cabeçalhos. |
-| [.agents/skills/](.agents/skills/) | 12 Skills canônicas, cada uma com `SKILL.md`. Consultar apenas as pertinentes. |
-| [templates/](templates/README.md) | 5 modelos de brief, QA, segurança, aprovação e continuidade. |
-| [docs/](docs/README.md) | Guia operacional e limites da validação. |
-| [codex_lab_5_5/](codex_lab_5_5/) | Laboratório Python com testes locais determinísticos; não comprova integração com Codex. |
-
-## Governança e limites
-
-O Gate A pode ser concedido pela instrução inicial suficientemente clara. Dentro dele, planejar, implementar, testar, corrigir, revisar e documentar sem microaprovações. Parar a ação dependente diante de mudança material, custo novo, credencial fora do alcance, produção não autorizada, risco de perda de dados ou ação irreversível.
-
-Gate B humano é necessário para merge, push a branch protegida, release ou deploy. Git local e outros pushes também exigem autorização correspondente; proibições explícitas prevalecem. Aprovação técnica não autoriza publicação.
-
-Os documentos descrevem o comportamento esperado. Presença de arquivos, estado Stable, cópia seletiva e testes do laboratório não demonstram descoberta, roteamento ou uso efetivo de Skills pelo Codex. O bootstrap independente exige uma sessão nova sem histórico anterior e avaliação por evidências; esta rodada documental apenas prepara seu protocolo. Os seis marcos estruturalmente concluídos conservam suas ressalvas.
-
-A auditoria anterior de 11/10/2026 reportou 28 PASS limitados, 3 FAIL documentais, 3 BLOCKED e 10 NOT TESTED. Esses números não representam uma porcentagem de conformidade operacional. A correção de onboarding, guia e identificação do legado não aprova integralmente o framework.
-
-Estado consolidado: **encerrado com ressalvas, pronto para uso interno**. A governança de escrita foi incorporada, com Product System 4.1, 24 testes Python e 18 verificações documentais aprovados na consolidação. QA em navegador real permanece **BLOCKED**; a integração externa opcional permanece pendente. Bootstrap 7.2 e retomada 7.4 conservam **PASS limitado histórico**; o **FAIL histórico 7.3-R permanece preservado**. Os relatos de rodadas anteriores acima são históricos. Os artefatos dessas auditorias foram removidos da árvore operacional por decisão do responsável; seus resultados permanecem registrados como históricos. Publicar este código-fonte não concede Gate B, deploy ou homologação universal.
-
-## Verificação local disponível
-
-Em Bash, a partir da raiz, com Python 3 já disponível:
+Bash, inclusive WSL:
 
 ```bash
-python3 -B -m unittest discover -s codex_lab_5_5 -p 'test_*.py' -v
-python3 -B scripts/check.py
+git clone https://github.com/waldirevora/my-easy-development-system.git
+cd my-easy-development-system
+codex --version
+codex login status
+codex --sandbox read-only --cd .
 ```
 
-O verificador confere o inventário 7/12/5, sintaxe Python, frontmatter das Skills, cercas de código Markdown e destinos dos links internos; depois executa a suíte existente. Não verifica URLs externas ou renderização de UI. Em PowerShell, se `python` for o interpretador Python 3 observado, use `python -B .\scripts\check.py`; adapte apenas o executável ao ambiente disponível.
+PowerShell:
 
-Registre ambiente, comando, resultado e saída reais. Não instalar dependências apenas para produzir um parecer positivo. Para executar desde um subdiretório, ajuste somente o caminho relativo até o script, por exemplo `python3 -B ../scripts/check.py` em `docs/`.
+```powershell
+git clone https://github.com/waldirevora/my-easy-development-system.git
+cd .\my-easy-development-system
+codex --version
+codex login status
+codex --sandbox read-only --cd .
+```
 
-## Licença e histórico
+Execute a sequência passo a passo e prossiga somente se a etapa anterior terminar com sucesso. Não execute login, instalação ou mudança de permissões como parte de uma tarefa que não os autorize. Para usar VS Code, abra **a pasta clonada**, não seu diretório pai, e inicie a extensão Codex nela. `code .` é uma alternativa somente se o comando já estiver disponível.
 
-Este projeto é disponibilizado sob a **Apache License, Version 2.0**, SPDX **Apache-2.0**. O texto integral está em [LICENSE](LICENSE), copiado sem alterações da licença Apache-2.0 distribuída pelo pacote `base-files` do sistema e conferido com a [fonte oficial Apache](https://www.apache.org/licenses/LICENSE-2.0). As referências externas dos Standards continuam atribuídas às suas fontes; a licença deste repositório não relicencia os documentos externos citados. A inspeção dos arquivos atuais não identificou avisos incompatíveis ou material incorporado que exija `NOTICE`.
+O modo `read-only` limita o primeiro diagnóstico. Para desenvolvimento posterior, use a configuração de permissões autorizada para o projeto e conceda um Gate A com objetivo, arquivos e ações permitidas.
 
-O rebranding atualiza a árvore atual. Mensagens, identidades anteriores e metadados de autoria permanecem no histórico Git preservado. A adoção da licença não altera a visibilidade do repositório; uma futura publicação pública exige decisão separada e revisão do histórico.
+## Primeiro uso e teste rápido
+
+Na nova sessão do Codex, abra `/skills` ou digite `$` e procure `quality-engineering-testing`. A lista pode incluir Skills globais além das 12 locais. Confira se o caminho corresponde a `.agents/skills/quality-engineering-testing/SKILL.md` desta instalação. A [documentação de Skills](https://learn.chatgpt.com/docs/build-skills) explica o seletor e a ativação por descrição.
+
+Cole esta tarefa no Codex, como texto, sem executá-la no shell:
+
+```text
+Use $quality-engineering-testing para diagnosticar codex_lab_5_5/ai_triage.py.
+Gate A: somente leitura de fontes locais e testes Python existentes com -B.
+Não editar arquivos, instalar, acessar credenciais, usar serviços externos ou fazer Git mutável.
+Identifique as instruções aplicáveis de AGENTS.md e a Skill usada antes do diagnóstico.
+Execute os testes pertinentes e informe comando, contagem real, resultado e limites.
+Se houver bloqueio, registre BLOCKED sem ampliar permissões.
+```
+
+O sucesso esperado inclui referência às regras reais de `AGENTS.md`, leitura do `SKILL.md` pertinente e execução dos 24 testes do laboratório, com resultado observado. Confira as chamadas de ferramentas da sessão: a leitura da Skill deve preceder a aplicação de seu procedimento. Uma listagem de arquivos ou a frase “usei a Skill” não prova sua invocação. A [descoberta de AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) pode sofrer influência de instruções globais e overrides; este teste verifica somente a sessão observada.
+
+## Usar em outro projeto
+
+Clonar o MEDS não ativa sua governança num repositório arbitrário. Para um **projeto novo**, autorize uma pasta de destino ausente ou vazia, fora da instalação MEDS, cujo diretório pai já exista. A partir da raiz MEDS, em Bash:
+
+```bash
+python3 -B scripts/copy_harness.py "../meu-projeto"
+cd "../meu-projeto"
+codex --sandbox read-only --cd .
+```
+
+Em PowerShell:
+
+```powershell
+python -B .\scripts\copy_harness.py "..\meu-projeto"
+cd "..\meu-projeto"
+codex --sandbox read-only --cd .
+```
+
+`meu-projeto` é um nome ilustrativo; use somente o destino autorizado. O [script de cópia](scripts/copy_harness.py) descobre sua origem pelo próprio arquivo, funciona sem `.git` e prepara 28 arquivos: `AGENTS.md`, 7 Standards e seu índice, 12 Skills, 5 templates e seu índice, mais `MEDS-LICENSE`. O objetivo do AGENTS copiado é adaptado ao projeto; as regras de autonomia, escrita e bloqueios são preservadas. `MEDS-LICENSE` licencia somente as fontes MEDS copiadas, sem definir a licença do seu produto.
+
+O script recusa destino ocupado, links simbólicos e fontes essenciais ausentes. Não copia Git, configurações privadas, caches ou laboratório. Depois, adicione os requisitos do produto e confira a descoberta em uma nova sessão na **raiz do destino**. A preparação de arquivos é verificável; o carregamento pelo Codex precisa de evidência própria. O [guia](docs/GUIA_DE_USO.md) detalha a árvore resultante, conflitos e limites do teste.
+
+Para um projeto existente, não use essa cópia sobre seus arquivos: compare e integre as instruções numa alteração revisável, preservando AGENTS e Skills preexistentes. Esse procedimento manual precisa ser validado no projeto específico; não há instalação global ou integração automática com pastas irmãs.
+
+## Estrutura e escolha de Skills
+
+```text
+AGENTS.md                    instruções locais e Gates
+LICENSE                      Apache-2.0
+standards/                   7 Standards e README
+.agents/skills/               12 pastas com SKILL.md
+templates/                   5 templates e README
+docs/GUIA_DE_USO.md           guia operacional
+examples/README.md           índice documental, sem aplicação pronta
+scripts/                     verificador, cópia e testes da cópia
+codex_lab_5_5/               função sintética e 24 testes
+```
+
+O frontmatter `name` identifica cada Skill; `description` informa quando ela é pertinente. O Codex pode selecioná-la pela tarefa ou por menção explícita. O [Capability Routing](standards/capability-routing-v1.md) orienta a escolha pelo propósito, superfície e risco. Standards e templates são consultados quando necessários. As 12 Skills são instruções especializadas, não 12 subagentes simultâneos. [Consulte seus arquivos](.agents/skills/).
+
+## Validação local
+
+Na raiz, em Bash:
+
+```bash
+python3 -B scripts/check.py
+python3 -B -m unittest discover -s codex_lab_5_5 -p 'test_*.py' -v
+```
+
+Em PowerShell, use `python -B .\scripts\check.py`. O verificador executa o laboratório e a regressão da cópia, além de conferir estrutura 7/12/5, sintaxe Python, frontmatter, cercas Markdown e destinos de links internos. Esperam-se verificações estáticas PASS e zero falhas nos testes. `-B` evita caches de bytecode. URLs externas, âncoras Markdown, descoberta Codex e desenvolvimento de um produto real não são comprovados por esse comando.
+
+De `docs/`, a chamada Bash é `python3 -B ../scripts/check.py`; em PowerShell, `python -B ..\scripts\check.py`. Também é possível chamar o script por seu caminho absoluto real, entre aspas: ele descobre a raiz pelo próprio arquivo, independentemente do cwd. Links internos são relativos. No WSL, use a montagem real da pasta escolhida. Espaços, acentos e mudança do nome da instalação foram testados em cópias Linux; Windows e macOS nativos permanecem sem validação de execução nesta revisão.
+
+## Autonomia e segurança
+
+**Gate A** aprova objetivo, escopo, raízes de escrita e ações permitidas. Dentro dele, o Codex planeja, executa, testa, revisa e corrige sem microaprovações. Temporários também exigem uma raiz autorizada; o workspace não concede escrita genérica em outros diretórios.
+
+**Gate B** é a autorização humana para merge, push protegido, release ou deploy. Operações Git, novas credenciais e gastos exigem autorização correspondente. Diante de bloqueio ambiental ou mudança material, registrar a operação afetada e continuar o restante autorizado; não ampliar sandbox nem contornar autenticação. As regras completas estão em [AGENTS.md](AGENTS.md) e no [guia](docs/GUIA_DE_USO.md).
+
+## Diagnóstico rápido
+
+| Sintoma | Verificação e próximo passo |
+| --- | --- |
+| `codex` não encontrado | Confira o ambiente escolhido e a documentação oficial; registre BLOCKED se instalação estiver fora do escopo. |
+| Diretório errado | Use `pwd` ou `Get-Location`; confira AGENTS e `.agents/skills/`. Em checkout Git, `git rev-parse --show-toplevel` identifica a raiz. |
+| Skills ausentes | Abra o seletor, confira os caminhos locais e reinicie uma sessão na raiz; não presuma descoberta por arquivos numa pasta irmã. |
+| Python ausente | Confira o executável disponível; leitura e uso das instruções continuam possíveis, mas validação/cópia automática ficam BLOCKED. |
+| Clone privado negado | Confirme acesso autorizado ao GitHub; não coloque tokens na URL ou em mensagens. |
+| Rede/DNS indisponível | Registre a falha; uma cópia local existente ainda pode executar validações sem rede. |
+| Escrita ou runtime bloqueado | Registre o comando e a restrição do host; não remova proteção para concluir o teste. |
+
+## Licença, contribuição e limites de evidência
+
+As fontes MEDS usam [Apache License, Version 2.0](LICENSE), SPDX `Apache-2.0`. As atribuições externas dos Standards permanecem vinculadas às suas fontes; esta licença não relicencia documentos externos citados. Não foram identificados avisos incompatíveis ou atribuições que exijam NOTICE na árvore atual.
+
+O repositório permanece privado. Quem tiver acesso pode propor uma alteração com problema reproduzível, escopo e evidências de teste; a aceitação exige revisão e autorização humana correspondente. Uma disponibilização pública futura é decisão separada: o histórico Git preserva mensagens e metadados anteriores ao rebranding.
+
+Os resultados históricos e as ressalvas de bootstrap estão no [guia](docs/GUIA_DE_USO.md), incluindo o FAIL histórico 7.3-R. MEDS não tem interface web própria; QA browser de pilotos antigos permanece pendente e não é requisito da instalação documental. Preparação de arquivos, teste da cópia e testes Python não equivalem a desenvolvimento ponta a ponta comprovado.

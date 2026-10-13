@@ -4,6 +4,8 @@ O [GUIA_DE_USO.md](GUIA_DE_USO.md) é o ponto de entrada operacional: ambiente, 
 
 As fontes normativas permanecem [AGENTS.md](../AGENTS.md), [standards/](../standards/README.md) e [.agents/skills/](../.agents/skills/). Os [templates](../templates/README.md) apoiam o registro proporcional; não são formulários obrigatórios para toda tarefa.
 
+O [README principal](../README.md) contém instalação rápida, primeiro uso e diagnóstico. O [verificador](../scripts/check.py) executa checagens locais e testes; a [cópia do harness](../scripts/copy_harness.py) prepara um projeto vazio sem depender de Git e recusa destinos ocupados. O guia detalha dependências, licenciamento das fontes copiadas e integração manual em projetos existentes.
+
 ## Estado das evidências da rodada 7.1
 
 Este guia documenta o procedimento esperado; não constitui prova de execução pelo Codex. Uma cópia íntegra comprova preparação estrutural. Testes do laboratório comprovam somente o comportamento local que exercitam. Descoberta natural, observância das regras e uso efetivo de Skills exigem validação posterior em sessão nova.
