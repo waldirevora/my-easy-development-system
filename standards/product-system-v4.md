@@ -1,11 +1,11 @@
-# Évora Pulse Product System v4.0
+# Évora Pulse Product System v4.1
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | Évora Pulse Product System v4.0 |
-| Versão | 4.0 |
+| Nome oficial | Évora Pulse Product System v4.1 |
+| Versão | 4.1 |
 | Estado canônico | Stable |
 | Finalidade | Estabelecer o processo operacional para planejar, desenvolver, revisar, testar, entregar e manter software com Codex nativo. |
 | Aplicabilidade | Qualquer linguagem, framework, sistema operacional ou ambiente de execução, respeitando a stack e a governança do projeto. |
@@ -156,6 +156,18 @@ Obter autorização suficiente sobre objetivo, escopo, limites de autonomia, cri
 
 Identificar ambientes e ações permitidos. Não deduzir autorização de produção, publicação, despesas ou credenciais a partir de uma autorização para desenvolver.
 
+### Escopo de escrita no Gate A
+
+Antes de criar, modificar ou gerar arquivos, identificar as raízes de escrita autorizadas pelo Gate A e a finalidade de cada uma. O limite vale para produto, testes, temporários, diagnósticos, hashes, manifestos, logs, backups, relatórios e evidências de autoria do agente. Autorização do workspace não implica autorização genérica para `/tmp`, `TMPDIR`, home ou outros diretórios.
+
+Priorizar caminhos relativos; conferir `realpath`, symlinks, redirecionamentos e caminhos absolutos para impedir fuga da raiz. Distinguir escritas de autoria do agente de escritas internas inevitáveis do runtime; exceções operacionais de runtime exigem raiz, processo, finalidade e proveniência documentados e não ampliam o Gate A nem permitem acessar segredos.
+
+Quando Gate A exigir confinamento técnico estrito, verificar, com o UID/namespace/perfil efetivos e mecanismos já existentes e permitidos, escrita positiva interna e tentativa negativa externa; registrar o alcance das sondas. As sondas externas também precisam de autorização específica para seus destinos e efeitos. Texto de prompt, `TMPDIR` ou `/tmp` privada gravável não demonstram por si só confinamento estrito.
+
+Diante de bloqueio ambiental, não alterar sandbox nem pedir permissões; concluir as demais atividades permitidas e declarar `BLOCKED`. O Codex decide autonomamente todos os detalhes técnicos dentro do Gate A, sem microaprovações; publicação, operações destrutivas, custos, credenciais e Gate B permanecem sob autorização específica.
+
+Usar comandos/processos novos dentro do sandbox autorizado; não enviar comandos a terminais preexistentes ou iniciados fora dele. Se o Gate A proibir novas decisões durante a execução, registrar decisões materiais pendentes sem perguntar e continuar somente as atividades independentes autorizadas.
+
 ### Execução autônoma
 
 Dentro do Gate A, planejar, implementar, testar, diagnosticar, corrigir, reexecutar testes, revisar e documentar sem microaprovações. Utilizar QA e Security Gate quando aplicáveis. Parar a ação afetada se surgir um limite da seção H.
@@ -184,7 +196,7 @@ Registrar a decisão humana e seu alcance. Autonomia de execução não equivale
 
 ## H. Limites e bloqueios
 
-Interromper a ação afetada e solicitar nova decisão humana antes de:
+Interromper a ação afetada e registrar a decisão humana necessária antes dos casos abaixo. Solicitar essa decisão quando o Gate A permitir perguntas; se as proibir, registrar a pendência e continuar somente as atividades independentes autorizadas:
 
 - Destruição ou operação com risco material de perda de dados.
 - Migração irreversível ou alteração cuja recuperação não esteja adequadamente definida.
@@ -358,3 +370,10 @@ Revisar o Product System quando houver problema operacional recorrente, conflito
 Usar incremento maior para mudança incompatível de governança, incremento menor para regra operacional compatível e revisão corretiva para esclarecimento sem mudança de obrigação. Não modificar regras silenciosamente mantendo a mesma identificação de versão.
 
 Standards especializados futuros devem detalhar roteamento, controles de domínio, qualidade, segurança ou operação sem duplicar o processo central nem enfraquecer os Gates. Sua criação e adoção exigem escopo e revisão próprios. O estado Stable permanece uma classificação canônica e deve ser distinguido das evidências operacionais disponíveis.
+
+### Registro da revisão operacional
+
+| Versão | Mudança e autorização | Limite de evidência |
+| --- | --- | --- |
+| 4.0 | Baseline anterior preservado no backup da consolidação final. | Estado canônico documental não comprova operação. |
+| 4.1 | Regra operacional compatível de raízes de escrita, autoria agente/runtime, confinamento condicional, bloqueios e processos novos. Autorizada expressamente no Gate A FINAL; arquivo `product-system-v4.md` e arquitetura preservados. | Incorporação e verificações locais descritas em `../auditoria-encerramento-final/RELATORIO_FINAL.md`; não concede Gate B nem valida isolamento universal. Referências anteriores a v4.0 continuam identificando a edição histórica. |

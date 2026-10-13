@@ -20,3 +20,8 @@ coverage/
 Thumbs.db
 
 *.log
+
+# Auditorias locais e dados privados do runtime
+/auditoria-*/
+.aws/
+.codex/
