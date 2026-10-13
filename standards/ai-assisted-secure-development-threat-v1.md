@@ -1,10 +1,10 @@
-# Évora Pulse AI-Assisted Secure Development Threat Standard v1.0
+# My Easy Development System AI-Assisted Secure Development Threat Standard v1.0
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | Évora Pulse AI-Assisted Secure Development Threat Standard v1.0 |
+| Nome oficial | My Easy Development System AI-Assisted Secure Development Threat Standard v1.0 |
 | Identificador | Standard 07 |
 | Versão | 1.0 |
 | Estado canônico | Candidate |
@@ -39,7 +39,7 @@ O responsável humano delimita objetivo e autorização; o executor trabalha no 
 
 ### Natureza das regras e referências verificadas
 
-Salvo atribuição expressa, os controles são **decisões internas Évora Pulse propostas neste Candidate**, condicionadas à superfície e ao risco. Obrigação essencial não pode ser dispensada por economia de contexto. Recomendações externas e exigências legais/contratuais aplicáveis devem ser distinguidas; referências não constituem certificação nem obrigação legal universal.
+Salvo atribuição expressa, os controles são **decisões internas My Easy Development System propostas neste Candidate**, condicionadas à superfície e ao risco. Obrigação essencial não pode ser dispensada por economia de contexto. Recomendações externas e exigências legais/contratuais aplicáveis devem ser distinguidas; referências não constituem certificação nem obrigação legal universal.
 
 Fontes oficiais consultadas em 2026-10-08:
 

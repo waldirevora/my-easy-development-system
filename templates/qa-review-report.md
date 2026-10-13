@@ -1,4 +1,4 @@
-# Évora Pulse QA & Review Report v1.0.1
+# My Easy Development System QA & Review Report v1.0.1
 
 **Versão:** 1.0.1. **Estado inicial:** Candidate.
 

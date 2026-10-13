@@ -1,10 +1,10 @@
-# Évora Pulse Capability Routing Standard v1.0.1
+# My Easy Development System Capability Routing Standard v1.0.1
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | Évora Pulse Capability Routing Standard v1.0.1 |
+| Nome oficial | My Easy Development System Capability Routing Standard v1.0.1 |
 | Identificador | Standard 03 |
 | Versão | 1.0.1 |
 | Estado canônico | Stable |

@@ -1,4 +1,4 @@
-# Évora Pulse Operational Continuity Prompt v1.0
+# My Easy Development System Operational Continuity Prompt v1.0
 
 **Versão:** 1.0. **Estado inicial:** Candidate.
 

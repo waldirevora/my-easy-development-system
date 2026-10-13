@@ -1,4 +1,4 @@
-# Évora Pulse Gate A Task Brief v1.0
+# My Easy Development System Gate A Task Brief v1.0
 
 **Versão:** 1.0. **Estado inicial:** Candidate.
 

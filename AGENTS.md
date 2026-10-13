@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Este repositório contém o Évora Pulse Development System.
+Este repositório contém o My Easy Development System.
 
 ## Regra principal
 

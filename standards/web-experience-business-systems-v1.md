@@ -1,10 +1,10 @@
-# Évora Pulse Web Experience & Business Systems v1.0
+# My Easy Development System Web Experience & Business Systems v1.0
 
 ## A. Identificação, escopo e aplicação
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | Évora Pulse Web Experience & Business Systems v1.0 |
+| Nome oficial | My Easy Development System Web Experience & Business Systems v1.0 |
 | Identificador | Standard 02 |
 | Versão | 1.0 |
 | Estado canônico | Stable |

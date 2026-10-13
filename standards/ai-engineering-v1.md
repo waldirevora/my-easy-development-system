@@ -1,10 +1,10 @@
-# Évora Pulse AI Engineering Standard v1.0
+# My Easy Development System AI Engineering Standard v1.0
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | Évora Pulse AI Engineering Standard v1.0 |
+| Nome oficial | My Easy Development System AI Engineering Standard v1.0 |
 | Identificador | Standard 06 |
 | Versão | 1.0 |
 | Estado canônico | Candidate |
@@ -38,7 +38,7 @@ Merge, push a branch protegida, release e deploy permanecem sujeitos ao Gate B; 
 
 ### Natureza das regras e referências
 
-Salvo atribuição explícita, as regras são **decisões internas Évora Pulse propostas neste Candidate**. **Deve** indica obrigação para a superfície em que a política for aplicada; **quando** exige avaliar a condição; **recomenda-se** admite alternativa justificada. Recomendações externas, requisitos contratuais/legais e comportamento técnico verificado devem ser identificados separadamente. Não transformar referência voluntária em obrigação legal universal.
+Salvo atribuição explícita, as regras são **decisões internas My Easy Development System propostas neste Candidate**. **Deve** indica obrigação para a superfície em que a política for aplicada; **quando** exige avaliar a condição; **recomenda-se** admite alternativa justificada. Recomendações externas, requisitos contratuais/legais e comportamento técnico verificado devem ser identificados separadamente. Não transformar referência voluntária em obrigação legal universal.
 
 Referências consultadas em 2026-10-08:
 

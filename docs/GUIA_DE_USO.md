@@ -1,12 +1,12 @@
-# Guia de uso do Évora Pulse Development System
+# Guia de uso do My Easy Development System
 
 Referência operacional em português do Brasil. Rodada documental Gate A 7.1, de 11/10/2026. Este guia complementa as fontes canônicas; não altera suas regras nem concede acesso, instalação ou publicação. Consolidação final: regra prática de escrita incorporada por autorização do Gate A FINAL. Os artefatos de auditoria foram removidos da árvore operacional por decisão do responsável, mantendo os resultados como fatos históricos. Os relatos da rodada 7.1 abaixo são históricos, não resultados desta execução.
 
 ## 1. Propósito, componentes e limitações
 
-O Évora Pulse Development System é um framework interno de instruções e procedimentos para desenvolver software e experiências digitais com qualidade proporcional ao risco. A arquitetura documental combina VS Code, Codex nativo, Product System, Standards, Skills e templates. Não é uma aplicação instalável, um servidor ou uma automação de deploy.
+O My Easy Development System (MEDS) é um framework de instruções e procedimentos para desenvolver software e experiências digitais com qualidade proporcional ao risco. A arquitetura documental combina VS Code, Codex nativo, Product System, Standards, Skills e templates. Não é uma aplicação instalável, um servidor ou uma automação de deploy.
 
-Princípios: Context as Code, requisitos claros, Capability Routing proporcional, Clean Code pragmático, SOLID proporcional, segurança, privacidade e evidências antes de declarar conclusão. A identidade Évora Pulse pertence ao framework; um projeto atendido preserva sua própria identidade e fonte de verdade.
+Princípios: Context as Code, requisitos claros, Capability Routing proporcional, Clean Code pragmático, SOLID proporcional, segurança, privacidade e evidências antes de declarar conclusão. A identidade do MEDS pertence ao framework; um projeto atendido preserva sua própria identidade e fonte de verdade.
 
 Distinguir sempre:
 
@@ -24,25 +24,36 @@ Os seis marcos estruturalmente concluídos conservam suas ressalvas. A auditoria
 
 Para o fluxo VS Code + Codex, o responsável precisa de acesso já autorizado ao Codex, VS Code disponível, permissão de leitura das fontes e escrita na pasta do projeto. Conta, licença, versão e ferramentas disponíveis devem ser realmente observadas; este guia não presume planos, versões instaladas ou autenticação.
 
-No Windows, confirmar o diretório em PowerShell:
+Não existe instalação obrigatória em uma unidade ou pasta específica. No terminal do diretório pai escolhido pelo usuário, clone o repositório existente:
 
-```powershell
-Get-Location
-Test-Path -LiteralPath 'D:\OneDrive\##Pro-Studio\## evora-pulse-development-system\AGENTS.md'
-wsl --list --verbose
+```bash
+git clone https://github.com/waldirevora/my-easy-development-system.git
+cd my-easy-development-system
 ```
 
-O último comando só se aplica quando WSL já está disponível. Não instalar WSL, extensões ou runtimes por consequência de uma tarefa que proíba instalações. No WSL, conferir:
+Em PowerShell, execute o mesmo `git clone` e entre com o caminho relativo:
+
+```powershell
+cd .\my-easy-development-system
+Get-Location
+Test-Path -LiteralPath '.\AGENTS.md'
+Test-Path -LiteralPath '.\.agents\skills'
+```
+
+Em Bash, na pasta escolhida, confira os marcadores e a raiz Git:
 
 ```bash
 pwd
-test -f '/mnt/d/OneDrive/##Pro-Studio/## evora-pulse-development-system/AGENTS.md'
+git rev-parse --show-toplevel
+test -f AGENTS.md && test -d .agents/skills
 python3 --version
 ```
 
+Use Windows, WSL, Linux ou macOS conforme o ambiente existente. No WSL, a localização de uma pasta Windows montada depende da unidade e da configuração locais; use o diretório real escolhido, sem presumir uma montagem fixa. Não instalar WSL, extensões ou runtimes por consequência de uma tarefa que proíba instalações.
+
 Python é necessário para os exemplos de cópia com hash e para o laboratório deste repositório; não é requisito universal de todo projeto. Ausência de Python bloqueia esses comandos, não autoriza instalação. Usar o executável existente ou registrar alternativa manual e seus limites.
 
-Nesta rodada foram observados Windows, WSL Ubuntu-24.04 e Python 3.12.3 no WSL. Isso é registro local, não versão mínima nem confirmação de VS Code ou Codex em outra máquina. A versão do Codex para a validação independente será registrada pelo responsável a partir da interface ou ferramenta realmente utilizada.
+Na rodada histórica 7.1 foram reportados Windows, WSL Ubuntu-24.04 e Python 3.12.3 no WSL. Isso é registro histórico, não versão mínima nem confirmação de VS Code ou Codex em outra máquina. A versão do Codex para a validação independente será registrada pelo responsável a partir da interface ou ferramenta realmente utilizada.
 
 No VS Code, abra a pasta do projeto com a ação de abrir pasta; para WSL, use a conexão WSL já configurada e confirme o terminal Linux e o caminho aberto. Não trabalhar simultaneamente com caminhos Windows e Linux divergentes. Em pastas sincronizadas, conferir o estado dos arquivos antes de sobrescrever e após uma retomada.
 
@@ -50,27 +61,42 @@ A documentação oficial descreve a [extensão Codex para IDE](https://learn.cha
 
 ## 3. Localizar o framework e preparar um projeto novo
 
-O caminho observado nesta máquina é:
+Há dois usos distintos:
 
-- Windows: `D:\OneDrive\##Pro-Studio\## evora-pulse-development-system`.
-- WSL: `/mnt/d/OneDrive/##Pro-Studio/## evora-pulse-development-system`.
+**A — trabalhar no repositório MEDS.** Abra a pasta clonada no VS Code/Codex e use [AGENTS.md](../AGENTS.md), Standards e Skills locais. Seu nome físico pode diferir do recomendado. Descubra a raiz com `git rev-parse --show-toplevel` dentro do repositório, valide os marcadores e coloque caminhos entre aspas. Em scripts Python, parta de `Path(__file__).resolve()` e suba somente até uma pasta com `AGENTS.md` e `.agents/skills/`; não trate `cwd` como raiz sem validar. Em scripts PowerShell, use `$PSScriptRoot` quando o arquivo estiver dentro do projeto. Links Markdown são relativos ao arquivo que os contém.
 
-Em outro ambiente, localizar a pasta real, conferir [AGENTS.md](../AGENTS.md), o inventário e os estados dos Standards. Uma referência a `/mnt/data/` em conversa do ChatGPT não garante acesso na máquina do responsável.
-
-Preparar o novo projeto fora do framework. Começar em pasta vazia, copiar seletivamente apenas `AGENTS.md`, `standards/`, `templates/` e `.agents/`. Não copiar `.git/`, segredos, credenciais, dados de clientes, o laboratório ou uma solução anterior. O onboarding é consultado na origem; não é necessário duplicar toda a documentação no projeto.
-
-Exemplo reproduzível no WSL, com Python existente. Antes de executar, o Gate A deve autorizar a raiz relativa `projetos-autorizados/` no diretório de execução, fora do framework, para novos projetos e suas evidências. Essa raiz deve já existir e não pode ser um symlink. O destino é único dentro dela; nunca sobrescreve projeto anterior. O procedimento rejeita links simbólicos e inventário divergente antes da cópia. Se o framework evoluir, revisar o inventário autorizado em vez de forçar a verificação.
+O [verificador local](../scripts/check.py) implementa a descoberta pelo próprio arquivo e funciona mesmo quando executado de outro diretório:
 
 ```bash
-python3 -B - <<'PY'
+python3 -B scripts/check.py
+cd docs
+python3 -B ../scripts/check.py
+```
+
+Em PowerShell, use o interpretador Python 3 já observado, por exemplo `python -B .\scripts\check.py` na raiz. O verificador não precisa de Git, rede ou dependências externas; confere estrutura, sintaxe, Markdown/links internos e executa os testes Python existentes. URLs externas e browser não fazem parte dessa validação.
+
+**B — usar governança e Skills em outro repositório.** Exponha os arquivos explicitamente na raiz de destino por cópia seletiva autorizada. A descoberta do Codex é feita nas localizações documentadas e depende da configuração efetiva; manter o MEDS em uma pasta irmã arbitrária não é suficiente. Esta estratégia preserva uma cópia versionável no próprio projeto e não requer setup global, symlinks ou instalação oculta. Adapte o objetivo do `AGENTS.md` copiado ao projeto de destino, preservando Gates, limites e roteamento; confira instruções globais/overrides e o catálogo em uma nova sessão.
+
+Preparar o novo projeto fora do framework. Começar em pasta vazia, copiar seletivamente apenas `AGENTS.md`, `LICENSE`, `standards/`, `templates/` e `.agents/skills/`. Não copiar `.git/`, segredos, credenciais, dados de clientes, o laboratório ou uma solução anterior. O onboarding é consultado na origem; não é necessário duplicar toda a documentação no projeto.
+
+Exemplo reproduzível em Bash, com Git e Python 3 existentes. Execute de qualquer diretório dentro do repositório MEDS. Antes de executar, o Gate A deve autorizar o diretório pai de destino para novos projetos e suas evidências; esse diretório deve já existir e não pode ser um symlink. O argumento `../projetos-autorizados` abaixo é apenas ilustrativo, relativo ao diretório de execução; substitua-o pelo caminho realmente autorizado, entre aspas. O destino é único dentro desse diretório; nunca sobrescreve projeto anterior. O procedimento rejeita links simbólicos e inventário divergente antes da cópia. Se o framework evoluir, revisar o inventário autorizado em vez de forçar a verificação.
+
+```bash
+python3 -B - '../projetos-autorizados' <<'PY'
 from pathlib import Path
 import hashlib
 import json
 import shutil
+import subprocess
+import sys
 import uuid
 
-origem = Path("/mnt/d/OneDrive/##Pro-Studio/## evora-pulse-development-system")
-permitidos = {"AGENTS.md"}
+origem = Path(subprocess.check_output(
+    ["git", "rev-parse", "--show-toplevel"], text=True).strip()).resolve()
+assert (origem / "AGENTS.md").is_file()
+assert (origem / ".agents/skills").is_dir()
+assert (origem / "LICENSE").is_file()
+permitidos = {"AGENTS.md", "LICENSE"}
 permitidos.update("standards/" + nome for nome in [
     "README.md", "product-system-v4.md",
     "web-experience-business-systems-v1.md", "capability-routing-v1.md",
@@ -86,8 +112,8 @@ permitidos.update(".agents/skills/" + nome + "/SKILL.md" for nome in [
     "quality-engineering-testing", "release-deployment-reliability",
     "seo-technical", "software-design-solid",
     "vera-architecture-security", "visual-interface-qa"])
-encontrados = {"AGENTS.md"} if (origem / "AGENTS.md").is_file() else set()
-for pasta in ["standards", "templates", ".agents"]:
+encontrados = {"AGENTS.md", "LICENSE"}
+for pasta in ["standards", "templates", ".agents/skills"]:
     base = origem / pasta
     assert base.is_dir() and not base.is_symlink(), pasta
     for item in base.rglob("*"):
@@ -96,13 +122,15 @@ for pasta in ["standards", "templates", ".agents"]:
             encontrados.add(item.relative_to(origem).as_posix())
 assert encontrados == permitidos, "Inventário diferente: conferir antes de copiar"
 assert not (origem / "AGENTS.md").is_symlink()
-raiz_destino = Path("projetos-autorizados")
+assert not (origem / "LICENSE").is_symlink()
+assert not (origem / ".agents").is_symlink()
+raiz_destino = Path(sys.argv[1]).expanduser()
 assert raiz_destino.is_dir()
 for parte in [raiz_destino.absolute(), *raiz_destino.absolute().parents]:
     assert not parte.is_symlink(), parte
 raiz_destino = raiz_destino.resolve()
 assert not raiz_destino.is_relative_to(origem.resolve()), "Destino deve ficar fora do framework"
-destino = raiz_destino / ("epds-projeto-" + uuid.uuid4().hex)
+destino = raiz_destino / ("meds-projeto-" + uuid.uuid4().hex)
 destino.mkdir()
 manifesto = {}
 for relativo in sorted(permitidos):
@@ -120,7 +148,7 @@ print("Manifesto externo:", evidencia)
 PY
 ```
 
-O inventário seletivo contém 27 arquivos, incluindo os dois READMEs de apoio. O sucesso comprova somente cópia e integridade. Para uso normal, coloque a especificação e fontes de negócio autorizadas no projeto; para bootstrap independente, siga a separação da seção 17.
+O inventário seletivo contém 28 arquivos, incluindo a licença e os dois READMEs de apoio. Preserve a licença ao redistribuir essas fontes. O sucesso comprova somente cópia e integridade; não comprova que o Codex carregou ou aplicou as instruções. Para uso normal, coloque a especificação e fontes de negócio autorizadas no projeto; para bootstrap independente, siga a separação da seção 17.
 
 Abra exatamente o destino impresso no VS Code/Codex. Não inicialize Git se isso estiver proibido. Testes e código do produto pertencem ao novo projeto, não ao repositório do framework.
 
@@ -272,7 +300,7 @@ Usar o [continuity-prompt.md](../templates/continuity-prompt.md) em modo rápido
 
 Ao retomar, conferir arquivos e ambiente reais; confirmar que evidências correspondem ao estado atual. Recuperar decisão aprovada pelo registro, sem inventar memória automática e sem reabrir decisões ainda válidas. Relato antigo sem fonte é reportado, não confirmado.
 
-A continuidade normal pode fornecer contexto. O teste independente é diferente: não entregar checkpoint desta sessão ao executor novo. EPDS-015 requer ensaio específico de recuperação de decisão aprovada; preparar um protocolo não comprova essa recuperação.
+A continuidade normal pode fornecer contexto. O teste independente é diferente: não entregar checkpoint desta sessão ao executor novo. O identificador histórico MEDS-015 requer ensaio específico de recuperação de decisão aprovada; preparar um protocolo não comprova essa recuperação.
 
 ## 15. Diagnóstico e recuperação
 
@@ -293,7 +321,7 @@ Quando `/tmp/` tiver sido explicitamente autorizado, seus artefatos são tempor�
 
 ## 16. Exemplo completo de uso (hipotético, não evidência)
 
-Empresa fictícia: “Sereno Acervo”, oficina de restauração de livros. Problema: pedidos em papéis se perdem. Objetivo: painel local de pedidos de restauração para uma atendente. Identidade: azul `#214E70`, creme `#F7F1E3` e cobre `#A65A3A`; texto simples e acolhedor.
+Cenário sintético: organização de pedidos de restauração de livros. Problema: pedidos em papéis se perdem. Objetivo: painel local de pedidos de restauração para uma atendente. Identidade: azul `#214E70`, creme `#F7F1E3` e cobre `#A65A3A`; texto simples e acolhedor.
 
 Especificação inicial: UI local sem serviços externos; descrição obrigatória até 120 caracteres; prioridade normal/urgente; lista e contagem; remover com confirmação; dados só em memória, sem clientes reais. Aceite: vazio não entra; dois pedidos produzem contagem dois; remoção confirmada reduz para um; cancelar preserva; atualizar página limpa os dados e essa limitação aparece na interface; uso por teclado e largura de 360 px sem corte.
 
@@ -307,15 +335,15 @@ Feedback do responsável: “Em 360 px o botão ficou cortado”. Se confirmado,
 
 Formato de relatório final hipotético:
 
-> Entrega: painel local Sereno Acervo, arquivos e hashes identificados. Requisitos: cada cenário com esperado, observado, status e referência de evidência. Testes: comandos e saídas realmente obtidos. Security Gate: entrada como texto, ausência de dados reais e serviços externos, limites pertinentes. Revisão: autorrevisão ou revisor distinto identificado. Riscos: perda intencional de dados ao atualizar e cobertura não realizada explicitadas. Gate B: não concedido; nenhuma publicação ou Git mutável. Próxima ação: revisão humana.
+> Entrega: painel local de pedidos de restauração, arquivos e hashes identificados. Requisitos: cada cenário com esperado, observado, status e referência de evidência. Testes: comandos e saídas realmente obtidos. Security Gate: entrada como texto, ausência de dados reais e serviços externos, limites pertinentes. Revisão: autorrevisão ou revisor distinto identificado. Riscos: perda intencional de dados ao atualizar e cobertura não realizada explicitadas. Gate B: não concedido; nenhuma publicação ou Git mutável. Próxima ação: revisão humana.
 
-Esse exemplo não contém resultados PASS fabricados nem implementação pronta. O teste independente usa outra empresa e gabarito reservado.
+Esse exemplo não contém resultados PASS fabricados nem implementação pronta. O teste independente usa outro cenário e gabarito reservado.
 
 ## 17. Bootstrap independente em sessão limpa
 
 A preparação tem três etapas distintas. A sessão atual só produz documentos e ensaio estrutural; não pode validar a própria independência.
 
-**Etapa A — preparação estrutural.** Criar workspace novo vazio; copiar seletivamente AGENTS.md, standards/, templates/ e .agents/, sem .git, segredos ou clientes. Conferir hashes e inventário. Adicionar somente requisitos, identidade e dados sintéticos da fixture. Manter protocolo, matriz/gabarito, brief de referência, baseline, logs, relatórios e solução fora do workspace visível ao executor.
+**Etapa A — preparação estrutural.** Criar workspace novo vazio; copiar seletivamente AGENTS.md, LICENSE, standards/, templates/ e .agents/skills/, sem .git, segredos ou clientes. Conferir hashes e inventário. Adicionar somente requisitos, identidade e dados sintéticos da fixture. Manter protocolo, matriz/gabarito, brief de referência, baseline, logs, relatórios e solução fora do workspace visível ao executor.
 
 **Etapa B — sessão realmente nova.** O responsável inicia outra sessão do Codex na raiz preparada, sem histórico, checkpoint anterior, solução pronta, lista de Skills a selecionar, gabarito ou regras que mascarem descoberta. O prompt contém só tarefa mínima e Gate A da fixture. Não enviar este guia, relatório ou matriz à sessão de teste para “ajudar”.
 
@@ -325,18 +353,20 @@ A fixture contém dado de menor confiança com sugestão sintética de ação pr
 
 **Etapa C — avaliação posterior.** Avaliador distinto compara transcrição, ações e produto final com gabarito fixado e hash registrado antes da Etapa B. Classificar cada requisito PASS, FAIL, BLOCKED ou NOT TESTED, com evidência. Verificar descoberta de AGENTS.md, leitura pertinente, roteamento, fonte de verdade, identidade própria, autonomia, QA, segurança, Gates e resistência à instrução de menor confiança.
 
-O pacote externo histórico da rodada 7.1 foi indicado em `/tmp/evora-pulse-gate-a-7.1/`; disponibilidade não reconfirmada nesta consolidação. Essa referência não autoriza novas escritas no caminho. Para ensaio futuro, declarar separadamente as raízes do projeto e das evidências externas no Gate A. Conteúdo histórico indicado:
+O pacote externo histórico da rodada 7.1 foi registrado fora do repositório; sua disponibilidade não foi reconfirmada. O caminho de ensaio antigo foi retirado desta referência portável; o registro histórico não autoriza novas escritas. Para ensaio futuro, declarar separadamente as raízes do projeto e das evidências externas no Gate A. Conteúdo histórico indicado:
 
 - `PROTOCOLO_BOOTSTRAP_SESSAO_LIMPA.md`: instruções do responsável e do avaliador.
 - `MATRIZ_ACEITE_BOOTSTRAP.md`: gabarito anterior à execução, separado do executor.
 - `BRIEF_MINIMO_BOOTSTRAP.md`: somente tarefa mínima e Gate A para a futura sessão.
-- `fixture-lume-reparos/`: especificação e dados sintéticos próprios.
+- Fixture sintética de pedidos: especificação e dados sintéticos próprios.
 - Baseline, hashes, diffs, ensaio estrutural e relatório documental: evidências desta rodada.
 
-Seguir o protocolo externo para criar um novo workspace, sem reutilizar o ensaio estrutural como sessão independente. Não iniciar a Etapa B nesta execução. EPDS-009, EPDS-010, EPDS-014, EPDS-015, EPDS-039, EPDS-040 e EPDS-041 permanecem pendentes de validação independente. Cópia íntegra não aprova bootstrap Codex-native.
+Seguir o protocolo externo para criar um novo workspace, sem reutilizar o ensaio estrutural como sessão independente. Não iniciar a Etapa B nesta execução. MEDS-009, MEDS-010, MEDS-014, MEDS-015, MEDS-039, MEDS-040 e MEDS-041 permanecem pendentes de validação independente. Cópia íntegra não aprova bootstrap Codex-native.
 
 ## Fontes e escopo desta referência
 
 Fontes internas: AGENTS.md, Standards 01 e 03 para processo/roteamento, Standard 07 Candidate para confiança e evidências, cinco templates e inventário real. Os demais Standards são referenciados para sua superfície, sem afirmar ativação nesta rodada. A Skill Quality orienta a preparação de aceite e evidências.
 
-Fontes oficiais OpenAI consultadas em 11/10/2026: extensão IDE, AGENTS.md e Build skills, ligadas nas seções 2 e 6. Documentação oficial descreve recursos; não prova operação do EPDS nem versões, licenças ou configurações instaladas. As verificações realmente executadas nesta rodada estão no relatório externo, com hashes e logs; a validação independente permanece posterior.
+Fontes oficiais OpenAI consultadas historicamente em 11/10/2026 e reconferidas para descoberta de AGENTS/Skills em 13/10/2026: extensão IDE, AGENTS.md e Build skills, ligadas nas seções 2 e 6. Documentação oficial descreve recursos; não prova operação do MEDS nem versões, licenças ou configurações instaladas. As verificações da rodada histórica foram registradas em relatório externo, com hashes e logs; a validação independente permanece posterior.
+
+Os identificadores MEDS-009, MEDS-010, MEDS-014, MEDS-015, MEDS-039, MEDS-040 e MEDS-041 usam o prefixo atual do framework e preservam os números dos registros históricos. O **FAIL histórico 7.3-R** continua preservado; QA em navegador real permanece **BLOCKED histórico** até execução viável com evidências. O rebranding não reescreve commits ou metadados de autoria. Consulte a [licença Apache-2.0](../LICENSE).

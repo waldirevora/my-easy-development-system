@@ -1,14 +1,35 @@
-# Évora Pulse Development System
+# My Easy Development System
 
-Framework interno para orientar desenvolvimento com VS Code, Codex nativo, Product System, Standards e Skills Évora Pulse. Reúne instruções versionáveis, roteamento por propósito e risco, execução autônoma com Gate A e Gate B, segurança proporcional e evidências de qualidade.
+Framework para orientar desenvolvimento com VS Code, Codex nativo, Product System, Standards e Skills. Reúne instruções versionáveis, roteamento por propósito e risco, execução autônoma com Gate A e Gate B, segurança proporcional e evidências de qualidade. A sigla técnica **MEDS** significa **My Easy Development System**; o slug e nome recomendado da pasta são `my-easy-development-system`.
 
 ## Comece por aqui
 
-1. Confira o ambiente já disponível: Windows ou WSL, VS Code e acesso autorizado ao Codex. Use um terminal coerente com a pasta aberta; confirme o diretório antes de agir. Este repositório não instala essas ferramentas.
-2. Localize o framework e leia [AGENTS.md](AGENTS.md). Nesta máquina, o caminho Windows é `D:\OneDrive\##Pro-Studio\## evora-pulse-development-system`; no WSL, `/mnt/d/OneDrive/##Pro-Studio/## evora-pulse-development-system`. Em outra máquina, use o caminho realmente observado.
-3. Prepare um projeto novo em uma pasta vazia, fora do framework, copiando seletivamente `AGENTS.md`, `standards/`, `templates/` e `.agents/`. Não copie `.git/`, credenciais, segredos ou dados de clientes. Confira hashes dos arquivos. O [guia operacional](docs/GUIA_DE_USO.md) contém um procedimento reproduzível.
-4. Descreva o problema, público, requisitos, critérios de aceite e restrições. Aprove objetivo, escopo e limites no Gate A, usando uma instrução suficiente ou o [brief de Gate A](templates/gate-a-task-brief.md).
-5. Abra a raiz do novo projeto no VS Code e inicie uma nova conversa no Codex. Trabalhe dentro do Gate A; apresente resultado, testes, revisão e riscos antes de qualquer ação protegida.
+Não existe diretório de instalação obrigatório. Escolha qualquer pasta com as permissões normais de acesso, no Windows, WSL, Linux ou macOS. Este repositório não instala Git, Python, VS Code ou Codex.
+
+1. Abra um terminal no diretório **pai escolhido por você**.
+2. Clone o repositório existente com Git já disponível:
+
+   ```bash
+   git clone https://github.com/waldirevora/my-easy-development-system.git
+   ```
+
+3. Entre na pasta criada, relativamente ao diretório pai. Em Bash:
+
+   ```bash
+   cd my-easy-development-system
+   ```
+
+   Em PowerShell:
+
+   ```powershell
+   cd .\my-easy-development-system
+   ```
+
+4. Abra essa pasta no VS Code/Codex e leia [AGENTS.md](AGENTS.md). A descoberta das instruções e de [.agents/skills/](.agents/skills/) depende da configuração efetiva do Codex; confira o catálogo e as instruções carregadas.
+5. Para trabalhar **no MEDS**, use seus arquivos locais. Para usar sua governança **em outro repositório**, copie seletivamente `AGENTS.md`, `LICENSE`, `standards/`, `templates/` e `.agents/skills/` para uma raiz de projeto autorizada, seguindo o [guia operacional](docs/GUIA_DE_USO.md). Uma pasta irmã arbitrária não é fonte automática de Skills. Não copie `.git/`, credenciais, caches ou dados de clientes.
+6. Descreva problema, requisitos, aceite e limites no Gate A, usando uma instrução suficiente ou o [brief](templates/gate-a-task-brief.md). Trabalhe no escopo aprovado e apresente evidências antes de ações protegidas.
+
+Os comandos abaixo são relativos à raiz validada. O [verificador](scripts/check.py) descobre a raiz pela localização do próprio arquivo, usando `AGENTS.md` e `.agents/skills/` como marcadores; não depende do nome físico da pasta ou do diretório de execução. No WSL, a montagem de uma pasta Windows depende da unidade e configuração locais: use a localização real escolhida por você.
 
 Consulte o [guia completo](docs/GUIA_DE_USO.md) para implementação, QA, Security Gate, feedback, checkpoints, recuperação e teste de bootstrap em sessão limpa.
 
@@ -33,14 +54,23 @@ Os documentos descrevem o comportamento esperado. Presença de arquivos, estado 
 
 A auditoria anterior de 11/10/2026 reportou 28 PASS limitados, 3 FAIL documentais, 3 BLOCKED e 10 NOT TESTED. Esses números não representam uma porcentagem de conformidade operacional. A correção de onboarding, guia e identificação do legado não aprova integralmente o framework.
 
-Estado consolidado: **encerrado com ressalvas, pronto para uso interno**. A governança de escrita foi incorporada, com Product System 4.1, 24 testes Python e 18 verificações documentais aprovados na consolidação. QA em navegador real permanece **BLOCKED**; Habblaud é integração opcional pendente. Bootstrap 7.2 e retomada 7.4 conservam **PASS limitado histórico**; o **FAIL histórico 7.3-R permanece preservado**. Os relatos de rodadas anteriores acima são históricos. Os artefatos dessas auditorias foram removidos da árvore operacional por decisão do responsável; seus resultados permanecem registrados como históricos. Publicar este código-fonte não concede Gate B, deploy ou homologação universal.
+Estado consolidado: **encerrado com ressalvas, pronto para uso interno**. A governança de escrita foi incorporada, com Product System 4.1, 24 testes Python e 18 verificações documentais aprovados na consolidação. QA em navegador real permanece **BLOCKED**; a integração externa opcional permanece pendente. Bootstrap 7.2 e retomada 7.4 conservam **PASS limitado histórico**; o **FAIL histórico 7.3-R permanece preservado**. Os relatos de rodadas anteriores acima são históricos. Os artefatos dessas auditorias foram removidos da árvore operacional por decisão do responsável; seus resultados permanecem registrados como históricos. Publicar este código-fonte não concede Gate B, deploy ou homologação universal.
 
 ## Verificação local disponível
 
-No WSL, a partir da raiz, com Python já disponível:
+Em Bash, a partir da raiz, com Python 3 já disponível:
 
 ```bash
 python3 -B -m unittest discover -s codex_lab_5_5 -p 'test_*.py' -v
+python3 -B scripts/check.py
 ```
 
-Registre ambiente, comando, resultado e saída reais. No Windows, use o interpretador Python já existente e observado, sem presumir que `python` esteja instalado. Não instalar dependências apenas para produzir um parecer positivo.
+O verificador confere o inventário 7/12/5, sintaxe Python, frontmatter das Skills, cercas de código Markdown e destinos dos links internos; depois executa a suíte existente. Não verifica URLs externas ou renderização de UI. Em PowerShell, se `python` for o interpretador Python 3 observado, use `python -B .\scripts\check.py`; adapte apenas o executável ao ambiente disponível.
+
+Registre ambiente, comando, resultado e saída reais. Não instalar dependências apenas para produzir um parecer positivo. Para executar desde um subdiretório, ajuste somente o caminho relativo até o script, por exemplo `python3 -B ../scripts/check.py` em `docs/`.
+
+## Licença e histórico
+
+Este projeto é disponibilizado sob a **Apache License, Version 2.0**, SPDX **Apache-2.0**. O texto integral está em [LICENSE](LICENSE), copiado sem alterações da licença Apache-2.0 distribuída pelo pacote `base-files` do sistema e conferido com a [fonte oficial Apache](https://www.apache.org/licenses/LICENSE-2.0). As referências externas dos Standards continuam atribuídas às suas fontes; a licença deste repositório não relicencia os documentos externos citados. A inspeção dos arquivos atuais não identificou avisos incompatíveis ou material incorporado que exija `NOTICE`.
+
+O rebranding atualiza a árvore atual. Mensagens, identidades anteriores e metadados de autoria permanecem no histórico Git preservado. A adoção da licença não altera a visibilidade do repositório; uma futura publicação pública exige decisão separada e revisão do histórico.

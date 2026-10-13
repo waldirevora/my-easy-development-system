@@ -1,10 +1,10 @@
-# Évora Pulse Product System v4.1
+# My Easy Development System Product System v4.1
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | Évora Pulse Product System v4.1 |
+| Nome oficial | My Easy Development System Product System v4.1 |
 | Versão | 4.1 |
 | Estado canônico | Stable |
 | Finalidade | Estabelecer o processo operacional para planejar, desenvolver, revisar, testar, entregar e manter software com Codex nativo. |

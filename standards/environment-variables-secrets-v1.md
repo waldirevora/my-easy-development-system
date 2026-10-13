@@ -1,10 +1,10 @@
-# Évora Pulse Environment Variables & Secrets Standard v1.0
+# My Easy Development System Environment Variables & Secrets Standard v1.0
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | Évora Pulse Environment Variables & Secrets Standard v1.0 |
+| Nome oficial | My Easy Development System Environment Variables & Secrets Standard v1.0 |
 | Identificador | Standard 05 |
 | Versão | 1.0 |
 | Estado canônico | Stable |
@@ -37,7 +37,7 @@ Preparação de artefato ou plano de rotação não autoriza sua execução. Mer
 
 ### Natureza das regras e referências verificadas
 
-Salvo atribuição explícita, as regras deste documento são **decisões internas Évora Pulse**. **Deve** indica obrigação na superfície aplicável; **quando** delimita uma condição a avaliar; **recomenda-se** permite alternativa justificada. Recomendação técnica não é exigência legal. Requisito externo somente se aplica conforme o perfil, contrato ou política efetivamente adotados e verificados.
+Salvo atribuição explícita, as regras deste documento são **decisões internas My Easy Development System**. **Deve** indica obrigação na superfície aplicável; **quando** delimita uma condição a avaliar; **recomenda-se** permite alternativa justificada. Recomendação técnica não é exigência legal. Requisito externo somente se aplica conforme o perfil, contrato ou política efetivamente adotados e verificados.
 
 Referências consultadas em 2026-10-08:
 

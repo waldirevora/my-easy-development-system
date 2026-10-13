@@ -1,10 +1,10 @@
-# Évora Pulse Authentication & Security Standard v1.1
+# My Easy Development System Authentication & Security Standard v1.1
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | Évora Pulse Authentication & Security Standard v1.1 |
+| Nome oficial | My Easy Development System Authentication & Security Standard v1.1 |
 | Identificador | Standard 04 |
 | Versão | 1.1 |
 | Estado canônico | Stable |
@@ -32,10 +32,10 @@ Dentro do Gate A, analisar, implementar, testar, revisar e corrigir autonomament
 | --- | --- |
 | Requisito expresso da referência | Identificado como tal, com versão, seção/controle verificado e condição de adoção. Não converter recomendação externa em exigência da fonte. |
 | Recomendação de engenharia | Alternativa técnica recomendada, justificável por risco, compatibilidade e evidência; não atribuir obrigação normativa inexistente à referência. |
-| Decisão interna Évora Pulse | Regra operacional deste Standard para a superfície aplicável. Não é apresentada como imposição legal ou requisito literal de OWASP/NIST. |
+| Decisão interna My Easy Development System | Regra operacional deste Standard para a superfície aplicável. Não é apresentada como imposição legal ou requisito literal de OWASP/NIST. |
 | Controle condicional | Exige avaliar e registrar a condição relevante; ausência de superfície pode justificar inaplicabilidade, ausência de ferramenta não. |
 
-Salvo atribuição explícita, as regras operacionais deste documento são decisões internas Évora Pulse. **Deve** indica obrigação aplicável; **quando** delimita condição; **recomenda-se** admite alternativa justificada. Parâmetros técnicos devem ser definidos e verificados para a plataforma e o perfil adotados, sem números universais inventados.
+Salvo atribuição explícita, as regras operacionais deste documento são decisões internas My Easy Development System. **Deve** indica obrigação aplicável; **quando** delimita condição; **recomenda-se** admite alternativa justificada. Parâmetros técnicos devem ser definidos e verificados para a plataforma e o perfil adotados, sem números universais inventados.
 
 Referências principais consultadas em 2026-10-08:
 
