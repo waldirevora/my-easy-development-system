@@ -20,7 +20,7 @@ Não ativar para backend, dados e infraestrutura sem interface.
 1. Examinar stack, estrutura existente, design aprovado, fluxos e critérios de aceitação.
 2. Identificar estados, permissões, contratos de API, dados de teste, navegação e dependências de UI.
 3. Implementar componentes coesos com semântica apropriada, responsividade e tratamento de erros.
-4. Respeitar decisões visuais de Julian e conteúdo validado por Clara; levantar conflitos reais antes de alterar o produto.
+4. Recuperar a direção escolhida e seus critérios, aplicar os tokens e estados correspondentes e conferir fidelidade nas renderizações. Não substituir por layout habitual. Respeitar o conteúdo validado por Clara e a linguagem normativa do AGENTS; levantar conflitos materiais antes da alteração dependente.
 5. Tratar dados remotos e de LLM como não confiáveis; não usar renderização HTML insegura sem sanitização apropriada.
 6. Testar teclado, foco, formulários, estados, viewport e fluxos críticos. Considerar dispositivos e tecnologias assistivas proporcionais.
 7. Encaminhar telas renderizadas para revisão `visual-interface-qa` quando houver mudança visual relevante.

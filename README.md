@@ -7,55 +7,52 @@ O **My Easy Development System (MEDS)** é uma camada de instruções versionada
 ## Pré-requisitos
 
 - **Para clonar:** Git e acesso autorizado ao repositório GitHub, que atualmente é **privado**. Autenticação do GitHub e autenticação do Codex são independentes.
-- **Para usar as instruções:** Codex CLI ou extensão Codex compatível, já instalada e autenticada conforme a [documentação oficial](https://learn.chatgpt.com/docs/codex/cli). VS Code é opcional para o fluxo CLI e necessário para o fluxo pela extensão.
+- **Para usar:** Codex Desktop ou Codex CLI disponível e autenticado; a extensão de IDE também pode ser usada. Se ainda não estiver instalado, siga a [documentação oficial](https://learn.chatgpt.com/docs/quickstart) antes dos passos abaixo. VS Code e WSL não são obrigatórios.
 - **Para verificar ou copiar automaticamente:** Python 3 já disponível. Ele é usado pelo validador, laboratório e script de cópia; não é necessário apenas para ler as instruções.
 
-Nesta revisão foram observados Linux, Bash, Python 3.12.3 e `codex-cli 0.162.1`. Essas são versões testadas, não versões mínimas prometidas. Confira o executável Python do seu ambiente antes de usar os exemplos; os comandos PowerShell abaixo usam `python` quando ele corresponde ao Python 3 disponível.
+Na revisão histórica foram observados Linux, Bash, Python 3.12.3 e `codex-cli 0.162.1`; não são versões mínimas prometidas. Confira o executável Python do seu ambiente; os exemplos PowerShell usam `python` quando ele corresponde ao Python 3 disponível.
 
-## Instalação rápida
+## Início rápido: descreva seu projeto
 
-Abra o terminal no **diretório pai escolhido por você**, com permissão normal de acesso. Não existe unidade, montagem WSL ou pasta de instalação obrigatória. Os comandos criam uma nova pasta; se ela já existir, confira seu conteúdo e escolha outro destino, sem sobrescrever.
+Obtenha o repositório pelo GitHub com acesso autorizado (clone ou download e extração). Escolha uma pasta local; não há instalação global do MEDS nem necessidade de copiar Standards, templates ou as 12 Skills para cada projeto interno.
 
-Bash, inclusive WSL:
+### Codex Desktop
 
-```bash
+1. Abra a pasta obtida do MEDS no Codex Desktop.
+2. Inicie uma conversa **local**, com permissão de escrita para desenvolver o projeto.
+3. Envie um pedido curto, por exemplo:
+
+> Crie um site premium para um condomínio de luxo em Osasco, com imagens originais e formulário de contato.
+
+4. O Codex deve criar `workspaces/site-condominio/`, desenvolver, testar e documentar ali. O nome pode receber um sufixo para preservar outra pasta existente.
+5. Encontre a pasta informada na entrega, abra-a no editor ou no Codex e siga seu README para executar.
+
+A interface pode variar por versão; consulte o [início rápido oficial](https://learn.chatgpt.com/docs/quickstart). Imagens, navegador e runtimes dependem das ferramentas realmente disponíveis e autorizadas. Lacunas e testes impedidos devem aparecer na entrega.
+
+### Codex CLI
+
+Se `codex` ainda não estiver disponível, instale e autentique conforme o [guia oficial do CLI](https://learn.chatgpt.com/docs/codex/cli). No terminal do diretório pai escolhido, com Git disponível e acesso ao repositório:
+
+```sh
 git clone https://github.com/waldirevora/my-easy-development-system.git
 cd my-easy-development-system
-codex --version
-codex login status
-codex --sandbox read-only --cd .
+codex
 ```
 
-PowerShell:
+Os comandos funcionam em Bash ou PowerShell; execute passo a passo. Se já obteve o MEDS, apenas entre na pasta e execute `codex`. Envie o mesmo pedido na conversa, sem colá-lo como comando de shell. Use permissões autorizadas para escrita; uma sessão somente leitura permite diagnóstico, mas bloqueia criação de arquivos.
 
-```powershell
-git clone https://github.com/waldirevora/my-easy-development-system.git
-cd .\my-easy-development-system
-codex --version
-codex login status
-codex --sandbox read-only --cd .
-```
+### Descoberta, escopo e Git
 
-Execute a sequência passo a passo e prossiga somente se a etapa anterior terminar com sucesso. Não execute login, instalação ou mudança de permissões como parte de uma tarefa que não os autorize. Para usar VS Code, abra **a pasta clonada**, não seu diretório pai, e inicie a extensão Codex nela. `code .` é uma alternativa somente se o comando já estiver disponível.
+O Codex lê AGENTS da raiz do projeto até o diretório de trabalho, considerando instruções globais e overrides. Veja [AGENTS.md oficial](https://learn.chatgpt.com/docs/agent-configuration/agents-md). As Skills são descobertas em `.agents/skills/` nos ancestrais até a raiz do repositório; sua seleção usa nome e descrição. Veja [Skills oficiais](https://learn.chatgpt.com/docs/build-skills). Trabalhar dentro de `workspaces/` no checkout MEDS mantém essas fontes na cadeia ancestral. Em extração sem Git, comece pela raiz MEDS e confira o catálogo antes de retomar numa subpasta.
 
-O modo `read-only` limita o primeiro diagnóstico. Para desenvolvimento posterior, use a configuração de permissões autorizada para o projeto e conceda um Gate A com objetivo, arquivos e ações permitidas.
+Desenvolvimento escreve somente no projeto escolhido e lê as instruções compartilhadas. Manutenção do framework precisa ser explicitamente solicitada. Essa regra de escopo não substitui o sandbox. O resultado inclui fontes, assets e instruções de execução do projeto; nenhum deploy é automático.
 
-## Primeiro uso e teste rápido
+O Git do MEDS ignora todo o conteúdo de `workspaces/`, exceto `.gitkeep`, que mantém a pasta versionável. Projetos locais permanecem no disco, fora dos commits do MEDS. Ignorar não retira arquivos já versionados: registre o caso sem removê-los. Git próprio só deve ser criado quando você solicitar explicitamente; uma nova raiz Git pode mudar a descoberta ancestral, exigindo conferir instruções/Skills e preparar o projeto independente.
 
-Na nova sessão do Codex, abra `/skills` ou digite `$` e procure `quality-engineering-testing`. A lista pode incluir Skills globais além das 12 locais. Confira se o caminho corresponde a `.agents/skills/quality-engineering-testing/SKILL.md` desta instalação. A [documentação de Skills](https://learn.chatgpt.com/docs/build-skills) explica o seletor e a ativação por descrição.
+Um projeto externo não descobre uma pasta MEDS irmã. Para esse caso, use o procedimento abaixo; não há integração global automática. Veja o [guia](docs/GUIA_DE_USO.md) para retomada, QA e diagnóstico.
 
-Cole esta tarefa no Codex, como texto, sem executá-la no shell:
 
-```text
-Use $quality-engineering-testing para diagnosticar codex_lab_5_5/ai_triage.py.
-Gate A: somente leitura de fontes locais e testes Python existentes com -B.
-Não editar arquivos, instalar, acessar credenciais, usar serviços externos ou fazer Git mutável.
-Identifique as instruções aplicáveis de AGENTS.md e a Skill usada antes do diagnóstico.
-Execute os testes pertinentes e informe comando, contagem real, resultado e limites.
-Se houver bloqueio, registre BLOCKED sem ampliar permissões.
-```
-
-O sucesso esperado inclui referência às regras reais de `AGENTS.md`, leitura do `SKILL.md` pertinente e execução dos 24 testes do laboratório, com resultado observado. Confira as chamadas de ferramentas da sessão: a leitura da Skill deve preceder a aplicação de seu procedimento. Uma listagem de arquivos ou a frase “usei a Skill” não prova sua invocação. A [descoberta de AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) pode sofrer influência de instruções globais e overrides; este teste verifica somente a sessão observada.
+Para conferir a descoberta na sessão, abra `/skills` ou o seletor disponível e verifique se os caminhos apontam a `.agents/skills/` desta instalação. Catálogo disponível não prova execução: observe a leitura do SKILL.md antes do procedimento. A validação de uma nova sessão deve ser registrada separadamente dos testes Python.
 
 ## Usar em outro projeto
 
@@ -75,7 +72,7 @@ cd "..\meu-projeto"
 codex --sandbox read-only --cd .
 ```
 
-`meu-projeto` é um nome ilustrativo; use somente o destino autorizado. O [script de cópia](scripts/copy_harness.py) descobre sua origem pelo próprio arquivo, funciona sem `.git` e prepara 28 arquivos: `AGENTS.md`, 7 Standards e seu índice, 12 Skills, 5 templates e seu índice, mais `MEDS-LICENSE`. O objetivo do AGENTS copiado é adaptado ao projeto; as regras de autonomia, escrita e bloqueios são preservadas. `MEDS-LICENSE` licencia somente as fontes MEDS copiadas, sem definir a licença do seu produto.
+`meu-projeto` é um nome ilustrativo; use somente o destino autorizado. O [script de cópia](scripts/copy_harness.py) descobre sua origem pelo próprio arquivo, funciona sem `.git` e prepara 28 arquivos: `AGENTS.md`, 7 Standards e seu índice, 12 Skills, 5 templates e seu índice, mais `MEDS-LICENSE`. O AGENTS copiado usa a raiz do projeto externo e remove o bloco específico da instalação MEDS, evitando criar workspaces recursivos; as regras de autonomia, escrita e bloqueios são preservadas. `MEDS-LICENSE` licencia somente as fontes MEDS copiadas, sem definir a licença do seu produto.
 
 O script recusa destino ocupado, links simbólicos e fontes essenciais ausentes. Não copia Git, configurações privadas, caches ou laboratório. Depois, adicione os requisitos do produto e confira a descoberta em uma nova sessão na **raiz do destino**. A preparação de arquivos é verificável; o carregamento pelo Codex precisa de evidência própria. O [guia](docs/GUIA_DE_USO.md) detalha a árvore resultante, conflitos e limites do teste.
 
@@ -93,6 +90,7 @@ docs/GUIA_DE_USO.md           guia operacional
 examples/README.md           índice documental, sem aplicação pronta
 scripts/                     verificador, cópia e testes da cópia
 codex_lab_5_5/               função sintética e 24 testes
+workspaces/.gitkeep          marcador; projetos locais ignorados pelo Git
 ```
 
 O frontmatter `name` identifica cada Skill; `description` informa quando ela é pertinente. O Codex pode selecioná-la pela tarefa ou por menção explícita. O [Capability Routing](standards/capability-routing-v1.md) orienta a escolha pelo propósito, superfície e risco. Standards e templates são consultados quando necessários. As 12 Skills são instruções especializadas, não 12 subagentes simultâneos. [Consulte seus arquivos](.agents/skills/).
@@ -106,9 +104,17 @@ python3 -B scripts/check.py
 python3 -B -m unittest discover -s codex_lab_5_5 -p 'test_*.py' -v
 ```
 
-Em PowerShell, use `python -B .\scripts\check.py`. O verificador executa o laboratório e a regressão da cópia, além de conferir estrutura 7/12/5, sintaxe Python, frontmatter, cercas Markdown e destinos de links internos. Esperam-se verificações estáticas PASS e zero falhas nos testes. `-B` evita caches de bytecode. URLs externas, âncoras Markdown, descoberta Codex e desenvolvimento de um produto real não são comprovados por esse comando.
+Em PowerShell, use `python -B .\scripts\check.py`. O verificador executa o laboratório, a regressão da cópia e os testes de workspaces/Git, além de conferir estrutura 7/12/5, sintaxe Python, frontmatter, cercas Markdown e destinos de links internos. Testes Git são omitidos sem Git/checkout, com motivo explícito. Esperam-se verificações estáticas PASS e zero falhas nos testes. `-B` evita caches de bytecode. URLs externas, âncoras Markdown, descoberta Codex e desenvolvimento de um produto real não são comprovados por esse comando.
 
 De `docs/`, a chamada Bash é `python3 -B ../scripts/check.py`; em PowerShell, `python -B ..\scripts\check.py`. Também é possível chamar o script por seu caminho absoluto real, entre aspas: ele descobre a raiz pelo próprio arquivo, independentemente do cwd. Links internos são relativos. No WSL, use a montagem real da pasta escolhida. Espaços, acentos e mudança do nome da instalação foram testados em cópias Linux; Windows e macOS nativos permanecem sem validação de execução nesta revisão.
+
+## Direção criativa e linguagem
+
+Interfaces novas e redesigns consideram três direções distintas antes da implementação, conforme o [Web Experience](standards/web-experience-business-systems-v1.md). A escolha é autônoma dentro do Gate A e precisa chegar às telas, não apenas ao relatório. Não existe paleta ou layout MEDS para projetos de clientes. O aceite visual exige renderização, inspeção crítica, correção e reinspeção; testes funcionais não comprovam originalidade.
+
+A política única de linguagem está em [AGENTS.md](AGENTS.md). `scripts/check.py` verifica também os textos Markdown do framework. Para um projeto, execute `python -B scripts/check_language.py` seguido dos caminhos autorizados de HTML, Markdown, JS e CSS a verificar, a partir da raiz MEDS. O scanner separa prosa de sintaxe técnica nas superfícies suportadas; revisão editorial e exceções contextualizadas continuam necessárias. Não corrige textos automaticamente nem examina projetos por padrão.
+
+O scanner é lexical, não uma análise completa de toda linguagem. Markdown inline técnico e cercas de código não textual são preservados; cercas de texto/Markdown continuam verificadas. HTML considera texto e atributos autorais; JS considera literais; CSS considera conteúdo gerado. Valores construídos dinamicamente e formatos não suportados exigem revisão específica. Exceção pontual de Markdown pode ser documentada na mesma linha com `<!-- meds-language-exception: motivo verificável -->`; não usar isso para omitir defeitos de redação.
 
 ## Autonomia e segurança
 

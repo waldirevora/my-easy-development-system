@@ -27,3 +27,7 @@ Thumbs.db
 /.qa-meds-temporario-*/
 .aws/
 .codex/
+
+# Projetos locais; somente o marcador pertence ao MEDS
+/workspaces/*
+!/workspaces/.gitkeep

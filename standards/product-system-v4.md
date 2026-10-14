@@ -1,11 +1,11 @@
-# My Easy Development System Product System v4.1
+# My Easy Development System Product System v4.3
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | My Easy Development System Product System v4.1 |
-| Versão | 4.1 |
+| Nome oficial | My Easy Development System Product System v4.3 |
+| Versão | 4.3 |
 | Estado canônico | Stable |
 | Finalidade | Estabelecer o processo operacional para planejar, desenvolver, revisar, testar, entregar e manter software com Codex nativo. |
 | Aplicabilidade | Qualquer linguagem, framework, sistema operacional ou ambiente de execução, respeitando a stack e a governança do projeto. |
@@ -214,6 +214,8 @@ Continuar atividades independentes e seguras se ainda contribuírem para o objet
 
 ## I. Qualidade e testes
 
+Em entregas com interface, o aceite visual do Web Experience complementa a validação funcional: relacionar direção escolhida, resultado renderizado, crítica, correções e reinspeção. Skills lidas e capturas produzidas não comprovam isoladamente a aplicação criativa. Aplicar também a linguagem autoral do AGENTS; manter julgamento editorial e resultados técnicos separados, sem antecipar aceite estético humano.
+
 Relacionar critérios de aceitação a cenários e selecionar o menor conjunto suficiente por probabilidade, impacto e superfície afetada. Usar ferramentas nativas e do ecossistema já disponíveis; não instalar dependências sem necessidade e autorização compatíveis.
 
 | Camada ou tipo | Aplicação proporcional |
@@ -232,7 +234,16 @@ Usar dados sintéticos ou autorizados, isolamento e limpeza segura. Não copiar 
 
 Ao falhar: reproduzir, diagnosticar, corrigir dentro do escopo, repetir o teste afetado e a regressão relacionada. Não enfraquecer asserts, simular aprovação ou ignorar instabilidade sem causa documentada.
 
-Para cenários importantes, registrar identificador/requisito, esperado, observado, ambiente/comando, evidência e resultado: `PASS`, `FAIL`, `BLOCKED` ou `NOT_APPLICABLE`. Usar `BLOCKED` com causa para teste necessário não executado; usar `NOT_APPLICABLE` somente com justificativa de inaplicabilidade. Esses resultados não são os pareceres de revisão da seção G.
+Para cenários importantes, registrar identificador/requisito, esperado, observado, ambiente/comando, evidência e resultado de teste. Esses resultados não são os pareceres de revisão da seção G.
+
+| Resultado de teste | Significado |
+| --- | --- |
+| `PASS` | Teste efetivamente executado e aprovado. |
+| `FAIL` | Teste efetivamente executado e reprovado. |
+| `BLOCKED` | Teste não executado devido a impedimento comprovado, com causa e impacto. |
+| `NOT RUN` | Teste não executado por outro motivo, explicitado. |
+
+Inspeções devem ser identificadas separadamente por método, achado e alcance; não equivalem a execução funcional. `NOT_APPLICABLE` continua disponível para justificar superfície inexistente, sem substituir status de teste não executado. Não fabricar evidências. DOM simulado não substitui navegador real; imagem isolada não valida site. Corrigir falhas no Gate A e repetir testes pertinentes, sem verificações desproporcionais ou relatórios redundantes.
 
 Para ajustes triviais sem efeito comportamental, uma inspeção direta e verificações de integridade podem bastar. Não exigir suíte completa, cobertura numérica universal ou todas as camadas. Não inventar execução, métricas, resultados de scanner, aprovação independente ou conformidade de acessibilidade.
 
@@ -373,7 +384,10 @@ Standards especializados futuros devem detalhar roteamento, controles de domíni
 
 ### Registro da revisão operacional
 
+Revisão 4.3, autorizada no escopo de design, UI/UX e linguagem: aceite visual contextual articulado ao Web Experience, rastreabilidade de aplicação das Skills e referência à linguagem única do AGENTS. Preserva Gates e arquitetura. Validação documental e testes não equivalem a aprovação estética humana ou originalidade de mercado.
+
 | Versão | Mudança e autorização | Limite de evidência |
 | --- | --- | --- |
 | 4.0 | Edição anterior conservada no histórico Git do framework. | Estado canônico documental não comprova operação. |
 | 4.1 | Regra operacional compatível de raízes de escrita, autoria agente/runtime, confinamento condicional, bloqueios e processos novos. Autorizada expressamente no Gate A FINAL; arquivo `product-system-v4.md` e arquitetura preservados. | Incorporação e verificações locais concluídas na consolidação Gate A FINAL; os artefatos de auditoria foram removidos da árvore operacional por decisão do responsável. Não concede Gate B nem valida isolamento universal. Referências anteriores a v4.0 continuam identificando a edição histórica. |
+| 4.2 | Gate A de usabilidade de 13/10/2026: estados de teste PASS/FAIL/BLOCKED/NOT RUN e distinção de inspeção e execução. | Preserva Gates, arquivos canônicos e registros históricos; não comprova nova sessão Codex. |

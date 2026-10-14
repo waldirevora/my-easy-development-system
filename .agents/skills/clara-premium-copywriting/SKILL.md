@@ -22,7 +22,7 @@ Não ativar para manutenção de backend ou refatoração sem texto visível.
 3. Construir hierarquia de mensagem: benefício concreto, como funciona, evidência, objeção e próxima ação.
 4. Redigir textos legíveis, objetivos, humanos e específicos ao setor/empresa.
 5. Ajustar microcopy para acessibilidade, estados de UI, expectativa de resposta, privacidade e consentimento.
-6. Revisar consistência entre marca, conteúdo, SEO/GEO e direção visual.
+6. Revisar consistência entre marca, conteúdo, SEO/GEO e direção visual. Aplicar a política de linguagem autoral do AGENTS, inclusive strings de feedback; usar o verificador disponível e revisar exceções pelo sentido, sem substituição cega.
 7. Apresentar revisão justificada e fatos que precisam ser confirmados.
 
 ## Critérios de qualidade

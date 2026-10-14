@@ -2,6 +2,29 @@
 
 Referência operacional em português do Brasil. Rodada documental Gate A 7.1, de 11/10/2026. Este guia complementa as fontes canônicas; não altera suas regras nem concede acesso, instalação ou publicação. Consolidação final: regra prática de escrita incorporada por autorização do Gate A FINAL. Os artefatos de auditoria foram removidos da árvore operacional por decisão do responsável, mantendo os resultados como fatos históricos. Os relatos da rodada 7.1 abaixo são históricos, não resultados desta execução.
 
+## Início rápido: Desktop e CLI
+
+**Codex Desktop:** obtenha o MEDS por clone ou download autorizado, abra sua pasta no aplicativo e inicie uma conversa local com escrita autorizada. Peça, por exemplo: “Crie um site premium para um condomínio de luxo em Osasco, com imagens originais e formulário de contato.” O Codex deve criar a pasta automaticamente em `workspaces/site-condominio/`, implementar, testar e documentar. A entrega informa o destino exato e como abrir/executar pelo README do projeto.
+
+**Codex CLI:** se ainda não estiver instalado/autenticado, consulte o [guia oficial](https://learn.chatgpt.com/docs/codex/cli) antes de usar `codex`. Com o MEDS já obtido, entre na pasta pelo terminal e inicie:
+
+```sh
+cd my-easy-development-system
+codex
+```
+
+Envie o pedido curto na conversa. Não é necessário instalar globalmente o MEDS, usar WSL ou copiar suas 12 Skills. Para obter o repositório com Git, veja o [README](../README.md); clone/download exige acesso autorizado. O [início rápido oficial](https://learn.chatgpt.com/docs/quickstart) orienta a configuração do aplicativo.
+
+O `AGENTS.md` da raiz orienta a sessão; `.agents/skills/` contém as capacidades locais. Dentro do checkout, trabalhar em `workspaces/` mantém o MEDS nos ancestrais usados pela descoberta. Confira o catálogo na retomada; instruções globais/overrides podem interferir. Sem Git, inicie na raiz MEDS; um Git próprio pode mudar a raiz de descoberta. Não existe busca automática numa pasta MEDS irmã nem integração global. Fontes oficiais estão na seção 6.
+
+**Escopo:** pedido de produto escreve exclusivamente em `workspaces/<slug>/`, incluindo assets, testes, temporários e documentação; lê as fontes compartilhadas sem copiá-las ou modificá-las. Manutenção explicitamente autorizada do MEDS é outra atividade. O slug usa minúsculas, hífens e caracteres seguros; colisões não sobrescrevem outro projeto. Isso é política de escopo, não confinamento do sistema operacional: o sandbox continua valendo.
+
+**Git:** somente `workspaces/.gitkeep` pertence à estrutura versionável MEDS. Os demais arquivos ficam locais e ignorados; arquivos previamente versionados exigem registro, sem remoção automática. Repositório próprio somente por solicitação explícita, com descoberta reconferida. Nenhum Git é inicializado por rotina.
+
+**Entrega:** nome, pasta, funcionalidades, principais arquivos, fontes efetivamente consultadas, testes e resultados reais, como executar, limitações e pendências, numa resposta consolidada. Imagens dependem de ferramenta autorizada; SVG/CSS são alternativas identificadas. Geração e otimização são etapas distintas. Sem navegador real, não alegar QA visual do site. O pedido pode constituir Gate A local; publicação e demais ações protegidas mantêm seus Gates.
+
+Para projeto externo, preserve o fluxo independente da seção 3. O restante do guia inclui referências operacionais e registros históricos, que não são evidências desta atualização.
+
 ## 1. Propósito, componentes e limitações
 
 O My Easy Development System (MEDS) é um framework de instruções e procedimentos para desenvolver software e experiências digitais com qualidade proporcional ao risco. A arquitetura documental combina VS Code, Codex nativo, Product System, Standards, Skills e templates. Não é uma aplicação instalável, um servidor ou uma automação de deploy.
@@ -65,7 +88,7 @@ A documentação oficial descreve a [extensão Codex para IDE](https://learn.cha
 
 Há dois usos distintos:
 
-**A: trabalhar no repositório MEDS.** Abra a pasta clonada no VS Code/Codex e use [AGENTS.md](../AGENTS.md), Standards e Skills locais. Seu nome físico pode diferir do recomendado. Descubra a raiz com `git rev-parse --show-toplevel` dentro do repositório, valide os marcadores e coloque caminhos entre aspas. Em scripts Python, parta de `Path(__file__).resolve()` e suba somente até uma pasta com `AGENTS.md` e `.agents/skills/`; não trate `cwd` como raiz sem validar. Em scripts PowerShell, use `$PSScriptRoot` quando o arquivo estiver dentro do projeto. Links Markdown são relativos ao arquivo que os contém.
+**A: trabalhar dentro do MEDS.** Abra sua pasta no Codex Desktop, CLI ou IDE. Pedidos de produto são entregues em workspaces; somente manutenção explícita altera o framework. Leia [AGENTS.md](../AGENTS.md), Standards e Skills locais. Seu nome físico pode diferir do recomendado. Descubra a raiz com `git rev-parse --show-toplevel` dentro do repositório, valide os marcadores e coloque caminhos entre aspas. Em scripts Python, parta de `Path(__file__).resolve()` e suba somente até uma pasta com `AGENTS.md` e `.agents/skills/`; não trate `cwd` como raiz sem validar. Em scripts PowerShell, use `$PSScriptRoot` quando o arquivo estiver dentro do projeto. Links Markdown são relativos ao arquivo que os contém.
 
 O [verificador local](../scripts/check.py) implementa a descoberta pelo próprio arquivo e funciona mesmo quando executado de outro diretório:
 
@@ -77,7 +100,7 @@ python3 -B ../scripts/check.py
 
 Em PowerShell, use o interpretador Python 3 já observado, por exemplo `python -B .\scripts\check.py` na raiz. O verificador não precisa de Git, rede ou dependências externas; confere estrutura, sintaxe, Markdown/links internos e executa os testes Python existentes. URLs externas e browser não fazem parte dessa validação.
 
-### Preparar um projeto novo
+### Preparar um projeto externo independente
 
 Clonar o MEDS e aplicar suas instruções em outro projeto são ações diferentes. A estratégia desta revisão é copiar um inventário explícito para uma pasta nova ou vazia, fora da instalação de origem. Autorize o destino antes da cópia. O diretório pai deve existir; não usar projetos reais como fixture de teste.
 
@@ -112,7 +135,7 @@ meu-projeto/
 
 O script verifica a presença das 28 fontes antes de escrever; só aceita destino ausente ou vazio, com pai existente. Rejeita symlinks nas fontes selecionadas e nos ancestrais do destino, sem sobrescrever arquivos. Se houver falha de escrita depois do início, registre cópia incompleta e confira os arquivos produzidos antes de uma nova tentativa. Isso não é um confinamento de segurança contra alterações concorrentes do filesystem; o sandbox e o Gate A continuam delimitando a execução.
 
-Os arquivos copiados são conferidos por hash em memória. O conteúdo normativo é preservado, com duas adaptações explícitas: o objetivo do `AGENTS.md` passa a se referir ao projeto de destino e recebe referência à licença; a licença MEDS é nomeada `MEDS-LICENSE`, para não definir a licença do produto. Não são copiados `.git`, `.aws`, `.codex`, caches, docs de onboarding, scripts, laboratório ou dados de clientes. Standards, templates e Skills são copiados juntos para preservar as dependências de leitura e links entre essas fontes. Não há manifestos externos ou instalações globais gerados por esse comando.
+Os arquivos copiados são conferidos por hash em memória. O conteúdo normativo compartilhado é preservado. O objetivo do `AGENTS.md` passa a se referir ao projeto de destino, o bloco específico da instalação MEDS é substituído pela raiz do projeto independente e há referência à licença. A licença MEDS é nomeada `MEDS-LICENSE`, para não definir a licença do produto. Não são copiados `.git`, `.aws`, `.codex`, caches, docs de onboarding, scripts, laboratório ou dados de clientes. Standards, templates e Skills são copiados juntos para preservar as dependências de leitura e links entre essas fontes. Não há manifestos externos ou instalações globais gerados por esse comando.
 
 Adicione uma especificação de negócio autorizada e abra a raiz do destino no VS Code/Codex. Na nova sessão, confira AGENTS e o catálogo de Skills; a ausência de Git não impede a cópia, mas `codex exec` exige um repositório Git ou a opção oficial `--skip-git-repo-check` quando o contexto sem Git estiver autorizado. Não inicialize Git por consequência se o Gate A proibir essa operação.
 
@@ -120,7 +143,7 @@ Adicione uma especificação de negócio autorizada e abra a raiz do destino no 
 
 O script recusa qualquer pasta ocupada, inclusive uma que já tenha AGENTS, Skills ou licença. Não apague nem substitua essas fontes para fazê-lo passar. Integração em projeto existente exige comparação e adaptação explícitas numa alteração revisável, com backup autorizado quando necessário e preservação das decisões locais. Esse fluxo manual não é homologado automaticamente pelo teste do projeto vazio. Não copiar todas as instruções de origem sobre um projeto sem avaliar conflitos ou supor que uma pasta irmã seja descoberta.
 
-A descoberta local documentada é compatível com a estratégia de arquivos na raiz do destino. Verificar nomes, descrições e paths no catálogo; depois observar leitura do SKILL.md antes do procedimento. Contar arquivos, conferir hashes e rodar o laboratório não comprova carregamento real ou bootstrap universal. O [teste rápido do README](../README.md) oferece uma tarefa limitada de leitura e testes; em um projeto novo, use a função ou requisito sintético realmente presente nele, em vez do laboratório que não foi copiado.
+A descoberta local documentada é compatível com arquivos na raiz do destino externo. Confira nomes, descrições e caminhos no catálogo; depois observe a leitura do SKILL.md antes do procedimento. Contar arquivos, conferir hashes e rodar o laboratório não comprova carregamento real ou bootstrap universal. Para diagnóstico limitado, peça leitura das instruções e execução de testes existentes com -B, sem edição, instalações, credenciais, serviços externos ou Git mutável. Num projeto novo, use seus testes reais; o laboratório MEDS não é copiado.
 
 ## 4. Estrutura e origem canônica
 
@@ -204,6 +227,8 @@ Quando o Gate A exigir confinamento técnico estrito, usar mecanismos existentes
 
 ## 9. Desenvolvimento, QA e correções
 
+Em interface nova ou redesign, siga a exploração criativa do Web Experience e registre brevemente três alternativas realmente distintas, a escolha e seus motivos. Relacione decisões de Julian à implementação de Kael e à crítica de Visual QA; nomes de Skills não são prova de aplicação. Examine capturas desktop/mobile, trate achados e reinspecione antes do parecer. Separe resultados técnicos, julgamento editorial e aceite estético humano. Sem navegador, registre `BROWSER_QA: BLOCKED`. A linguagem e as exceções são regidas pelo AGENTS; o verificador de pontuação apoia, mas não substitui, leitura editorial.
+
 1. Conferir baseline, fontes de verdade e autorização.
 2. Converter requisitos em cenários verificáveis.
 3. Planejar solução mínima compatível com a stack e ambiente existentes.
@@ -227,12 +252,12 @@ Classificações de aceite deste protocolo:
 
 | Status | Condição |
 | --- | --- |
-| PASS | Esperado observado com evidência vinculada à versão examinada. |
-| FAIL | Divergência observada e sustentada por evidência. |
-| BLOCKED | Verificação impedida por condição material identificada. |
-| NOT TESTED | Verificação não executada ou sem evidência suficiente. |
+| PASS | Teste efetivamente executado e aprovado, com evidência vinculada à versão examinada. |
+| FAIL | Teste executado e reprovado, com divergência sustentada por evidência. |
+| BLOCKED | Teste não executado por impedimento comprovado, com causa e impacto. |
+| NOT RUN | Teste não executado por outro motivo, explicitado. |
 
-Algumas Skills/templates usam outros estados, como NOT_APPLICABLE, APPROVED ou CHANGES_REQUIRED. Preservar seus significados na origem; nesta matriz utilizar os quatro estados acima e justificar exclusões no campo de roteamento.
+Inspeções têm método, achados e alcance próprios; não substituem execução funcional. NOT_APPLICABLE justifica superfície inexistente, sem substituir teste não executado. APPROVED e CHANGES_REQUIRED são pareceres, não resultados de teste. NOT TESTED permanece apenas nos registros históricos. DOM simulado e imagem isolada não substituem validação do site em navegador real.
 
 ## 10. Security Gate proporcional
 
@@ -295,7 +320,7 @@ Cenário sintético: organização de pedidos de restauração de livros. Proble
 
 Especificação inicial: UI local sem serviços externos; descrição obrigatória até 120 caracteres; prioridade normal/urgente; lista e contagem; remover com confirmação; dados só em memória, sem clientes reais. Aceite: vazio não entra; dois pedidos produzem contagem dois; remoção confirmada reduz para um; cancelar preserva; atualizar página limpa os dados e essa limitação aparece na interface; uso por teclado e largura de 360 px sem corte.
 
-O humano prepara pasta vazia e confere cópia/hashes, coloca a especificação aprovada e concede Gate A para implementar, testar e corrigir localmente, sem instalação, Git ou publicação. Abre a raiz e inicia Codex.
+No fluxo interno, o humano abre o MEDS e descreve esse projeto; o Codex cria a pasta segura em workspaces e sintetiza a especificação dentro do Gate A. Não exige cópia/hashes manual. No fluxo externo, mantém-se a preparação independente da seção 3. Instalação, Git e publicação dependem de autorização específica.
 
 O executor descobre as fontes, classifica UI local com entrada de texto e escolhe capacidades proporcionais. Uma possível seleção é Product System, Web Experience, Routing e controles pertinentes do Standard 07, com Skills de UI, design, texto, qualidade e QA visual conforme atividade. Dispensa IA de produto, SEO/GEO, dados persistentes e release pelas exclusões reais. Trata a escolha como decisão a registrar, não lista universal.
 

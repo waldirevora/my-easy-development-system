@@ -19,11 +19,11 @@ Não ativar para backend puro ou alterações sem impacto na experiência.
 ## Processo
 1. Inspecionar produto existente, público, jornada, objetivos, identidade e restrições.
 2. Identificar problemas concretos de hierarquia, composição, confiança, leitura e interação.
-3. Propor direção visual argumentada: tipografia, ritmo, grids, espaçamento, contraste, imagem, ícones, estados e comportamento responsivo.
+3. Aplicar a exploração de três direções materialmente distintas prevista no Standard Web Experience, seção C. Registrar no contexto existente a comparação e a escolha antes de implementar; correções localizadas recuperam a direção vigente.
 4. Definir padrões reutilizáveis sem transformar todas as páginas em template repetitivo.
 5. Aprovar decisões materiais de direção de arte no Gate A quando o projeto exigir.
 6. Orientar implementação por Kael e interação com textos de Clara.
-7. Revisar renderizações reais em larguras representativas; encaminhar achados à execução e ao Visual QA independente.
+7. Revisar renderizações reais em larguras representativas e encaminhar achados à execução e ao Visual QA. Preferir revisor independente quando disponível e autorizado; caso contrário, declarar autorrevisão e seus limites conforme Product System.
 
 ## Qualidade visual
 - Priorizar sistema tipográfico, informação clara, composição e whitespace consistente.
@@ -40,4 +40,4 @@ Escolher referências e imagens pertinentes, autorizadas e coerentes com a narra
 Avaliar a interface renderizada, não somente o código ou mockup: contraste, quebra de texto, densidade, alinhamento, equilíbrio, legibilidade, interação, hierarquia, navegação e sinais de design genérico.
 
 ## Entrega
-Direção de arte clara, escolhas de sistema visual, decisões justificadas, requisitos para Kael, itens para Clara e checklist para `visual-interface-qa`. Não aprovar sua própria implementação como substituição à revisão independente.
+Direção de arte clara, escolhas de sistema visual, decisões justificadas e critérios observáveis para Kael, Clara e Visual QA. Relacionar pelo menos as decisões relevantes de tipografia, composição, cor e interação ao resultado renderizado. A seleção da Skill não comprova aplicação. Não aprovar sua própria implementação como substituição à revisão independente.

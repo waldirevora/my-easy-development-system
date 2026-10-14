@@ -34,11 +34,28 @@ class CopyHarnessTests(unittest.TestCase):
             if relative not in ("AGENTS.md", "LICENSE"):
                 self.assertEqual((self.source / relative).read_bytes(),
                                  (self.destination / relative).read_bytes())
-        agents = (self.destination / "AGENTS.md").read_text()
-        original = (self.source / "AGENTS.md").read_text()
+        agents = (self.destination / "AGENTS.md").read_text(encoding="utf-8")
+        original = (self.source / "AGENTS.md").read_text(encoding="utf-8")
         self.assertEqual(agents.split("## Regra principal", 1)[1].split(
             "\nAs fontes copiadas", 1)[0], original.split("## Regra principal", 1)[1])
         self.assertIn("aos seus próprios requisitos", agents)
+        self.assertIn("Raiz do projeto independente", agents)
+        self.assertNotIn("MEDS-WORKSPACE-START", agents)
+        self.assertNotIn("criar automaticamente `workspaces/<slug>/`", agents)
+
+    def test_invalid_scope_markers_fail_before_writing(self):
+        path = self.source / "AGENTS.md"
+        original = path.read_text(encoding="utf-8")
+        start = "<!-- MEDS-WORKSPACE-START -->"
+        end = "<!-- MEDS-WORKSPACE-END -->"
+        variants = [original.replace(start, ""), original.replace(end, ""),
+                    original.replace(start, "__START__").replace(end, start).replace("__START__", end)]
+        for content in variants:
+            with self.subTest(content=content[:60]):
+                path.write_text(content, encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, "Marcadores de escopo"):
+                    copy_harness(self.source, self.destination)
+                self.assertFalse(self.destination.exists())
 
     def test_existing_empty_directory_is_supported(self):
         self.destination.mkdir()

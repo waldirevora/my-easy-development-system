@@ -1,6 +1,6 @@
-# My Easy Development System QA & Review Report v1.0.1
+# My Easy Development System QA & Review Report v1.2
 
-**Versão:** 1.0.1. **Estado inicial:** Candidate.
+**Versão:** 1.2. **Estado inicial:** Candidate.
 
 ## A. Identificação e uso
 
@@ -12,6 +12,24 @@ Usar relato direto na conversa quando ele bastar; modo rápido para mudança del
 
 Distinguir implementação da alteração, inspeção, teste realmente executado, avaliação do observado contra o esperado, autorrevisão, revisão independente, parecer técnico, autorização humana de entrega e verificação após publicação. Nenhuma dessas atividades comprova automaticamente a seguinte. Candidate e revisão documental deste template não demonstram qualidade de produto ou eficácia operacional do processo.
 
+## Entrega simples ao usuário
+
+Para concluir um projeto, usar uma única resposta consolidada com os campos abaixo; não criar relatório separado por rotina nem duplicar o registro de testes.
+
+```markdown
+Projeto e pasta: [nome e caminho relativo de entrega].
+Funcionalidades e principais arquivos: [o que foi implementado e onde].
+Standards e Skills consultados: [somente fontes efetivamente lidas/aplicadas].
+Testes executados: [comando/procedimento, ambiente e PASS/FAIL; evidência curta].
+Não executados: [BLOCKED com impedimento comprovado; NOT RUN com outro motivo].
+Como abrir/executar: [passos reais e pré-requisitos pertinentes].
+Interface, quando aplicável: [direção escolhida; BROWSER_QA e capturas realmente examinadas; crítica editorial, achados, correções e limites; autorrevisão ou independência real].
+Linguagem: [checagem automatizada pertinente, leitura editorial e exceções justificadas segundo AGENTS].
+Limitações e pendências: [escopo, riscos e ações humanas necessárias].
+```
+
+Não listar o catálogo inteiro de Skills. Em projeto pequeno, o README e esta resposta podem bastar. QA visual de site só pode ser afirmado com navegador real; DOM simulado, inspeção estática e imagem isolada não o substituem. Identificar autorrevisão ou revisão independente real.
+
 ## B. Modo rápido
 
 Para ajuste simples, inspeção estática pode bastar quando suficiente ao risco e efeito. Identificar o método; não registrá-la como teste funcional executado.
@@ -19,7 +37,7 @@ Para ajuste simples, inspeção estática pode bastar quando suficiente ao risco
 ```markdown
 Alteração e escopo verificado: [mudança, superfície/estado examinados e limites].
 Critério de aceitação: [condição observável].
-Verificação realizada e resultado observado: [método/procedimento, esperado, observado, PASS/FAIL/BLOCKED/NOT_APPLICABLE no alcance declarado e referência segura; distinguir o que só foi planejado].
+Verificação realizada e resultado observado: [método/procedimento, esperado, observado, PASS/FAIL/BLOCKED/NOT RUN (testes); método e achados (inspeções) no alcance declarado e referência segura; distinguir o que só foi planejado].
 Limitações, falhas e pendências: [cobertura, defeitos, verificação ausente e impacto, quando pertinentes].
 Parecer técnico e próximo passo: [APPROVED/CHANGES_REQUIRED/BLOCKED, alcance, responsável e autorrevisão/revisão independente; próxima ação legítima, sem presumir Gate B].
 ```
@@ -43,7 +61,7 @@ Ambiente e ferramentas existentes: [ambiente autorizado, versões/configuraçõe
 Casos testados ou inspecionados: [critério/cenário, método e procedimento; separar executados, planejados e não executados].
 Resultado esperado: [condição por caso ou referência à matriz existente].
 Resultado observado: [fatos por caso, incluindo divergências e resultados inconclusivos].
-Evidência verificável e status: [referência segura, estado dos arquivos e PASS/FAIL/BLOCKED/NOT_APPLICABLE por verificação pertinente].
+Evidência verificável e status: [referência segura, estado dos arquivos e PASS/FAIL/BLOCKED/NOT RUN (testes); método e achados (inspeções) por verificação pertinente].
 Negativos e abuso: [casos, resultados ou referência, quando pertinentes].
 Regressão: [defeito reproduzido, adjacências e verificações afetadas repetidas].
 QA visual e acessibilidade: [interface realmente renderizada, estados, dimensões, métodos e limitações, quando pertinentes].
@@ -89,12 +107,12 @@ Preservar exatamente os resultados do Product System, separados dos pareceres t�
 
 | Resultado | Critério |
 | --- | --- |
-| `PASS` | Verificação realmente executada ou inspeção realizada, satisfatória no alcance declarado. Inspeção permanece identificada como inspeção. |
-| `FAIL` | Comportamento/condição observados divergem do esperado; registrar evidência e impacto. |
-| `BLOCKED` | Verificação necessária não realizada por falta de ambiente, acesso, autorização ou dependência; identificar causa e efeito. |
-| `NOT_APPLICABLE` | Superfície ou condição não existe no escopo real, com justificativa; não significa indisponibilidade. |
+| `PASS` | Teste efetivamente executado e aprovado. |
+| `FAIL` | Teste executado e reprovado, com evidência da divergência. |
+| `BLOCKED` | Teste não executado por impedimento comprovado; identificar causa e impacto. |
+| `NOT RUN` | Teste não executado por outro motivo, explicitado. |
 
-Não executado, planejado, parcialmente verificado e inconclusivo descrevem andamento/cobertura, não novos resultados nem PASS. Caso planejado ainda não tem resultado observado. Se a evidência essencial puder ser obtida no Gate A, executar antes do parecer final; se faltar condição necessária, registrar BLOCKED. Evidência parcial pode sustentar PASS somente da parte identificada, sem aprovação geral. Divergência observada é FAIL; lacuna/inconclusão exige investigação ou condição explícita de bloqueio. Limitação material afeta o parecer.
+Registrar inspeções separadamente, por método, achados e alcance, sem convertê-las em execução funcional. `NOT_APPLICABLE` justifica superfície inexistente; não substitui teste não executado. Teste parcial só comprova a parte executada. Ausência de evidência essencial impede aprovação geral; investigar divergências, corrigir e repetir verificações pertinentes sem relatórios redundantes.
 
 ## F. Rastreabilidade das evidências
 
@@ -204,9 +222,12 @@ Parecer técnico e próximo passo: [emitir após evidências reais]; corrigir no
 
 ## L. Evolução
 
+Revisão 1.2, autorizada no escopo de design, UI/UX e linguagem: o modo de entrega passa a registrar direção, telas examinadas, crítica, correções e limites, além da checagem autoral referenciada no AGENTS. Não cria relatório adicional obrigatório nem converte teste funcional em parecer estético.
+
 Avaliar usabilidade na integração/testes autorizados com Codex e no piloto real; revisar o framework diante de evidências. Simplificar campos com justificativa observável, preservando controles essenciais e versionamento do Product System. A inspeção ampla desta autoria não é procedimento obrigatório futuro. Não criar Standard, sistema de logs, banco de evidências, automação, checklist universal ou etapa adicional de aprovação.
 
 | Versão | Estado | Registro |
 | --- | --- | --- |
 | 1.0 | Candidate | Modos rápido/completo, métodos, resultados, evidências, revisão e três exemplos planejados; validação operacional e de uso permanece posterior. |
 | 1.0.1 | Candidate | Revisão corretiva documental: reconhecimento do Template 04 já publicado e correção da afirmação histórica desatualizada na seção J. Correção factual da referência e atualização editorial da identificação, sem alterar critérios de QA, Security Gate, Gate A, Gate B ou obrigações operacionais. Autorizada pelo responsável mediante envio do prompt específico da rodada 5.1B ao Codex, em 08/10/2026. Não representa teste operacional do template, revisão independente já realizada ou promoção a Stable. |
+| 1.1 | Candidate | Gate A de usabilidade de 13/10/2026: entrega consolidada, estados PASS/FAIL/BLOCKED/NOT RUN e limites de QA. Validação documental não comprova uso em projeto real. |

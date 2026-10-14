@@ -65,6 +65,20 @@ def copy_harness(source: Path, destination: Path) -> Path:
         raise ValueError("Objetivo de AGENTS.md mudou; revisar adaptação antes de copiar.")
     agents = agents.replace(old_objective,
         "Este projeto aplica o My Easy Development System aos seus próprios requisitos.", 1)
+    # O destino externo usa sua própria raiz, sem criar workspaces recursivos.
+    start = "<!-- MEDS-WORKSPACE-START -->"
+    end = "<!-- MEDS-WORKSPACE-END -->"
+    if (agents.count(start) != 1 or agents.count(end) != 1
+            or agents.index(end) < agents.index(start)):
+        raise ValueError("Marcadores de escopo MEDS ausentes ou inválidos; revisar adaptação.")
+    before, scoped = agents.split(start, 1)
+    _, after = scoped.split(end, 1)
+    agents = (before + "## Raiz do projeto independente\n\n"
+              "Desenvolver exclusivamente na raiz autorizada deste projeto, incluindo "
+              "testes, assets, documentação e temporários. Não criar workspaces/ "
+              "por rotina nem modificar a instalação MEDS de origem ou outros projetos. "
+              "Git próprio exige solicitação explícita. Respeitar permissões reais; "
+              "a regra de escopo não substitui o sandbox.\n" + after)
     agents += ("\nAs fontes copiadas do MEDS usam Apache-2.0; consulte "
                "[MEDS-LICENSE](MEDS-LICENSE). A licença do produto é definida separadamente.\n")
     payloads["AGENTS.md"] = agents.encode("utf-8")

@@ -28,7 +28,23 @@ Preferir revisor distinto do executor e acesso a evidências reais (browser, scr
 7. Registrar achados reproduzíveis com severidade, contexto, evidência e sugestão concreta.
 8. Encaminhar correções ao responsável apropriado (Kael, Julian ou Clara), reinspecionar partes afetadas e registrar resultado.
 
-## Severidade
+## Crítica visual e evidência de aplicação
+
+Usar o aceite visual do Standard Web Experience. Registrar uma observação concreta para cada dimensão pertinente, sem transformar preferência pessoal em regra universal:
+
+| Dimensão | Avaliação contextual |
+| --- | --- |
+| Identidade | Relacionar personalidade, público e justificativa da paleta à direção escolhida. Identificar soluções automáticas sem fundamento. |
+| Composição | Examinar hierarquia, ritmo, coerência e repetição de cards/blocos. |
+| Tipografia | Conferir personalidade, legibilidade, consistência e quebras reais. |
+| Interação | Exercitar controles, propósito do movimento, estados e feedback. |
+| Responsividade | Examinar desktop e mobile, enquadramentos, cortes, foco e overflow. |
+| Diferenciação | Confrontar decisões próprias com a baseline e referências realmente acessíveis. Não inferir unicidade de mercado. |
+| Linguagem | Avaliar naturalidade, clichês, adequação e política do AGENTS. Automação não substitui leitura. |
+
+Identificar arquivos/capturas, viewport e estado examinados; registrar achado, severidade, correção e reinspeção. Não marcar aprovação visual por contagem de testes ou existência de screenshots. Separar BROWSER_QA técnico de parecer editorial; sem navegador, registrar BROWSER_QA: BLOCKED. Sem inspeção suficiente, não aprovar integralmente. A aceitação estética final pertence ao usuário.
+
+## Classificação dos achados
 - `BLOCKER`: impede tarefa crítica, conteúdo essencial ou acesso esperado.
 - `HIGH`: falha relevante de legibilidade, contraste, responsividade ou hierarquia.
 - `MEDIUM`: inconsistência visível com impacto moderado.

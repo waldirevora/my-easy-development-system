@@ -1,12 +1,12 @@
-# My Easy Development System Web Experience & Business Systems v1.0
+# My Easy Development System Web Experience & Business Systems v1.2
 
 ## A. Identificação, escopo e aplicação
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | My Easy Development System Web Experience & Business Systems v1.0 |
+| Nome oficial | My Easy Development System Web Experience & Business Systems v1.2 |
 | Identificador | Standard 02 |
-| Versão | 1.0 |
+| Versão | 1.2 |
 | Estado canônico | Stable |
 | Finalidade | Estabelecer critérios operacionais de engenharia, design, experiência e qualidade para interfaces orientadas a objetivos editoriais, comerciais e operacionais. |
 | Aplicabilidade | Websites institucionais premium, landing pages, páginas comerciais, portais, aplicações web, dashboards, sistemas empresariais, interfaces administrativas e interfaces locais/desktop, conforme a superfície. |
@@ -74,6 +74,22 @@ Premium significa qualidade e intencionalidade, não necessariamente luxo, ornam
 Evitar interfaces genéricas, excesso de cards iguais sem função, gradientes gratuitos, animações decorativas e aparência padronizada de conteúdo gerado por IA. Um card, gradiente ou composição recorrente pode ser apropriado quando sua função for demonstrável. Não transformar gosto pessoal em proibição universal.
 
 Websites podem adotar composição editorial; sistemas operacionais devem privilegiar leitura, precisão e eficiência. Mudanças materiais de identidade precisam respeitar a decisão aprovada. Encaminhar direção a Julian, implementação a Kael e revisão renderizada a Visual QA quando essas capacidades forem pertinentes.
+
+### Exploração criativa e identidade contextual
+
+Antes de implementar interface nova ou redesign, considerar pelo menos três direções materialmente diferentes. Comparar conceito, tipografia, paleta, composição, ritmo, hierarquia, tratamento de imagens, navegação e interação. Não basta recolorir o mesmo layout. Registrar brevemente no contexto existente as alternativas, a direção escolhida e por que atende público, posicionamento, objetivo, personalidade, clareza, diferenciação, viabilidade e acessibilidade. Decidir no Gate A sem microaprovações; não construir três sites. Em correção localizada, recuperar a exploração vigente e avaliar apenas o delta.
+
+Não há uma estética MEDS para clientes. Marfim, verde, dourado, serifada, fotografia ampla, duas colunas, cards, gradientes, badges, glassmorphism ou animações não são receitas nem proibições universais. Justificar o uso pelo conteúdo e pela tarefa, sem reutilizar automaticamente o projeto anterior. Composição editorial, assimetria, variação de densidade e tipografia expressiva só são úteis quando preservam leitura, hierarquia, navegação, contraste, responsividade e performance.
+
+Definir tokens de fundo, superfície, texto, destaque, ação, estados, bordas e feedback. Escolher fontes por personalidade, hierarquia, legibilidade, pares, carregamento e fallback; avaliar licença e uso offline antes de exigir fontes externas. Cada interação deve orientar navegação, exploração, feedback ou produtividade. Respeitar movimento reduzido. Sistemas administrativos e sites comerciais têm prioridades diferentes.
+
+### Produção dos recursos visuais
+
+Quando o projeto solicitar imagens, verificar as ferramentas realmente disponíveis e autorizadas. Gerar imagens originais quando houver ferramenta adequada; se não houver, usar alternativas proporcionais como SVG/CSS e registrar a limitação. SVG desenhado não deve ser apresentado como imagem gerada por IA. Não exigir imagens em produtos que não precisam delas, nem instalar ferramentas ou contratar serviços sem autorização.
+
+Salvar assets dentro da pasta do projeto, com caminhos relativos e sem URLs externas obrigatórias. Manter direção visual consistente, formatos, proporções, recortes e resolução adequados ao uso. Geração e otimização são etapas distintas: depois de gerar, conferir dimensões e peso, reduzir/comprimir quando ferramentas existentes permitirem e evitar arquivos excessivamente pesados. Informar quando a otimização não foi possível; não alegar medição inexistente.
+
+Criar textos alternativos conforme função (decorativos com alternativa vazia), respeitar licenças e direitos de uso e registrar origem/licença quando pertinente. Identificar imagens conceituais ou ilustrativas quando puderem ser confundidas com imóvel, produto, pessoa ou prova comercial real. Conferir carregamento e composição no navegador; imagem isolada não valida o site.
 
 ## D. Arquitetura da informação
 
@@ -289,13 +305,19 @@ Selecionar verificações conforme mudança, exposição e criticidade. Relacion
 | Integrações e fluxos críticos | Testar contratos, sucesso, rejeição, falhas e conflitos pertinentes com dados sintéticos ou autorizados. |
 | Regressão | Reexecutar cenários afetados e comportamentos adjacentes após correção ou mudança relevante. |
 
-QA visual deve usar browser, aplicativo em execução ou capturas de renderização pertinentes; código e mockup não comprovam o resultado. Capturas estáticas não comprovam interação.
+QA visual de site exige navegador real disponível e autorizado, com interface renderizada nas larguras e estados pertinentes. DOM simulado não substitui navegador, inspeção estática não substitui execução funcional e inspeção de imagem isolada não valida o site. Em aplicativo local, identificar o runtime real examinado. Capturas podem registrar a renderização, mas não comprovam interação.
 
-Distinguir **teste executado**, **inspeção realizada** e **teste necessário indisponível**, com causa e impacto. Usar os resultados `PASS`, `FAIL`, `BLOCKED` e `NOT_APPLICABLE` conforme o Product System; indisponibilidade não é inaplicabilidade.
+Distinguir **teste executado**, **inspeção realizada** e **teste necessário indisponível**, com causa e impacto. Usar os resultados `PASS`, `FAIL`, `BLOCKED` e `NOT RUN` conforme o Product System; indisponibilidade não é inaplicabilidade.
 
 Registrar tela/fluxo, perfil, ambiente, condição, esperado, observado, evidência e achado com severidade quando pertinente. Corrigir e repetir verificações afetadas antes do parecer. Identificar revisor e independência real; quando o executor revisar, declarar autorrevisão. Nenhuma troca de Skill cria independência por si só.
 
 ## P. Definition of Ready e Definition of Done
+
+### Aceite visual antes da entrega
+
+Para interfaces, funcionamento aprovado não basta para o aceite visual. Implementar, renderizar em navegador ou runtime real, capturar estados pertinentes, examinar as capturas e a experiência, apontar problemas concretos, corrigir e reinspecionar as partes afetadas. Julgar identidade, composição, tipografia, imagens, interação, responsividade, diferenciação e linguagem pelo procedimento da Skill Visual QA. Gerar screenshots sem examiná-los não cumpre o critério.
+
+Separar resultados técnicos objetivos de julgamento editorial fundamentado. Comparar outros projetos apenas quando suas fontes ou telas forem realmente acessíveis e houver pertinência; não afirmar exclusividade no mercado. Registrar direção, telas e estados examinados, achados, correções e limitações no registro existente. Sem navegador, usar `BROWSER_QA: BLOCKED`; com inspeção insuficiente, manter o parecer visual pendente. Autorrevisão não é revisão independente. O aceite estético do usuário continua necessário.
 
 Estes critérios complementam a seção M do Product System e devem ser proporcionais à superfície alterada.
 
@@ -364,3 +386,7 @@ Na entrega, explicitar cobertura, limitações de ambiente ou ferramenta, valida
 Revisar este Standard diante de conflito, falha recorrente ou nova necessidade comprovada. A revisão deve identificar regra, evidência, impacto e compatibilidade com Product System e Skills, seguindo a governança de evolução do Product System. Não alterar outros documentos sem escopo próprio.
 
 Futuras especializações, incluindo Authentication & Security, podem detalhar controles e procedimentos sem repetir este conteúdo nem enfraquecer o baseline. Até sua materialização, aplicar os documentos existentes pertinentes. A classificação Stable não substitui evidência de uso e validação operacional.
+
+Revisão 1.1, Gate A de usabilidade de 13/10/2026: imagens conforme ferramentas disponíveis, assets locais, geração distinta de otimização e QA de site em navegador real. Preserva escopo e Gates; revisão documental não comprova execução de produto.
+
+Revisão 1.2, autorizada no escopo de design e UI/UX: exploração de três direções, identidade contextual, tokens e aceite visual com crítica, correção e reinspeção. Nenhuma estética universal é criada; o julgamento editorial e o aceite humano continuam distintos de resultados técnicos.

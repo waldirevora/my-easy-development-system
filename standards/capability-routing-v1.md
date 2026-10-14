@@ -1,12 +1,12 @@
-# My Easy Development System Capability Routing Standard v1.0.1
+# My Easy Development System Capability Routing Standard v1.2
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | My Easy Development System Capability Routing Standard v1.0.1 |
+| Nome oficial | My Easy Development System Capability Routing Standard v1.2 |
 | Identificador | Standard 03 |
-| Versão | 1.0.1 |
+| Versão | 1.2 |
 | Estado canônico | Stable |
 | Finalidade | Definir como identificar, selecionar, consultar e reavaliar capacidades para executar tarefas com qualidade, segurança e contexto proporcional. |
 | Aplicabilidade | Criação, análise, manutenção, correção, refatoração, revisão e preparação de entrega de software e experiências digitais. |
@@ -40,6 +40,8 @@ Operar de forma simples: classificar, avaliar riscos, consultar fontes pertinent
 
 ## C. Classificação da tarefa
 
+Para interface nova ou redesign, rotear a exploração criativa para Julian conforme seção C do Web Experience; traduzir a direção em implementação por Kael e texto por Clara, com Quality para comportamentos e Visual QA para crítica renderizada. Capacidade selecionada, fonte lida, decisão aplicada e evidência examinada são estados distintos: vincular no registro existente as decisões relevantes às telas e verificações. Não basta listar Skills ou dizer que o resultado é premium. Usar a política de linguagem do AGENTS. Isso não ativa todas as 12 Skills, nem cria aprovação intermediária obrigatória.
+
 Classificar a próxima atividade com informação suficiente para decidir. Usar o contexto existente; não criar formulário obrigatório ou discovery extenso para correções simples.
 
 | Dimensão | Informação necessária |
@@ -53,6 +55,16 @@ Classificar a próxima atividade com informação suficiente para decidir. Usar 
 | Risco e impacto | Consequência de falha, reversibilidade, usuários e componentes atingidos. |
 | Fase | Discovery, planejamento, arquitetura, implementação, testes, revisão, release ou pós-entrega. |
 | Critérios de aceitação | Comportamentos e condições observáveis, inclusive falhas e limites relevantes. |
+
+### Pedido curto e brief proporcional
+
+Primeiro distinguir manutenção do MEDS de desenvolvimento de projeto conforme AGENTS. No MEDS, pedidos de produto têm destino padrão `workspaces/<slug>/`; em um projeto externo preparado, a raiz autorizada é a do próprio projeto. Não copiar instruções compartilhadas nem editar o framework ao desenvolver um projeto interno.
+
+Converter a descrição em brief suficiente: objetivo, público, tipo de aplicação, funcionalidades, requisitos não funcionais pertinentes, arquitetura e tecnologias proporcionais, identidade visual/recursos quando necessários, critérios de aceite, testes e entrega local. Não exigir formulário ou prompt técnico. Escolhas reversíveis e lacunas não essenciais podem usar premissas explícitas; não inventar dados comerciais reais, pessoais, endereços, preços, registros ou credenciais. Lacuna crítica bloqueia só a operação protegida dependente, preservando Gates e trabalho independente.
+
+Exemplo: “Crie um site premium para um condomínio de luxo em Osasco, com imagens originais e formulário de contato.” Selecionar experiência web, design, copy, UI e qualidade conforme as atividades; SEO apenas para páginas indexáveis. Verificar ferramenta autorizada de imagens, integrar assets locais e validar o formulário. Sem destino real de envio, documentar a pendência e não apresentar simulação como mensagem enviada. Não presumir endereço, preço, banco, login, IA no produto ou deploy.
+
+Escolher QA pela superfície: site (responsividade, acessibilidade, interações, links, assets, contraste e navegador real quando disponível); API (endpoints, validações, contratos, erros, testes automatizados e segurança proporcional); autenticação (acesso, sessão, autorização por recurso, credenciais e negativos). DOM simulado, inspeção estática e imagem isolada não substituem QA no navegador. Registrar testes como PASS/FAIL/BLOCKED/NOT RUN segundo o Product System e repetir os afetados após correções.
 
 ### Categorias operacionais
 
@@ -239,7 +251,7 @@ Selecionar verificações pelo requisito, pela alteração final e pelo risco. R
 
 Preferir revisor distinto quando houver capacidade real disponível e autorizada. Se o executor revisar, declarar **autorrevisão**, superfície e limitações. Outra etapa, ferramenta ou Skill não cria independência. Quando revisão independente for critério obrigatório, sua ausência impede prontidão, conforme o Product System. Não criar pipeline obrigatório de múltiplos agentes.
 
-Usar os resultados de teste `PASS`, `FAIL`, `BLOCKED` e `NOT_APPLICABLE` conforme o Product System. Teste essencial indisponível é pendência com causa e impacto; não é aprovação. Os pareceres `APPROVED`, `CHANGES_REQUIRED` e `BLOCKED` devem identificar objeto e alcance. Corrigir e repetir verificações afetadas antes de concluir. QA visual não substitui funcional, segurança, avaliação completa de acessibilidade ou performance.
+Usar os resultados de teste `PASS`, `FAIL`, `BLOCKED` e `NOT RUN` conforme o Product System. Teste essencial indisponível é pendência com causa e impacto; não é aprovação. Os pareceres `APPROVED`, `CHANGES_REQUIRED` e `BLOCKED` devem identificar objeto e alcance. Corrigir e repetir verificações afetadas antes de concluir. QA visual não substitui funcional, segurança, avaliação completa de acessibilidade ou performance.
 
 ## N. Decisões e evidências
 
@@ -331,6 +343,8 @@ A validação documental deste Standard não demonstra operação automática do
 
 ## Q. Exceções, compatibilidade e evolução
 
+Revisão 1.2, autorizada no escopo de design e UI/UX: explicita a ligação entre fonte criativa, decisão aplicada e evidência renderizada, sem ativar todas as capacidades por padrão ou exigir microaprovações.
+
 Adaptar profundidade de leitura, registro e verificação ao risco, preservando autorização, segurança, integridade e critérios essenciais. Simplificação rotineira dentro do Gate A não exige microaprovação. Exceção relevante deve identificar regra, motivo, alcance, risco, controle compensatório, responsável e condição de reavaliação no contexto autorizado, conforme o Product System.
 
 Exceção não altera silenciosamente governança nem permite ignorar falha crítica ou instrução obrigatória. Conflito material, mudança relevante de segurança ou decisão arquitetural aprovada exige resolução humana antes da ação dependente. Não ampliar arquitetura, tooling ou arquivos por conveniência de roteamento.
@@ -343,5 +357,6 @@ Aplicar a política de versionamento do Product System: incremento maior para in
 | --- | --- | --- |
 | 1.0 | Stable | Definição inicial da política de roteamento proporcional, inventário das 12 Skills, matriz, exclusões e critérios de revisão. Fundamentada na inspeção das fontes existentes; validação operacional controlada permanece posterior. |
 | 1.0.1 | Stable | Revisão corretiva de consistência documental: atualização do inventário e da matriz após a publicação dos Standards 04 a 07, com reconhecimento das fontes existentes e correção de referências históricas. Sem criação de obrigação operacional, alteração de Gates ou mudança arquitetural. Aprovada expressamente pelo responsável na conversa de 08/10/2026, para edição das seções A, F e Q. A alteração é documental e não demonstra ativação automática de Skills ou eficácia operacional do roteamento. |
+| 1.1 | Stable | Gate A de usabilidade de 13/10/2026: brief por pedido curto, distinção de escopo, destino workspaces e QA proporcional. Preserva 7/12/5 e Gates; testes documentais não comprovam nova sessão Codex. |
 
 Recomenda-se que a validação futura examine ajustes triviais, interfaces públicas/privadas, APIs, dados, aplicações locais, IA e preparação de release. Avaliar omissões, excessos, gatilhos de ampliação, respeito aos Gates e limitações de execução; corrigir a política por revisão autorizada. Essa recomendação não instala mecanismo nem inicia testes ou novo Standard fora do escopo aprovado.

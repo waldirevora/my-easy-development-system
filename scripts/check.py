@@ -8,6 +8,8 @@ import subprocess
 import sys
 from urllib.parse import unquote, urlsplit
 
+from check_language import findings
+
 
 def find_root(script_path: Path) -> Path:
     """Suba a partir do arquivo até os dois marcadores, sem consultar cwd."""
@@ -24,7 +26,7 @@ def validate(root: Path) -> None:
     for name in ("AGENTS.md", "README.md", "LICENSE", "docs/README.md",
                  "docs/GUIA_DE_USO.md", "examples/README.md",
                  "standards/README.md", "templates/README.md",
-                 "standards/capability-routing-v1.md",
+                 "standards/capability-routing-v1.md", "workspaces/.gitkeep",
                  "codex_lab_5_5/ai_triage.py", "codex_lab_5_5/test_ai_triage.py"):
         if not (root / name).is_file():
             raise ValueError(f"Fonte essencial ausente: {name}")
@@ -38,6 +40,14 @@ def validate(root: Path) -> None:
     }
     if (len(standards), len(skills), len(templates)) != (7, 12, 5):
         raise ValueError("Inventário diferente de 7 Standards / 12 Skills / 5 templates.")
+
+    # Projetos locais não pertencem à validação das fontes do framework.
+    workspace = root / "workspaces"
+    if workspace.is_symlink() or workspace.resolve() != root / "workspaces":
+        raise ValueError("workspaces deve permanecer dentro da raiz MEDS.")
+    marker = workspace / ".gitkeep"
+    if marker.is_symlink() or marker.resolve() != workspace / ".gitkeep":
+        raise ValueError("Marcador workspaces/.gitkeep externo à raiz.")
 
     sources = {root / "AGENTS.md", root / "README.md"}
     for directory in ("standards", "templates", "docs", "examples",
@@ -61,6 +71,9 @@ def validate(root: Path) -> None:
             python_count += 1
             continue
         markdown_count += 1
+        language = findings(path)
+        if language:
+            raise ValueError(f"Pontuação autoral em {relative}: {language}")
         if path in skills:
             frontmatter = re.match(r"\A---\n(.*?)\n---(?:\n|$)", content, re.S)
             if not frontmatter:

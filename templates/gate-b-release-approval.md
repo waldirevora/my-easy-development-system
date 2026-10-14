@@ -1,6 +1,6 @@
-# My Easy Development System Gate B Release Approval v1.0
+# My Easy Development System Gate B Release Approval v1.1
 
-**Versão:** 1.0. **Estado inicial:** Candidate.
+**Versão:** 1.1. **Estado inicial:** Candidate.
 
 ## A. Identificação, finalidade e uso
 
@@ -17,6 +17,8 @@ Merge, inclusive protegido, push a branch protegida, release, deploy e publicaç
 Add/commit locais exigem autorização correspondente e podem estar previamente cobertos pelo Gate A. Push remoto também requer autorização; aplicar Gate B quando a governança exigir. Checkpoint documental rotineiro não exige novo aceite se a ação específica já estiver autorizada e válida. Preservar execução manual de Git quando reservada ao responsável.
 
 Reutilizar autorização anterior dentro dos limites, condições e proibições expressas. Não transformar aprovação pontual em permissão irrestrita, nem pedir nova aprovação por conferência técnica repetida sem mudança de alcance. Implementar, verificar e corrigir ordinariamente dentro do Gate A permanece autônomo.
+
+A entrega local do projeto usa a resposta consolidada do [template de QA](qa-review-report.md): nome, pasta, funcionalidades, arquivos, fontes consultadas, testes reais, execução e pendências. Este Gate B só complementa essa resposta quando houver operação protegida concreta, sem exigir relatório adicional para produto pequeno.
 
 ## C. Modo rápido
 
@@ -83,7 +85,7 @@ Conferir somente superfícies pertinentes à operação final, usando verificaç
 | Dados/migrações | Integridade, efeito da migração, ambiente, reversibilidade e recuperação quando existentes. |
 | Operação/recuperação | Riscos conhecidos, disponibilidade, procedimento e evidência de recuperação necessária, com responsáveis. |
 
-Separar evidência observada, limitação, teste não executado, teste bloqueado e risco residual. Usar resultados `PASS`, `FAIL`, `BLOCKED` e `NOT_APPLICABLE` conforme Product System. Não declarar `PASS` para teste não executado; inspeção suficiente para documento simples deve ser identificada como inspeção. Falta de ambiente para verificação essencial não é inaplicabilidade.
+Separar evidência observada, limitação, teste não executado e risco residual. Para testes usar PASS (executado/aprovado), FAIL (executado/reprovado), BLOCKED (impedimento comprovado) e NOT RUN (outro motivo). Inspeções têm método e achados próprios. NOT_APPLICABLE justifica superfície inexistente; não representa falta de execução. Seguir o Product System e não declarar QA visual de site sem navegador real.
 
 Falha crítica conhecida bloqueia release, mesmo com formulário preenchido ou autorização registrada. Evidência essencial ausente impede prontidão. Declarar autorrevisão e seus limites; revisão independente obrigatória ausente permanece blocker. Não inventar QA, scanner, Security Gate, backup ou rollback testado.
 
@@ -168,3 +170,4 @@ Avaliar o template na integração com Codex e no piloto real, com autorização
 | Versão | Estado | Registro |
 | --- | --- | --- |
 | 1.0 | Candidate | Modos rápido/completo, estados da decisão, evidências, limites, execução/verificação e dois exemplos sintéticos; validação de uso permanece posterior. |
+| 1.1 | Candidate | Gate A de usabilidade de 13/10/2026: referência à entrega consolidada e estados atuais de testes. Preserva decisão humana, escopo e ações protegidas. |

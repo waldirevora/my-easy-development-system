@@ -50,8 +50,16 @@ Para cada cenário importante registrar:
 - resultado esperado e observado;
 - ambiente/comando;
 - evidência;
-- status `PASS`, `FAIL`, `BLOCKED` ou `NOT_APPLICABLE`;
+- status de teste `PASS` (executado e aprovado), `FAIL` (executado e reprovado), `BLOCKED` (não executado por impedimento comprovado) ou `NOT RUN` (não executado por outro motivo);
 - limites de cobertura e riscos residuais.
+
+Registrar inspeções por método, achados e alcance; inspeção estática não substitui execução funcional. NOT_APPLICABLE justifica superfície inexistente, sem substituir teste não executado. DOM simulado e imagem isolada não substituem QA de site em navegador real. Não inventar evidências nem alegar QA visual sem navegador.
+
+Selecionar conforme o produto:
+
+- Site: responsividade, acessibilidade, interações, links, assets, contraste e QA no navegador disponível.
+- API: endpoints, validações, contratos, tratamento de erros, testes automatizados e segurança proporcional.
+- Autenticação: controle de acesso, sessão, autorização por recurso, credenciais e casos negativos.
 
 Não afirmar aprovação geral se testes essenciais falharam ou não foram executados.
 
