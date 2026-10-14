@@ -1,12 +1,12 @@
-# My Easy Development System AI-Assisted Secure Development Threat Standard v1.0
+# My Easy Development System AI-Assisted Secure Development Threat Standard v1.0.1
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | My Easy Development System AI-Assisted Secure Development Threat Standard v1.0 |
+| Nome oficial | My Easy Development System AI-Assisted Secure Development Threat Standard v1.0.1 |
 | Identificador | Standard 07 |
-| Versão | 1.0 |
+| Versão | 1.0.1 |
 | Estado canônico | Candidate |
 | Finalidade | Identificar, prevenir, detectar, revisar e tratar ameaças introduzidas ou ampliadas pelo desenvolvimento de software assistido por IA. |
 | Aplicabilidade | Leitura de contexto, planejamento, geração/revisão de código, uso de ferramentas, testes, dependências, Git e preparação de entrega, conforme a tarefa. |
@@ -26,12 +26,12 @@ Ler [AGENTS.md](../AGENTS.md) e instruções aplicáveis, validar sua origem e p
 
 | Fonte | Responsabilidade preservada |
 | --- | --- |
-| [Product System v4.0](product-system-v4.md), Standard 01 | Processo central, autonomia, Gates A/B, bloqueios, revisão, evidências e evolução. |
-| [Web Experience & Business Systems v1.0](web-experience-business-systems-v1.md), Standard 02 | Experiência web/local, conteúdo, renderização, estados, acessibilidade e QA de interface. |
-| [Capability Routing v1.0](capability-routing-v1.md), Standard 03 | Menor conjunto suficiente de capacidades, leitura proporcional e reavaliação. |
-| [Authentication & Security v1.1](authentication-security-v1.md), Standard 04 | AuthN/AuthZ, ação/recurso, isolamento e testes de segurança de sistemas. |
-| [Environment Variables & Secrets v1.0](environment-variables-secrets-v1.md), Standard 05 | Configuração, credenciais, exposição, ciclo de vida e resposta autorizada. |
-| [AI Engineering v1.0](ai-engineering-v1.md), Standard 06, Candidate | Componentes de IA no produto, contratos, RAG, agentes, Evals e operação proporcional. |
+| [Product System](product-system-v4.md), Standard 01 | Processo central, autonomia, Gates A/B, bloqueios, revisão, evidências e evolução. |
+| [Web Experience & Business Systems](web-experience-business-systems-v1.md), Standard 02 | Experiência web/local, conteúdo, renderização, estados, acessibilidade e QA de interface. |
+| [Capability Routing](capability-routing-v1.md), Standard 03 | Menor conjunto suficiente de capacidades, leitura proporcional e reavaliação. |
+| [Authentication & Security](authentication-security-v1.md), Standard 04 | AuthN/AuthZ, ação/recurso, isolamento e testes de segurança de sistemas. |
+| [Environment Variables & Secrets](environment-variables-secrets-v1.md), Standard 05 | Configuração, credenciais, exposição, ciclo de vida e resposta autorizada. |
+| [AI Engineering](ai-engineering-v1.md), Standard 06, Candidate | Componentes de IA no produto, contratos, RAG, agentes, Evals e operação proporcional. |
 
 Vera conduz análise especializada de confiança e segurança; Quality trata verificações e evidências. Software Design, Data, Release e AI Engineering contribuem quando suas superfícies justificarem, conforme seção R. Inspecionar as seis Skills na autoria não exige ativá-las em toda tarefa futura. A leitura integral das fontes internas é excepcional à elaboração deste Standard.
 
@@ -230,7 +230,7 @@ Relacionar requisito, alteração final e evidência realmente obtida. Texto pro
 | Teste bloqueado | Verificação necessária sem condição de execução; informar causa e impacto. |
 | Teste não aplicável | Superfície/condição ausente, com justificativa; falta de ambiente não é inaplicabilidade. |
 
-Usar resultados `PASS`, `FAIL`, `BLOCKED` e `NOT_APPLICABLE` do Product System. Nenhuma política transforma evidência essencial ausente em `PASS`. Inspeção pode ter resultado satisfatório em seu alcance, identificada como inspeção. Pareceres `APPROVED`, `CHANGES_REQUIRED` e `BLOCKED` são decisões de revisão, distintas de resultados de testes.
+Usar resultados `PASS`, `FAIL`, `BLOCKED` e `NOT RUN` para testes do Product System; `NOT_APPLICABLE` justifica somente superfície inexistente. Nenhuma política transforma evidência essencial ausente em `PASS`. Inspeção pode ter resultado satisfatório em seu alcance, identificada como inspeção. Pareceres `APPROVED`, `CHANGES_REQUIRED` e `BLOCKED` são decisões de revisão, distintas de resultados de testes.
 
 Registrar limitações no relatório/contexto já autorizado, sem criar arquivo de auditoria por tarefa. Se revisão independente for requisito obrigatório e estiver ausente, não declarar prontidão. Avaliação por outro modelo é auxílio a verificar, não verdade absoluta nem prova autônoma de execução.
 
@@ -384,7 +384,7 @@ Falha crítica conhecida bloqueia release. Não reduzir AuthZ, remover teste ou 
 | Aprovado pelo responsável | Decisão humana real registrada, com alcance e ações permitidas; parecer técnico não satisfaz este estado. |
 | Publicado/verificado no destino | Somente se autorizado e executado, com versão, ambiente e evidência operacional; não deriva da aprovação documental. |
 
-Para **este Standard**, Done documental exige A a R, matriz, pelo menos dez exemplos completos, fontes e limitações, UTF-8 sem BOM, integridade Markdown/links, coerência canônica, nomes de Skills, leitura direta do novo arquivo, comparação SHA-256 dos arquivos preexistentes autorizados e Git final restrito ao arquivo novo. Não requer construir produto, executar ataque, instalar ferramenta ou testar funcionalidades para concluir a autoria.
+Na **autoria inicial deste Standard**, o aceite documental exigiu A a R, matriz, pelo menos dez exemplos completos, fontes e limitações, UTF-8 sem BOM, integridade Markdown/links, coerência canônica, nomes de Skills, leitura direta do novo arquivo, comparação SHA-256 dos arquivos preexistentes autorizados e Git final restrito ao arquivo novo. Esses critérios históricos não são um checklist obrigatório para usar ou manter o documento. Não foi necessário construir produto, executar ataque ou instalar ferramenta para concluir sua autoria.
 
 A aprovação documental não valida operacionalmente VS Code, Codex, sandbox, CI/CD ou controles de um sistema real, nem promove Candidate a Stable. Entregar relatório com evidências, limites e revisão humana pendente, sem Git mutável.
 
@@ -479,4 +479,6 @@ Seguir versionamento do Product System: maior para mudança incompatível de gov
 | --- | --- | --- |
 | 1.0 | Candidate | Política inicial de ameaças do processo de desenvolvimento assistido por IA, fronteiras, ferramentas, supply chain, evidências, matriz e doze cenários. Revisão documental não comprova eficácia operacional. |
 
-Passagem a Stable depende de revisão autorizada, evidências pertinentes de aplicação e decisão humana conforme governança. O Standard 06 permanece Candidate. Esta entrega cria somente o arquivo autorizado; aguarda revisão humana do documento completo antes do versionamento, sem iniciar outro Standard, template ou integração.
+Passagem a Stable depende de revisão autorizada, evidências pertinentes de aplicação e decisão humana conforme governança. O Standard 06 permanece Candidate. A autoria inicial foi limitada à criação documental deste arquivo, sem iniciar outro Standard, template ou integração; tarefas posteriores seguem seu próprio Gate A.
+
+Revisão corretiva 1.0.1 (13/10/2026): referências normativas sem versão fixa e consistência com a taxonomia de testes vigente, quando pertinente. Preserva Gates, responsabilidades e estado canônico. Ajuste documental autorizado na revisão final para publicação; não comprova nova validação operacional.

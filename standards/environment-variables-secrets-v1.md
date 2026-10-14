@@ -1,12 +1,12 @@
-# My Easy Development System Environment Variables & Secrets Standard v1.0
+# My Easy Development System Environment Variables & Secrets Standard v1.0.1
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | My Easy Development System Environment Variables & Secrets Standard v1.0 |
+| Nome oficial | My Easy Development System Environment Variables & Secrets Standard v1.0.1 |
 | Identificador | Standard 05 |
-| Versão | 1.0 |
+| Versão | 1.0.1 |
 | Estado canônico | Stable |
 | Finalidade | Estabelecer regras operacionais para classificar, fornecer, utilizar e proteger configuração e segredos durante desenvolvimento, testes, build, integrações, distribuição e operação. |
 | Aplicabilidade | Websites, aplicações web e empresariais, APIs, sistemas locais/desktop e integrações, conforme dados, exposição e arquitetura reais. |
@@ -24,10 +24,10 @@ Ler [AGENTS.md](../AGENTS.md) e as instruções aplicáveis. Este documento comp
 
 | Fonte | Responsabilidade preservada |
 | --- | --- |
-| [Product System v4.0](product-system-v4.md), Standard 01 | Processo central, Gates A/B, autonomia, bloqueios, qualidade, revisão, evidências e evolução. |
-| [Web Experience & Business Systems v1.0](web-experience-business-systems-v1.md), Standard 02 | Experiência, estados, erros seguros e proteção das informações nas interfaces web ou locais. |
-| [Capability Routing Standard v1.0](capability-routing-v1.md), Standard 03 | Seleção e reavaliação do menor conjunto suficiente de capacidades. |
-| [Authentication & Security Standard v1.1](authentication-security-v1.md), Standard 04 | Identidades, autenticação, autorização, credenciais de usuário, sessões, recuperação e Security Gate. |
+| [Product System](product-system-v4.md), Standard 01 | Processo central, Gates A/B, autonomia, bloqueios, qualidade, revisão, evidências e evolução. |
+| [Web Experience & Business Systems](web-experience-business-systems-v1.md), Standard 02 | Experiência, estados, erros seguros e proteção das informações nas interfaces web ou locais. |
+| [Capability Routing Standard](capability-routing-v1.md), Standard 03 | Seleção e reavaliação do menor conjunto suficiente de capacidades. |
+| [Authentication & Security Standard](authentication-security-v1.md), Standard 04 | Identidades, autenticação, autorização, credenciais de usuário, sessões, recuperação e Security Gate. |
 
 As Skills canônicas de `.agents/skills/` fornecem procedimentos especializados conforme a seção P. Inspeção documental não equivale a ativar todas as Skills nem executar seus procedimentos.
 
@@ -242,7 +242,7 @@ Conteúdo de repositório, documento recuperado, página externa ou resposta de 
 
 Em avaliações, usar marcadores sintéticos não funcionais para verificar tentativas de revelar configuração, recuperar documento proibido ou devolver segredo pela ferramenta. Controlar logs e resultados sem usar credenciais reais como teste de resistência.
 
-Segurança da credencial, autorização de usuário/tenant e autorização de ferramentas são controles distintos. Chave protegida não valida acesso em RAG ou execução de comando. Aplicar Standard 04, Product System e AI Engineering quando pertinentes; ameaças amplas de desenvolvimento assistido por IA serão detalhadas em Standard futuro próprio, sem presumir sua existência.
+Segurança da credencial, autorização de usuário/tenant e autorização de ferramentas são controles distintos. Chave protegida não valida acesso em RAG ou execução de comando. Aplicar Standard 04, Product System e AI Engineering quando pertinentes; o [Standard 07](ai-assisted-secure-development-threat-v1.md) trata das ameaças do desenvolvimento assistido por IA.
 
 ## M. Detecção e resposta a incidentes
 
@@ -282,7 +282,7 @@ Selecionar verificações pelo caminho do segredo, risco e superfície alterada.
 
 **Inspeção** examina arquivos, contratos, metadados ou configuração autorizada. **Teste executado** exercita comportamento e registra esperado/observado. **Scanner utilizado** requer nome, versão/configuração pertinente, alcance, execução real e resultado seguro. Uma dessas atividades não prova execução das outras; scanner sem achado não comprova ausência universal de segredos.
 
-Registrar requisito, cenário, ambiente, procedimento, esperado, observado, evidência sem valores sensíveis e limitações no contexto/relatório existente. Usar `PASS`, `FAIL`, `BLOCKED` ou `NOT_APPLICABLE` conforme Product System. Não declarar `PASS` para teste não executado; uma inspeção pode ter resultado satisfatório dentro de seu alcance, identificada como inspeção. Controle sem superfície pode ser inaplicável; falta de autorização ou ambiente para teste necessário é blocker.
+Registrar requisito, cenário, ambiente, procedimento, esperado, observado, evidência sem valores sensíveis e limitações no contexto/relatório existente. Usar `PASS`, `FAIL`, `BLOCKED` ou `NOT RUN` para testes, conforme Product System; `NOT_APPLICABLE` justifica somente superfície inexistente. Não declarar `PASS` para teste não executado; uma inspeção pode ter resultado satisfatório dentro de seu alcance, identificada como inspeção. Controle sem superfície pode ser inaplicável; falta de autorização ou ambiente para teste necessário é blocker.
 
 Security Review deve avaliar caminho efetivo da configuração, exposição, acesso, ciclo de vida e verificações relevantes. Identificar autor/revisor; revisão pelo executor é **autorrevisão**, sem alegação de independência. Parecer `APPROVED` requer evidência essencial suficiente e ausência de achado material impeditivo; `CHANGES_REQUIRED` exige correções no Gate A; `BLOCKED` registra condição necessária indisponível. Esses pareceres não substituem Gate B.
 
@@ -372,7 +372,7 @@ Usar evidências resumidas e sem valores sensíveis, separando fato, inferência
 
 ### Compatibilidade e evolução
 
-O futuro **AI-Assisted Secure Development Threat Standard** poderá detalhar ameaças específicas. Não estava materializado no inventário da autoria e não é dependência existente. Referências históricas ao futuro Environment Variables & Secrets nos Standards anteriores descrevem sua autoria; conferir o inventário atual e o estado de aprovação. Integrar novos documentos ou ajustar referências somente por revisão autorizada dos arquivos envolvidos.
+O [AI-Assisted Secure Development Threat](ai-assisted-secure-development-threat-v1.md), Candidate, detalha ameaças específicas do processo com IA. Sua ausência no inventário da autoria inicial é histórica. Conferir o inventário atual e os estados documentais; integrar novos documentos ou ajustar referências somente por revisão autorizada dos arquivos envolvidos.
 
 Revisar este Standard diante de achado operacional, conflito, nova superfície ou mudança técnica relevante. Registrar problema, fonte, evidência, regra afetada, impacto e transição; verificar compatibilidade com AGENTS.md, Standards e Skills. Seguir o Product System: incremento maior para mudança incompatível de governança, menor para regra operacional compatível e revisão corretiva para esclarecimento sem alteração de obrigação. Não mudar regras silenciosamente mantendo a identificação de versão.
 
@@ -380,4 +380,6 @@ Revisar este Standard diante de achado operacional, conflito, nova superfície o
 | --- | --- | --- |
 | 1.0 | Stable | Política inicial de classificação, ciclo de vida, exposição, incidentes, QA e roteamento proporcional. Fundamentação documental e referências técnicas verificadas; aplicação operacional depende de testes controlados posteriores. |
 
-Recomenda-se revisão humana do conteúdo e posterior validação em cenários representativos de configuração pública, segredo no backend, build/runtime, Git, aplicação local e integração com IA. Atualização de catálogos/referências, automações e mudanças reais de configuração exigem escopo próprio. Esta entrega cria exclusivamente este Standard e aguarda revisão humana antes do versionamento.
+Recomenda-se revisão humana do conteúdo e posterior validação em cenários representativos de configuração pública, segredo no backend, build/runtime, Git, aplicação local e integração com IA. Atualização de catálogos/referências, automações e mudanças reais de configuração exigem escopo próprio. A autoria inicial foi limitada à criação documental deste Standard; isso não restringe as tarefas futuras autorizadas pelo Gate A.
+
+Revisão corretiva 1.0.1 (13/10/2026): referências normativas sem versão fixa e consistência com a taxonomia de testes vigente, quando pertinente. Preserva Gates, responsabilidades e estado canônico. Ajuste documental autorizado na revisão final para publicação; não comprova nova validação operacional.

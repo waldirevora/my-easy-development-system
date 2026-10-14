@@ -1,12 +1,12 @@
-# My Easy Development System Capability Routing Standard v1.2
+# My Easy Development System Capability Routing Standard v1.2.1
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | My Easy Development System Capability Routing Standard v1.2 |
+| Nome oficial | My Easy Development System Capability Routing Standard v1.2.1 |
 | Identificador | Standard 03 |
-| Versão | 1.2 |
+| Versão | 1.2.1 |
 | Estado canônico | Stable |
 | Finalidade | Definir como identificar, selecionar, consultar e reavaliar capacidades para executar tarefas com qualidade, segurança e contexto proporcional. |
 | Aplicabilidade | Criação, análise, manutenção, correção, refatoração, revisão e preparação de entrega de software e experiências digitais. |
@@ -14,7 +14,7 @@
 
 Stable é uma classificação canônica. Não comprova aprovação humana da entrega, integração automática com o Codex ou validação operacional do roteamento.
 
-**Escopo:** política de seleção de Standards existentes, Skills canônicas e verificações pertinentes ao objetivo, à superfície, à fase e ao risco da tarefa. Complementa o [Product System v4.0](product-system-v4.md) e o [Web Experience & Business Systems v1.0](web-experience-business-systems-v1.md).
+**Escopo:** política de seleção de Standards existentes, Skills canônicas e verificações pertinentes ao objetivo, à superfície, à fase e ao risco da tarefa. Complementa o [Product System](product-system-v4.md) e o [Web Experience & Business Systems](web-experience-business-systems-v1.md).
 
 **Exclusões:** não cria um sistema independente de agentes, pipeline obrigatório, automação de seleção, memória persistente, ai-memory, MCP, cache externo, indexador, servidor, hooks ou dependências. Não define stack, concede acesso, autoriza custos ou altera a arquitetura. Não exige orquestração nem participação de múltiplos agentes.
 
@@ -128,13 +128,13 @@ Relação entre Skills indica colaboração possível, não ativação automáti
 
 | Fonte existente | Quando e como consultar |
 | --- | --- |
-| [Product System v4.0](product-system-v4.md) | Política central em toda tarefa do sistema. Recuperar regras aplicáveis de contexto, autonomia, limites, segurança, qualidade e evidências; aprofundar ciclo, revisão e entrega conforme a atividade. |
-| [Web Experience & Business Systems v1.0](web-experience-business-systems-v1.md) | Quando interface ou experiência estiver no escopo, inclusive GUI local. Consultar critérios das superfícies afetadas, como conteúdo, estados, acessibilidade, regras de negócio e QA. Não exigir leitura de SEO para UI privada sem descoberta pública. |
-| [Capability Routing Standard v1.0.1](capability-routing-v1.md) | Quando for necessário determinar ou reavaliar a seleção. Usar inventário, matriz, exclusões e gatilhos pertinentes, sem releitura integral automática. |
-| [Authentication & Security v1.1](authentication-security-v1.md), Standard 04, Stable | Quando identidade, AuthN, AuthZ, permissões por ação/recurso, sessões, controle de acesso, isolamento entre usuários/tenants ou segurança de dados estiverem envolvidos. Preservar a distinção entre autenticação e autorização e a validação no componente confiável; consultar somente as orientações pertinentes à superfície. |
-| [Environment Variables & Secrets v1.0](environment-variables-secrets-v1.md), Standard 05, Stable | Quando configuração, variáveis de ambiente, chaves, credenciais, exposição de secrets, separação de ambientes ou seus fluxos de consumo forem pertinentes. Consultar classificação e proteção aplicáveis sem exigir leitura de valores reais de secrets. |
-| [AI Engineering v1.0](ai-engineering-v1.md), Standard 06, Candidate | Quando houver funcionalidade efetiva de IA no produto ou necessidade especializada pertinente, como modelos, provedores, contratos de saída, RAG, Evals, ferramentas ou operação. O uso do Codex como executor de desenvolvimento não torna AI Engineering obrigatório. |
-| [AI-Assisted Secure Development Threat v1.0](ai-assisted-secure-development-threat-v1.md), Standard 07, Candidate | Para controles pertinentes à segurança do processo de desenvolvimento assistido por IA: fronteiras de confiança, entradas não confiáveis, prompt/tool-output injection, comandos e ferramentas, dependências, integridade de testes, evidências e autorizações. Aplicar proporcionalmente à superfície e ao risco, sem exigir ferramentas novas. |
+| [Product System](product-system-v4.md) | Política central em toda tarefa do sistema. Recuperar regras aplicáveis de contexto, autonomia, limites, segurança, qualidade e evidências; aprofundar ciclo, revisão e entrega conforme a atividade. |
+| [Web Experience & Business Systems](web-experience-business-systems-v1.md) | Quando interface ou experiência estiver no escopo, inclusive GUI local. Consultar critérios das superfícies afetadas, como conteúdo, estados, acessibilidade, regras de negócio e QA. Não exigir leitura de SEO para UI privada sem descoberta pública. |
+| [Capability Routing Standard](capability-routing-v1.md) | Quando for necessário determinar ou reavaliar a seleção. Usar inventário, matriz, exclusões e gatilhos pertinentes, sem releitura integral automática. |
+| [Authentication & Security](authentication-security-v1.md), Standard 04, Stable | Quando identidade, AuthN, AuthZ, permissões por ação/recurso, sessões, controle de acesso, isolamento entre usuários/tenants ou segurança de dados estiverem envolvidos. Preservar a distinção entre autenticação e autorização e a validação no componente confiável; consultar somente as orientações pertinentes à superfície. |
+| [Environment Variables & Secrets](environment-variables-secrets-v1.md), Standard 05, Stable | Quando configuração, variáveis de ambiente, chaves, credenciais, exposição de secrets, separação de ambientes ou seus fluxos de consumo forem pertinentes. Consultar classificação e proteção aplicáveis sem exigir leitura de valores reais de secrets. |
+| [AI Engineering](ai-engineering-v1.md), Standard 06, Candidate | Quando houver funcionalidade efetiva de IA no produto ou necessidade especializada pertinente, como modelos, provedores, contratos de saída, RAG, Evals, ferramentas ou operação. O uso do Codex como executor de desenvolvimento não torna AI Engineering obrigatório. |
+| [AI-Assisted Secure Development Threat](ai-assisted-secure-development-threat-v1.md), Standard 07, Candidate | Para controles pertinentes à segurança do processo de desenvolvimento assistido por IA: fronteiras de confiança, entradas não confiáveis, prompt/tool-output injection, comandos e ferramentas, dependências, integridade de testes, evidências e autorizações. Aplicar proporcionalmente à superfície e ao risco, sem exigir ferramentas novas. |
 | [standards/README.md](README.md) e estrutura de `standards/` | Apoio ao inventário. Conferir arquivos reais; o README atual é descritivo e não constitui catálogo detalhado nem prova de existência de Standards planejados. |
 
 Os Standards 01 a 07 estão materializados no inventário conferido para esta revisão. Verificar o inventário real ao iniciar ou retomar o trabalho; a presença de um arquivo não permite inferir estado Stable. Preservar os estados declarados nas fontes: os Standards 06 e 07 permanecem Candidate. Candidate não significa inexistência; documentos nesse estado podem orientar o trabalho dentro de seu alcance e governança. Existência documental não comprova eficácia operacional nem ativação automática de Skills. O relato histórico de inventário do Product System descreve sua autoria, não o estado atual de `standards/`.
@@ -360,3 +360,5 @@ Aplicar a política de versionamento do Product System: incremento maior para in
 | 1.1 | Stable | Gate A de usabilidade de 13/10/2026: brief por pedido curto, distinção de escopo, destino workspaces e QA proporcional. Preserva 7/12/5 e Gates; testes documentais não comprovam nova sessão Codex. |
 
 Recomenda-se que a validação futura examine ajustes triviais, interfaces públicas/privadas, APIs, dados, aplicações locais, IA e preparação de release. Avaliar omissões, excessos, gatilhos de ampliação, respeito aos Gates e limitações de execução; corrigir a política por revisão autorizada. Essa recomendação não instala mecanismo nem inicia testes ou novo Standard fora do escopo aprovado.
+
+Revisão corretiva 1.2.1 (13/10/2026): referências normativas sem versão fixa e consistência com a taxonomia de testes vigente, quando pertinente. Preserva Gates, responsabilidades e estado canônico. Ajuste documental autorizado na revisão final para publicação; não comprova nova validação operacional.

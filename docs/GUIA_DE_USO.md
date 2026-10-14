@@ -1,6 +1,6 @@
 # Guia de uso do My Easy Development System
 
-Referência operacional em português do Brasil. Rodada documental Gate A 7.1, de 11/10/2026. Este guia complementa as fontes canônicas; não altera suas regras nem concede acesso, instalação ou publicação. Consolidação final: regra prática de escrita incorporada por autorização do Gate A FINAL. Os artefatos de auditoria foram removidos da árvore operacional por decisão do responsável, mantendo os resultados como fatos históricos. Os relatos da rodada 7.1 abaixo são históricos, não resultados desta execução.
+Referência operacional em português do Brasil. Atualizada na revisão final de 13/10/2026, com resultados e decisões de publicação no [relatório](REVISAO_PUBLICACAO.md). Este guia complementa as fontes canônicas; não altera suas regras nem concede acesso, instalação ou publicação. Os relatos da rodada documental Gate A 7.1, de 11/10/2026, e do Gate A FINAL são históricos. Os artefatos daquela auditoria foram removidos da árvore operacional por decisão do responsável; sua disponibilidade não foi reconfirmada.
 
 ## Início rápido: Desktop e CLI
 
@@ -27,7 +27,7 @@ Para projeto externo, preserve o fluxo independente da seção 3. O restante do 
 
 ## 1. Propósito, componentes e limitações
 
-O My Easy Development System (MEDS) é um framework de instruções e procedimentos para desenvolver software e experiências digitais com qualidade proporcional ao risco. A arquitetura documental combina VS Code, Codex nativo, Product System, Standards, Skills e templates. Não é uma aplicação instalável, um servidor ou uma automação de deploy.
+O My Easy Development System (MEDS) é um framework de instruções e procedimentos para desenvolver software e experiências digitais com qualidade proporcional ao risco. A arquitetura documental combina Codex, Product System, Standards, Skills e templates. Codex Desktop e CLI são os fluxos principais; VS Code é opcional. Não é uma aplicação instalável, um servidor ou uma automação de deploy.
 
 Princípios: Context as Code, requisitos claros, Capability Routing proporcional, Clean Code pragmático, SOLID proporcional, segurança, privacidade e evidências antes de declarar conclusão. A identidade do MEDS pertence ao framework; um projeto atendido preserva sua própria identidade e fonte de verdade.
 
@@ -37,7 +37,7 @@ Distinguir sempre:
 | --- | --- | --- |
 | Comportamento documentado | O que AGENTS.md, Standards, Skills e templates orientam. | Não prova execução. |
 | Comportamento testado | Ação observada, ligada ao ambiente, arquivos, comando e resultado registrados. | Vale somente para a superfície e condições examinadas. |
-| Ainda não validado | Falta de execução ou evidência suficiente. | Registrar BLOCKED ou NOT TESTED; não inferir PASS. |
+| Ainda não validado | Falta de execução ou evidência suficiente. | Registrar BLOCKED ou NOT RUN conforme o motivo; não inferir PASS. |
 
 Stable é estado canônico documental. Candidate identifica documentos existentes cuja governança permanece candidata. Nenhum desses estados comprova integração automática, eficácia operacional, aprovação humana ou prontidão de produção.
 
@@ -47,7 +47,7 @@ Os seis marcos estruturalmente concluídos conservam suas ressalvas. A auditoria
 
 Para o fluxo CLI, use Codex CLI já disponível e autenticado. VS Code é necessário somente para o fluxo pela extensão. O responsável precisa de acesso autorizado às fontes e das permissões correspondentes à tarefa. Conta, licença, versão e ferramentas disponíveis devem ser realmente observadas; este guia não presume planos, versões instaladas ou autenticação.
 
-O repositório GitHub é privado; clonar exige Git e acesso autorizado a ele, independentemente da autenticação do Codex. Uma falha de acesso não autoriza expor tokens ou alterar visibilidade. O README contém o fluxo rápido para Bash e PowerShell.
+Clonar exige Git; enquanto o repositório GitHub for privado, exige também acesso autorizado a ele, independentemente da autenticação do Codex. Uma falha de acesso não autoriza expor tokens ou alterar visibilidade. O README contém o fluxo rápido para Bash e PowerShell.
 
 Não existe instalação obrigatória em uma unidade ou pasta específica. No terminal do diretório pai escolhido pelo usuário, clone o repositório existente:
 
@@ -120,7 +120,9 @@ cd "..\meu-projeto"
 codex --sandbox read-only --cd .
 ```
 
-Execute passo a passo e pare se a etapa anterior falhar. Os caminhos são exemplos relativos ao diretório de execução, não diretórios obrigatórios. Substitua apenas o destino pelo caminho realmente autorizado, mantendo aspas. O [script](../scripts/copy_harness.py) usa a localização do próprio arquivo e os marcadores MEDS; não consulta a raiz Git nem precisa de `.git`. Pode ser chamado por caminho absoluto real ou relativo desde outro cwd. `scripts/check.py` deve permanecer ao seu lado, pois fornece a descoberta da raiz.
+Execute passo a passo e pare se a etapa anterior falhar. Os caminhos são exemplos relativos ao diretório de execução, não diretórios obrigatórios. Substitua apenas o destino pelo caminho realmente autorizado, mantendo aspas. O [script](../scripts/copy_harness.py) usa a localização do próprio arquivo e os marcadores MEDS; não consulta a raiz Git nem precisa de `.git`. Pode ser chamado por caminho absoluto real ou relativo desde outro cwd. `scripts/check.py` e `scripts/check_language.py` devem permanecer ao seu lado: o primeiro fornece a descoberta da raiz e importa o segundo.
+
+A sessão somente leitura é para diagnóstico da descoberta. Depois de conferir as fontes, encerre-a e execute `codex` na raiz do destino com escrita autorizada, ou abra essa raiz no Desktop em uma conversa local com permissões adequadas. A sessão de diagnóstico não permite implementar o projeto.
 
 A cópia prepara esta árvore de 28 arquivos:
 
@@ -306,7 +308,7 @@ A continuidade normal pode fornecer contexto. O teste independente é diferente:
 | Instrução inesperada | Conferir origem normativa, fonte aprovada e instruções globais/overrides conhecidos. | Registrar conflito e pausar somente ação material dependente; não editar fontes protegidas. |
 | Hash divergente | Comparar com baseline aprovado e verificar alteração concorrente. | Preservar ambos os estados; não sobrescrever mudança de terceiro. |
 | Teste não inicia | Registrar comando, erro, executável e ambiente. | Usar ferramenta existente autorizada; registrar BLOCKED se faltar condição essencial. |
-| Resultado sem saída | Não há prova suficiente. | Executar verificação autorizada ou registrar NOT TESTED. |
+| Resultado sem saída | Não há prova suficiente. | Executar verificação autorizada ou registrar NOT RUN. |
 | UI não examinável | Navegador ou ferramenta não disponível/autorizada. | Registrar BLOCKED do QA visual e manter inspeção técnica identificada. |
 | Falha de implementação | Reproduzir e localizar causa. | Corrigir no Gate A e repetir verificação pertinente. |
 

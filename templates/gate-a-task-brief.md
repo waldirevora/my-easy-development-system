@@ -1,10 +1,10 @@
-# My Easy Development System Gate A Task Brief v1.0
+# My Easy Development System Gate A Task Brief v1.0.1
 
-**Versão:** 1.0. **Estado inicial:** Candidate.
+**Versão:** 1.0.1. **Estado inicial:** Candidate.
 
 ## A. Finalidade e regras de uso
 
-Este template ajuda a delimitar objetivo, resultado, escopo e autonomia em websites, sistemas empresariais, APIs, aplicações locais, dados, integrações e IA. Complementa [AGENTS.md](../AGENTS.md), o [Product System v4.0](../standards/product-system-v4.md) e o [Capability Routing v1.0](../standards/capability-routing-v1.md); não substitui a governança ou os Standards pertinentes.
+Este template ajuda a delimitar objetivo, resultado, escopo e autonomia em websites, sistemas empresariais, APIs, aplicações locais, dados, integrações e IA. Complementa [AGENTS.md](../AGENTS.md), o [Product System](../standards/product-system-v4.md) e o [Capability Routing](../standards/capability-routing-v1.md); não substitui a governança ou os Standards pertinentes.
 
 - **Instrução simples e suficiente:** uma mensagem clara do responsável pode constituir Gate A. Dispensar o arquivo e o formulário em ajustes triviais suficientemente definidos.
 - **Brief estruturado recomendado:** usar o modo completo quando múltiplos componentes, contratos, dados ou riscos exigirem delimitação adicional.
@@ -82,7 +82,7 @@ Relatar proporcionalmente entregável, escopo efetivamente alterado, verificaç�
 | Aprovado | Decisão humana registrada com alcance; parecer técnico não equivale a Gate B. |
 | Publicado | Entrega autorizada realmente executada no destino indicado. |
 
-Uma tarefa pode terminar pronta para revisão/aprovação, com publicação fora do escopo. Usar `PASS`, `FAIL`, `BLOCKED` e `NOT_APPLICABLE` conforme Product System: evidência essencial ausente não é `PASS`; teste necessário indisponível é bloqueado, não inaplicável. Inspeção suficiente para ajuste trivial deve ser relatada como inspeção. Não enfraquecer testes nem inventar evidências; mudança após verificação exige rever sua validade e repetir o que foi afetado.
+Uma tarefa pode terminar pronta para revisão/aprovação, com publicação fora do escopo. Usar `PASS`, `FAIL`, `BLOCKED` e `NOT RUN` para testes conforme Product System; `NOT_APPLICABLE` justifica somente superfície inexistente: evidência essencial ausente não é `PASS`; teste necessário indisponível é bloqueado, não inaplicável. Inspeção suficiente para ajuste trivial deve ser relatada como inspeção. Não enfraquecer testes nem inventar evidências; mudança após verificação exige rever sua validade e repetir o que foi afetado.
 
 ## I. Exemplos de preenchimento
 
@@ -127,3 +127,5 @@ Estado Candidate não comprova uso ou eficácia operacional. Revisar o template 
 | Versão | Estado | Registro |
 | --- | --- | --- |
 | 1.0 | Candidate | Modos rápido/completo, autonomia, limites, Gates, evidências e dois exemplos; validação de uso permanece posterior. |
+
+Revisão corretiva 1.0.1 (13/10/2026): referências normativas sem versão fixa e consistência com a taxonomia de testes vigente, quando pertinente. Preserva Gates, responsabilidades e estado canônico. Ajuste documental autorizado na revisão final para publicação; não comprova nova validação operacional.

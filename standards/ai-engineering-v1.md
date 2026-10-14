@@ -1,12 +1,12 @@
-# My Easy Development System AI Engineering Standard v1.0
+# My Easy Development System AI Engineering Standard v1.0.1
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | My Easy Development System AI Engineering Standard v1.0 |
+| Nome oficial | My Easy Development System AI Engineering Standard v1.0.1 |
 | Identificador | Standard 06 |
-| Versão | 1.0 |
+| Versão | 1.0.1 |
 | Estado canônico | Candidate |
 | Finalidade | Definir regras operacionais para projetar, desenvolver, integrar, avaliar, proteger e operar funcionalidades com IA, com evidências e controles proporcionais ao risco. |
 | Aplicabilidade | APIs de modelos, inferência, geração, extração, classificação, modelos preditivos, RAG, embeddings, indexação, ferramentas, agentes e automações, somente quando presentes no projeto. |
@@ -24,11 +24,11 @@ Ler [AGENTS.md](../AGENTS.md) e as instruções aplicáveis. Este Standard compl
 
 | Fonte | Responsabilidade preservada |
 | --- | --- |
-| [Product System v4.0](product-system-v4.md), Standard 01 | Processo central, Gates A/B, autonomia, bloqueios, qualidade, revisão, evidências e evolução. |
-| [Web Experience & Business Systems v1.0](web-experience-business-systems-v1.md), Standard 02 | Interfaces web/locais, experiência, estados, acessibilidade e apresentação segura de resultados. |
-| [Capability Routing Standard v1.0](capability-routing-v1.md), Standard 03 | Menor conjunto suficiente de capacidades e reavaliação por superfície, fase e risco. |
-| [Authentication & Security Standard v1.1](authentication-security-v1.md), Standard 04 | Identidades, autorização por ação/recurso, isolamento, sessão, recuperação e Security Gate. |
-| [Environment Variables & Secrets Standard v1.0](environment-variables-secrets-v1.md), Standard 05 | Configuração, chaves, credenciais técnicas, exposição e ciclo de vida de segredos. |
+| [Product System](product-system-v4.md), Standard 01 | Processo central, Gates A/B, autonomia, bloqueios, qualidade, revisão, evidências e evolução. |
+| [Web Experience & Business Systems](web-experience-business-systems-v1.md), Standard 02 | Interfaces web/locais, experiência, estados, acessibilidade e apresentação segura de resultados. |
+| [Capability Routing Standard](capability-routing-v1.md), Standard 03 | Menor conjunto suficiente de capacidades e reavaliação por superfície, fase e risco. |
+| [Authentication & Security Standard](authentication-security-v1.md), Standard 04 | Identidades, autorização por ação/recurso, isolamento, sessão, recuperação e Security Gate. |
+| [Environment Variables & Secrets Standard](environment-variables-secrets-v1.md), Standard 05 | Configuração, chaves, credenciais técnicas, exposição e ciclo de vida de segredos. |
 
 O responsável pelo produto define objetivo, aceitabilidade e decisões materiais; o executor implementa e verifica dentro do Gate A; o revisor avalia resultado e evidências; o operador autorizado conduz entrega e recuperação. Papéis podem ser acumulados. Revisão feita pelo executor é **autorrevisão**, sem alegar independência por trocar de Skill ou etapa.
 
@@ -264,7 +264,7 @@ Aplicar Standards 01, 04 e 05 às fronteiras efetivas. Conteúdo de usuário, re
 
 Tratamento de saída, excesso de agência, vazamento na recuperação e abuso de API devem ter testes negativos proporcionais. Não substituir validação por pedir a outro modelo que aprove a ação. Identificar ameaças, controles, alcance examinado e riscos residuais; falhas críticas conhecidas bloqueiam release conforme Product System.
 
-Esta seção cobre a funcionalidade de IA do produto. O futuro AI-Assisted Secure Development Threat Standard poderá aprofundar ameaças de desenvolvimento assistido por IA; sua ausência não suspende controles existentes nem exige duplicar seu catálogo futuro aqui.
+Esta seção cobre a funcionalidade de IA do produto. O [AI-Assisted Secure Development Threat](ai-assisted-secure-development-threat-v1.md) aprofunda ameaças do processo de desenvolvimento assistido por IA, inclusive quando o produto não contém IA.
 
 ## L. Dados, privacidade e governança
 
@@ -361,7 +361,7 @@ Testar autorização por chamada direta ao componente confiável, sem depender d
 
 Usar ferramentas existentes, dados sintéticos ou autorizados e escopo de teste explícito. Nesta autoria, verificações são documentais; não usar credenciais reais ou APIs pagas para representar execução. Não exigir todas as camadas, scanner externo ou instalação por padrão.
 
-Registrar requisito/caso, versão, método, ambiente, esperado/rubrica, observado, evidência, cobertura e limitação. Distinguir inspeção, teste determinístico, eval humana/automatizada e scanner realmente executado. Usar `PASS`, `FAIL`, `BLOCKED` ou `NOT_APPLICABLE` conforme Product System. Não marcar `PASS` para teste não executado; ausência de ambiente/autorização para verificação essencial é blocker, não inaplicabilidade.
+Registrar requisito/caso, versão, método, ambiente, esperado/rubrica, observado, evidência, cobertura e limitação. Distinguir inspeção, teste determinístico, eval humana/automatizada e scanner realmente executado. Usar `PASS`, `FAIL`, `BLOCKED` ou `NOT RUN` para testes, conforme Product System; `NOT_APPLICABLE` justifica somente superfície inexistente. Não marcar `PASS` para teste não executado; ausência de ambiente/autorização para verificação essencial é blocker, não inaplicabilidade.
 
 ### Security Gate
 
@@ -450,7 +450,7 @@ Registrar exceção relevante com regra, motivo, alcance, risco, controle compen
 
 Usar relatório/contexto autorizados, sem criar log obrigatório ou persistir conversas por padrão. Separar observado, inferido e recomendado; identificar autorrevisão e suas limitações. Aprovação documental pode recomendar revisão humana mantendo Candidate; não comprova funcionalidade de IA nem promove estado automaticamente.
 
-O futuro **AI-Assisted Secure Development Threat Standard** complementará ameaças específicas quando efetivamente criado/aprovado. Não estava materializado no inventário da autoria e não é dependência obrigatória existente. Inspecionar inventário real ao retomar; atualizar roteamento/referências de outros documentos somente mediante escopo próprio.
+O [AI-Assisted Secure Development Threat](ai-assisted-secure-development-threat-v1.md), Candidate, complementa ameaças do processo de desenvolvimento. Sua ausência no inventário inicial é histórica. Inspecionar inventário real ao retomar; atualizar roteamento/referências de outros documentos somente mediante escopo próprio.
 
 Recomenda-se validação operacional controlada posterior, com escopo, ambiente, orçamento e autorização definidos, cobrindo casos representativos de classificação, extração, RAG com acesso, ferramenta com ação, modelo tradicional e falha externa. Examinar qualidade, omissões/excessos de controles, limites, Gates e recuperação. Resultados devem orientar revisão da política; não implementar funcionalidades para declarar esta autoria validada.
 
@@ -462,4 +462,6 @@ Evoluir por achado de uso, conflito, referência técnica alterada ou nova super
 | --- | --- | --- |
 | 1.0 | Candidate | Política inicial de engenharia de IA proporcional, contratos, evals, recuperação, ferramentas, segurança, operação e exemplos. Revisão documental e fontes verificadas; validação operacional e decisão de adoção permanecem posteriores. |
 
-Eventual passagem a Stable exige revisão autorizada, evidências suficientes de aplicação e decisão humana conforme governança. Não inferir essa passagem de teste isolado ou parecer técnico. Esta entrega cria somente o Standard autorizado, sem implementar IA, iniciar outro documento ou executar versionamento; aguarda revisão humana do conteúdo.
+Eventual passagem a Stable exige revisão autorizada, evidências suficientes de aplicação e decisão humana conforme governança. Não inferir essa passagem de teste isolado ou parecer técnico. A autoria inicial criou somente este Standard, sem implementar IA ou executar versionamento. Esse limite histórico não substitui o Gate A de tarefas posteriores.
+
+Revisão corretiva 1.0.1 (13/10/2026): referências normativas sem versão fixa e consistência com a taxonomia de testes vigente, quando pertinente. Preserva Gates, responsabilidades e estado canônico. Ajuste documental autorizado na revisão final para publicação; não comprova nova validação operacional.

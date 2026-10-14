@@ -6,7 +6,7 @@ O **My Easy Development System (MEDS)** é uma camada de instruções versionada
 
 ## Pré-requisitos
 
-- **Para clonar:** Git e acesso autorizado ao repositório GitHub, que atualmente é **privado**. Autenticação do GitHub e autenticação do Codex são independentes.
+- **Para clonar:** Git e acesso autorizado ao repositório GitHub. Enquanto ele for privado, é necessária permissão do proprietário. Autenticação do GitHub e autenticação do Codex são independentes.
 - **Para usar:** Codex Desktop ou Codex CLI disponível e autenticado; a extensão de IDE também pode ser usada. Se ainda não estiver instalado, siga a [documentação oficial](https://learn.chatgpt.com/docs/quickstart) antes dos passos abaixo. VS Code e WSL não são obrigatórios.
 - **Para verificar ou copiar automaticamente:** Python 3 já disponível. Ele é usado pelo validador, laboratório e script de cópia; não é necessário apenas para ler as instruções.
 
@@ -74,6 +74,8 @@ codex --sandbox read-only --cd .
 
 `meu-projeto` é um nome ilustrativo; use somente o destino autorizado. O [script de cópia](scripts/copy_harness.py) descobre sua origem pelo próprio arquivo, funciona sem `.git` e prepara 28 arquivos: `AGENTS.md`, 7 Standards e seu índice, 12 Skills, 5 templates e seu índice, mais `MEDS-LICENSE`. O AGENTS copiado usa a raiz do projeto externo e remove o bloco específico da instalação MEDS, evitando criar workspaces recursivos; as regras de autonomia, escrita e bloqueios são preservadas. `MEDS-LICENSE` licencia somente as fontes MEDS copiadas, sem definir a licença do seu produto.
 
+A sessão `read-only` acima serve para conferir as instruções e o catálogo. Para desenvolver depois dessa conferência, encerre-a e execute `codex` na raiz do destino, com escrita autorizada para o projeto. No Desktop, abra essa mesma raiz e confira as permissões da conversa local.
+
 O script recusa destino ocupado, links simbólicos e fontes essenciais ausentes. Não copia Git, configurações privadas, caches ou laboratório. Depois, adicione os requisitos do produto e confira a descoberta em uma nova sessão na **raiz do destino**. A preparação de arquivos é verificável; o carregamento pelo Codex precisa de evidência própria. O [guia](docs/GUIA_DE_USO.md) detalha a árvore resultante, conflitos e limites do teste.
 
 Para um projeto existente, não use essa cópia sobre seus arquivos: compare e integre as instruções numa alteração revisável, preservando AGENTS e Skills preexistentes. Esse procedimento manual precisa ser validado no projeto específico; não há instalação global ou integração automática com pastas irmãs.
@@ -93,7 +95,7 @@ codex_lab_5_5/               função sintética e 24 testes
 workspaces/.gitkeep          marcador; projetos locais ignorados pelo Git
 ```
 
-O frontmatter `name` identifica cada Skill; `description` informa quando ela é pertinente. O Codex pode selecioná-la pela tarefa ou por menção explícita. O [Capability Routing](standards/capability-routing-v1.md) orienta a escolha pelo propósito, superfície e risco. Standards e templates são consultados quando necessários. As 12 Skills são instruções especializadas, não 12 subagentes simultâneos. [Consulte seus arquivos](.agents/skills/).
+O frontmatter `name` identifica cada Skill; `description` informa quando ela é pertinente. O Codex pode selecioná-la pela tarefa ou por menção explícita. O [Capability Routing](standards/capability-routing-v1.md) orienta a escolha pelo propósito, superfície e risco. Standards e templates são consultados quando necessários. As 12 Skills são instruções especializadas, não 12 subagentes simultâneos. Julian, Kael, Clara e Vera são nomes de especialidades; não há agentes autônomos separados configurados nas fontes versionadas. [Consulte seus arquivos](.agents/skills/).
 
 ## Validação local
 
@@ -136,8 +138,12 @@ O scanner é lexical, não uma análise completa de toda linguagem. Markdown inl
 
 ## Licença, contribuição e limites de evidência
 
-As fontes MEDS usam [Apache License, Version 2.0](LICENSE), SPDX `Apache-2.0`. As atribuições externas dos Standards permanecem vinculadas às suas fontes; esta licença não relicencia documentos externos citados. Não foram identificados avisos incompatíveis ou atribuições que exijam NOTICE na árvore atual.
+As fontes MEDS usam [Apache License, Version 2.0](LICENSE), SPDX `Apache-2.0`. Preserve a licença e os avisos de atribuição ao redistribuir, e identifique arquivos modificados. A cópia do harness conserva a licença em `MEDS-LICENSE` e identifica a adaptação do AGENTS. A licença do produto desenvolvido é uma decisão separada. As referências externas dos Standards permanecem vinculadas às suas fontes; esta licença não relicencia documentos externos citados.
 
-O repositório permanece privado. Quem tiver acesso pode propor uma alteração com problema reproduzível, escopo e evidências de teste; a aceitação exige revisão e autorização humana correspondente. Uma disponibilização pública futura é decisão separada: o histórico Git preserva mensagens e metadados anteriores ao rebranding.
+O [OWASP ASVS](https://owasp.org/projects/asvs), citado nos Standards, declara CC BY-SA 4.0. Preserve as referências e confira os termos da fonte antes de incorporar ou adaptar seu conteúdo em uma redistribuição. Não foram encontrados componentes de terceiros incorporados que tragam obrigação identificada de um arquivo NOTICE; essa inspeção não comprova titularidade de direitos autorais.
+
+Quem tiver acesso pode propor uma alteração com problema reproduzível, escopo e evidências de teste; a aceitação exige revisão e autorização humana correspondente. A disponibilização pública é decisão separada: o histórico Git preserva mensagens, identidade anterior e metadados de autoria. O proprietário precisa avaliar essa exposição antes de publicar.
 
 Os resultados históricos e as ressalvas de bootstrap estão no [guia](docs/GUIA_DE_USO.md), incluindo o FAIL histórico 7.3-R. MEDS não tem interface web própria; QA browser de pilotos antigos permanece pendente e não é requisito da instalação documental. Preparação de arquivos, teste da cópia e testes Python não equivalem a desenvolvimento ponta a ponta comprovado.
+
+A [revisão final para publicação](docs/REVISAO_PUBLICACAO.md) registra o inventário, os ajustes, o alcance da inspeção de segurança e histórico, os testes locais e as decisões pendentes. Sua autorrevisão técnica não autoriza mudar visibilidade, executar Git mutável ou publicar.

@@ -1,18 +1,18 @@
-# My Easy Development System Authentication & Security Standard v1.1
+# My Easy Development System Authentication & Security Standard v1.1.1
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | My Easy Development System Authentication & Security Standard v1.1 |
+| Nome oficial | My Easy Development System Authentication & Security Standard v1.1.1 |
 | Identificador | Standard 04 |
-| Versão | 1.1 |
+| Versão | 1.1.1 |
 | Estado canônico | Stable |
 | Finalidade | Definir política operacional de autenticação, autorização e segurança com controles verificáveis e proporcionais ao risco. |
 | Aplicabilidade | Websites, aplicações web e empresariais, APIs, aplicações locais/desktop e integrações, conforme identidades, dados, exposição e arquitetura reais. |
 | Independência técnica | Não determina linguagem, framework, provedor, infraestrutura, protocolo ou modelo universal de autenticação. |
 
-Stable identifica o estado canônico do documento. Não comprova validação operacional, auditoria de um sistema, conformidade integral com referências ou aprovação humana de uma entrega. O caminho `authentication-security-v1.md` permanece a identificação de arquivo autorizada; a versão normativa é 1.1.
+Stable identifica o estado canônico do documento. Não comprova validação operacional, auditoria de um sistema, conformidade integral com referências ou aprovação humana de uma entrega. O caminho `authentication-security-v1.md` permanece a identificação de arquivo autorizada; a versão normativa é 1.1.1.
 
 **Escopo:** controles de identidade, credenciais, contas, sessões, permissões, recuperação, operações protegidas e Security Gate. Aplicar somente às superfícies pertinentes, preservando o baseline de segurança e privacidade.
 
@@ -20,7 +20,7 @@ Stable identifica o estado canônico do documento. Não comprova validação ope
 
 ### Relação com as fontes canônicas
 
-Ler [AGENTS.md](../AGENTS.md) e instruções aplicáveis antes da ação. O [Product System v4.0](product-system-v4.md) permanece central para processo, Gates A/B, bloqueios, revisão e evidências. O [Web Experience & Business Systems v1.0](web-experience-business-systems-v1.md) rege experiência, acessibilidade, estados e integração da UI. O [Capability Routing Standard v1.0](capability-routing-v1.md) rege seleção e reavaliação do menor conjunto suficiente de capacidades. Este Standard aprofunda controles de identidade e acesso sem repetir esses processos.
+Ler [AGENTS.md](../AGENTS.md) e instruções aplicáveis antes da ação. O [Product System](product-system-v4.md) permanece central para processo, Gates A/B, bloqueios, revisão e evidências. O [Web Experience & Business Systems](web-experience-business-systems-v1.md) rege experiência, acessibilidade, estados e integração da UI. O [Capability Routing Standard](capability-routing-v1.md) rege seleção e reavaliação do menor conjunto suficiente de capacidades. Este Standard aprofunda controles de identidade e acesso sem repetir esses processos.
 
 As Skills de `.agents/skills/` conduzem procedimentos especializados conforme a seção Q. Inspeção documental não equivale à execução de testes nem à ativação de todas as Skills. Preservar stack, contratos, dados e decisões aprovadas.
 
@@ -251,7 +251,7 @@ Não usar perguntas de segurança ou informações públicas como prova suficien
 
 ## L. Proteção das operações e dados
 
-Complementar o baseline do Product System nas operações de identidade/acesso. A tabela apresenta decisões internas condicionais às superfícies reais, sem pretender catálogo completo de ameaças ou reproduzir um futuro Standard de Threats.
+Complementar o baseline do Product System nas operações de identidade/acesso. A tabela apresenta decisões internas condicionais às superfícies reais, sem pretender catálogo completo de ameaças. O [Standard 07](ai-assisted-secure-development-threat-v1.md) aprofunda ameaças do processo de desenvolvimento assistido por IA.
 
 | Ameaça/superfície | Controle e condição de verificação |
 | --- | --- |
@@ -323,7 +323,7 @@ Planejar cenários por controle, superfície e ameaça. Usar dados sintéticos o
 
 O revisor deve relacionar controles aplicáveis a implementação/configuração efetivas e resultados reais. Reunir escopo, riscos, regras de acesso, cenários executados, achados, correções, testes repetidos e limitações. Inspeção de código e teste têm alcances distintos; uma lista de controles selecionados não comprova funcionamento.
 
-Registrar resultado de cada verificação importante conforme o Product System: `PASS`, `FAIL`, `BLOCKED` ou `NOT_APPLICABLE`. Nunca marcar `PASS` para teste não executado. Ambiente indisponível é blocker com impacto, não inaplicabilidade. Usar o registro existente e autorizado; não criar log obrigatório novo.
+Registrar resultado de cada verificação importante conforme o Product System: `PASS`, `FAIL`, `BLOCKED` ou `NOT RUN` para testes. `NOT_APPLICABLE` justifica somente superfície inexistente. Nunca marcar `PASS` para teste não executado. Ambiente indisponível é blocker com impacto, não inaplicabilidade. Usar o registro existente e autorizado; não criar log obrigatório novo.
 
 | Parecer | Condição e próxima ação |
 | --- | --- |
@@ -417,11 +417,11 @@ Registrar exceção relevante com regra, motivo, alcance, risco, controle compen
 
 Preferir o contexto e relatório existentes, com fatos observados separados de inferências/recomendações. Não criar arquivo de log por tarefa, copiar secrets ou inventar evidência, auditoria independente ou conformidade.
 
-### Relação com Standards futuros e evolução
+### Relação com Standards especializados e evolução
 
-O futuro **Environment Variables & Secrets Standard** detalhará configuração e segredos. O futuro **AI-Assisted Secure Development Threat Standard** detalhará ameaças específicas do desenvolvimento assistido por IA. Esses documentos não estavam materializados no inventário da autoria; não são dependências existentes. Até sua criação/aprovação, permanecem o baseline do Product System, este Standard e as Skills pertinentes.
+Na autoria inicial, os Standards 05 e 07 ainda não estavam materializados. Hoje, [Environment Variables & Secrets](environment-variables-secrets-v1.md) detalha configuração e segredos, e [AI-Assisted Secure Development Threat](ai-assisted-secure-development-threat-v1.md), Candidate, trata das ameaças do desenvolvimento assistido por IA. Consultar essas fontes conforme a superfície, preservando o baseline e seus estados documentais.
 
-Inspecionar inventário real ao retomar. Referências históricas a Standards futuros nos documentos anteriores não são prova de existência nem suspendem seus controles. Atualizar referências e roteamento somente mediante revisão autorizada dos arquivos envolvidos; esta autoria não modifica Standards 01 a 03, Skills, READMEs ou templates.
+Inspecionar inventário real ao retomar. Referências históricas não suspendem controles atuais. Atualizar referências e roteamento somente mediante revisão autorizada dos arquivos envolvidos; a criação inicial deste Standard não autorizava modificar as demais fontes.
 
 Revisar diante de achado operacional, conflito, mudança de referência técnica ou nova superfície comprovada. Identificar regra, fonte, evidência, impacto e transição; testar procedimentos quando pertinente e distinguir validação documental de operacional. Seguir o versionamento do Product System: maior para incompatibilidade de governança, menor para regra operacional compatível e corretiva para esclarecimento sem mudança de obrigação. Não mudar regras silenciosamente mantendo a identificação de versão.
 
@@ -430,3 +430,5 @@ Revisar diante de achado operacional, conflito, mudança de referência técnica
 | 1.1 | Stable | Criação inicial neste repositório com a identificação autorizada v1.1; política proporcional de AuthN/AuthZ, sessões, recuperação, testes e Security Gate. Não pressupõe versão 1.0 anterior nem validação operacional já realizada. |
 
 Recomenda-se revisão humana do conteúdo e, posteriormente, aplicação controlada em cenários representativos com evidências reais. Eventual atualização de catálogos/referências de outros documentos exige escopo próprio. Não iniciar outro Standard, implementação ou versionamento como consequência automática desta entrega.
+
+Revisão corretiva 1.1.1 (13/10/2026): referências normativas sem versão fixa e consistência com a taxonomia de testes vigente, quando pertinente. Preserva Gates, responsabilidades e estado canônico. Ajuste documental autorizado na revisão final para publicação; não comprova nova validação operacional.

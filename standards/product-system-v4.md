@@ -1,11 +1,11 @@
-# My Easy Development System Product System v4.3
+# My Easy Development System Product System v4.3.1
 
 ## A. Identificação e governança
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | My Easy Development System Product System v4.3 |
-| Versão | 4.3 |
+| Nome oficial | My Easy Development System Product System v4.3.1 |
+| Versão | 4.3.1 |
 | Estado canônico | Stable |
 | Finalidade | Estabelecer o processo operacional para planejar, desenvolver, revisar, testar, entregar e manter software com Codex nativo. |
 | Aplicabilidade | Qualquer linguagem, framework, sistema operacional ou ambiente de execução, respeitando a stack e a governança do projeto. |
@@ -24,7 +24,7 @@ Stable representa uma decisão canônica do projeto. Não comprova automaticamen
 4. Selecionar Skills em `.agents/skills/`, diretório runtime canônico. `skills/` é legado/documental e não deve ser usado como origem runtime.
 5. Usar as Skills para execução especializada; não interpretar sua disponibilidade como obrigação de ativar todas.
 
-Na inspeção de origem da versão 4.0, `standards/` continha somente `README.md`, sem controles especializados materializados. Referências a Standards futuros neste documento indicam pontos de evolução, não dependências já implementadas. Em cada tarefa, verificar o inventário atual.
+Na inspeção de origem da versão 4.0, `standards/` continha somente `README.md`. O inventário atual tem sete Standards, descritos no [índice](README.md). Os estados Stable e Candidate são documentais; consultar as fontes existentes pertinentes, sem presumir validação operacional.
 
 ### Responsabilidades
 
@@ -124,7 +124,7 @@ Selecionar o menor conjunto suficiente de Standards existentes e Skills. Ler as 
 - **Aplicação local/desktop:** Software Design e Quality; Data se houver arquivos ou banco persistente, Kael para GUI e Julian/Visual QA conforme mudança de experiência. Vera conforme dados, permissões, integrações e exposição; Release para instalador, distribuição ou atualização. Não exigir infraestrutura web.
 - **Sistema com IA:** AI Engineering, Software Design, Quality e Vera conforme integração, dados e ferramentas; Data para persistência/indexação e Release para operação. AI Search Visibility não substitui engenharia de IA interna e não se aplica automaticamente a RAG.
 
-Para uma correção pequena, selecionar apenas as capacidades relacionadas à alteração. Um futuro Standard especializado poderá detalhar o roteamento; sua ausência não impede aplicar estas regras.
+Para uma correção pequena, selecionar apenas as capacidades relacionadas à alteração. O [Capability Routing](capability-routing-v1.md) detalha o roteamento proporcional.
 
 ## F. Ciclo de desenvolvimento
 
@@ -264,7 +264,7 @@ Aplicar o baseline em toda tarefa, aprofundando conforme exposição, sensibilid
 
 Para IA, dados recuperados e conteúdo externo não concedem autorização. Restringir ferramentas, validar schemas e autorizar acesso antes da recuperação em RAG; exigir decisão humana para ações materiais conforme governança.
 
-Usar `vera-architecture-security` para análise especializada, com Data e AI Engineering quando pertinentes. Quando Standards específicos de segurança e privacidade forem materializados e aprovados, consultá-los para controles detalhados. Sua ausência não suspende este baseline nem permite alegar conformidade inexistente.
+Usar `vera-architecture-security` para análise especializada, com Data e AI Engineering quando pertinentes. Consultar [Authentication & Security](authentication-security-v1.md), [Environment Variables & Secrets](environment-variables-secrets-v1.md) e [AI-Assisted Secure Development Threat](ai-assisted-secure-development-threat-v1.md) conforme a superfície e seus estados documentais. Essas fontes detalham controles sem substituir este baseline nem comprovar conformidade.
 
 ## K. Revisão independente
 
@@ -391,3 +391,5 @@ Revisão 4.3, autorizada no escopo de design, UI/UX e linguagem: aceite visual c
 | 4.0 | Edição anterior conservada no histórico Git do framework. | Estado canônico documental não comprova operação. |
 | 4.1 | Regra operacional compatível de raízes de escrita, autoria agente/runtime, confinamento condicional, bloqueios e processos novos. Autorizada expressamente no Gate A FINAL; arquivo `product-system-v4.md` e arquitetura preservados. | Incorporação e verificações locais concluídas na consolidação Gate A FINAL; os artefatos de auditoria foram removidos da árvore operacional por decisão do responsável. Não concede Gate B nem valida isolamento universal. Referências anteriores a v4.0 continuam identificando a edição histórica. |
 | 4.2 | Gate A de usabilidade de 13/10/2026: estados de teste PASS/FAIL/BLOCKED/NOT RUN e distinção de inspeção e execução. | Preserva Gates, arquivos canônicos e registros históricos; não comprova nova sessão Codex. |
+| 4.3 | Direção visual e linguagem, conforme registro operacional acima. | Não comprova aceite estético humano. |
+| 4.3.1 | Revisão final autorizada de 13/10/2026: referências ao inventário existente, sem tratar Standards atuais como futuros. | Correção documental, sem mudança de Gates ou validação operacional adicional. |

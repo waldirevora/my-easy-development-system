@@ -65,6 +65,9 @@ def copy_harness(source: Path, destination: Path) -> Path:
         raise ValueError("Objetivo de AGENTS.md mudou; revisar adaptação antes de copiar.")
     agents = agents.replace(old_objective,
         "Este projeto aplica o My Easy Development System aos seus próprios requisitos.", 1)
+    agents = agents.replace("# AGENTS.md\n", "# AGENTS.md\n\n"
+        "Adaptação automática das fontes MEDS: objetivo e raiz de escrita ajustados "
+        "para este projeto por scripts/copy_harness.py.\n", 1)
     # O destino externo usa sua própria raiz, sem criar workspaces recursivos.
     start = "<!-- MEDS-WORKSPACE-START -->"
     end = "<!-- MEDS-WORKSPACE-END -->"

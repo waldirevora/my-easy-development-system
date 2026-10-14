@@ -6,6 +6,8 @@ As fontes normativas permanecem [AGENTS.md](../AGENTS.md), [standards/](../stand
 
 O [README principal](../README.md) contém instalação rápida, primeiro uso e diagnóstico. O [verificador](../scripts/check.py) executa checagens locais e testes; a [cópia do harness](../scripts/copy_harness.py) prepara um projeto vazio sem depender de Git e recusa destinos ocupados. O guia detalha dependências, licenciamento das fontes copiadas e integração manual em projetos existentes.
 
+A [revisão final para publicação](REVISAO_PUBLICACAO.md), de 13/10/2026, registra a avaliação individual dos componentes, correções, testes desta rodada e decisões pendentes do proprietário. Os resultados históricos abaixo permanecem separados dessa revisão.
+
 ## Estado das evidências da rodada 7.1
 
 Este guia documenta o procedimento esperado; não constitui prova de execução pelo Codex. Uma cópia íntegra comprova preparação estrutural. Testes do laboratório comprovam somente o comportamento local que exercitam. Descoberta natural, observância das regras e uso efetivo de Skills exigem validação posterior em sessão nova.

@@ -39,6 +39,7 @@ class CopyHarnessTests(unittest.TestCase):
         self.assertEqual(agents.split("## Regra principal", 1)[1].split(
             "\nAs fontes copiadas", 1)[0], original.split("## Regra principal", 1)[1])
         self.assertIn("aos seus próprios requisitos", agents)
+        self.assertIn("Adaptação automática das fontes MEDS", agents)
         self.assertIn("Raiz do projeto independente", agents)
         self.assertNotIn("MEDS-WORKSPACE-START", agents)
         self.assertNotIn("criar automaticamente `workspaces/<slug>/`", agents)

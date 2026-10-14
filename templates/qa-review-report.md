@@ -1,10 +1,10 @@
-# My Easy Development System QA & Review Report v1.2
+# My Easy Development System QA & Review Report v1.2.1
 
-**Versão:** 1.2. **Estado inicial:** Candidate.
+**Versão:** 1.2.1. **Estado inicial:** Candidate.
 
 ## A. Identificação e uso
 
-Template operacional para registrar qualidade e revisão de websites, interfaces, sistemas empresariais, APIs, bancos, aplicações desktop/locais, integrações, IA, documentação e configuração. O [Product System v4.0](../standards/product-system-v4.md) permanece a fonte principal; aplicar [Capability Routing](../standards/capability-routing-v1.md) para selecionar somente fontes, Skills e verificações pertinentes.
+Template operacional para registrar qualidade e revisão de websites, interfaces, sistemas empresariais, APIs, bancos, aplicações desktop/locais, integrações, IA, documentação e configuração. O [Product System](../standards/product-system-v4.md) permanece a fonte principal; aplicar [Capability Routing](../standards/capability-routing-v1.md) para selecionar somente fontes, Skills e verificações pertinentes.
 
 O [Gate A Task Brief](gate-a-task-brief.md) delimita trabalho e autonomia. Dentro da autorização, o Codex pode verificar, corrigir, repetir testes afetados e fazer autorrevisão sem microaprovações. O [Gate B Release Approval](gate-b-release-approval.md) registra autorização humana para ação protegida. Este relatório fornece evidências e parecer técnico; não concede autorização Git, acesso a produção ou publicação.
 
@@ -161,7 +161,7 @@ Revisão independente obrigatória ausente impede prontidão. Não exigir reviso
 | `CHANGES_REQUIRED` | Correção ou verificação adicional necessária e possível no escopo autorizado; corrigir/reverificar sem microaprovações. |
 | `BLOCKED` | Falta condição necessária, como autorização, ambiente, acesso ou decisão material; registrar causa e interromper ação dependente. |
 
-Um parecer técnico APPROVED não comprova conformidade universal nem substitui Security Gate ou autorização humana de Gate B. Também não prova publicação nem autoriza operação destrutiva. Quando segurança for pertinente, referenciar o Security Gate já previsto pelos Standards, com alcance, resultado e pendências; não reproduzir seu relatório especializado. O Template 04, [Security Gate Review v1.0](security-gate-review.md), em estado Candidate, já está publicado e oferece um modelo operacional para registrar revisões de segurança. A avaliação pertinente continua regida pelos Standards e pelos riscos reais da tarefa; não é obrigatório criar ou preencher um arquivo Security Gate separado em toda alteração. O Template 03 permanece responsável pelo QA geral e pela revisão técnica; o parecer de segurança continua distinto da autorização humana de Gate B. Falha crítica conhecida bloqueia release; evidência essencial ausente impede aprovação geral.
+Um parecer técnico APPROVED não comprova conformidade universal nem substitui Security Gate ou autorização humana de Gate B. Também não prova publicação nem autoriza operação destrutiva. Quando segurança for pertinente, referenciar o Security Gate já previsto pelos Standards, com alcance, resultado e pendências; não reproduzir seu relatório especializado. O Template 04, [Security Gate Review](security-gate-review.md), em estado Candidate, já está publicado e oferece um modelo operacional para registrar revisões de segurança. A avaliação pertinente continua regida pelos Standards e pelos riscos reais da tarefa; não é obrigatório criar ou preencher um arquivo Security Gate separado em toda alteração. O Template 03 permanece responsável pelo QA geral e pela revisão técnica; o parecer de segurança continua distinto da autorização humana de Gate B. Falha crítica conhecida bloqueia release; evidência essencial ausente impede aprovação geral.
 
 Separar trabalho implementado, inspecionado, testado e revisado de autorização humana de entrega, publicação executada e verificação pós-publicação. Encaminhar decisão protegida ao Template 02 ou conversa suficiente, respeitando autorização anterior válida e proibições expressas. Não executar Git ou deploy para concluir artificialmente este relatório. Verificação operacional requer autorização e resultado real no destino.
 
@@ -231,3 +231,5 @@ Avaliar usabilidade na integração/testes autorizados com Codex e no piloto rea
 | 1.0 | Candidate | Modos rápido/completo, métodos, resultados, evidências, revisão e três exemplos planejados; validação operacional e de uso permanece posterior. |
 | 1.0.1 | Candidate | Revisão corretiva documental: reconhecimento do Template 04 já publicado e correção da afirmação histórica desatualizada na seção J. Correção factual da referência e atualização editorial da identificação, sem alterar critérios de QA, Security Gate, Gate A, Gate B ou obrigações operacionais. Autorizada pelo responsável mediante envio do prompt específico da rodada 5.1B ao Codex, em 08/10/2026. Não representa teste operacional do template, revisão independente já realizada ou promoção a Stable. |
 | 1.1 | Candidate | Gate A de usabilidade de 13/10/2026: entrega consolidada, estados PASS/FAIL/BLOCKED/NOT RUN e limites de QA. Validação documental não comprova uso em projeto real. |
+
+Revisão corretiva 1.2.1 (13/10/2026): referências normativas sem versão fixa e consistência com a taxonomia de testes vigente, quando pertinente. Preserva Gates, responsabilidades e estado canônico. Ajuste documental autorizado na revisão final para publicação; não comprova nova validação operacional.

@@ -1,10 +1,10 @@
-# My Easy Development System Gate B Release Approval v1.1
+# My Easy Development System Gate B Release Approval v1.1.1
 
-**Versão:** 1.1. **Estado inicial:** Candidate.
+**Versão:** 1.1.1. **Estado inicial:** Candidate.
 
 ## A. Identificação, finalidade e uso
 
-Template operacional para registrar decisão humana sobre operação protegida, aplicável a websites, sistemas empresariais, APIs, aplicações locais/desktop, integrações, dados, funcionalidades de IA e documentação/governança. O [Product System v4.0](../standards/product-system-v4.md) permanece a fonte principal; este documento complementa o [Gate A Task Brief](gate-a-task-brief.md) e [AGENTS.md](../AGENTS.md), sem criar um novo processo de aprovação.
+Template operacional para registrar decisão humana sobre operação protegida, aplicável a websites, sistemas empresariais, APIs, aplicações locais/desktop, integrações, dados, funcionalidades de IA e documentação/governança. O [Product System](../standards/product-system-v4.md) permanece a fonte principal; este documento complementa o [Gate A Task Brief](gate-a-task-brief.md) e [AGENTS.md](../AGENTS.md), sem criar um novo processo de aprovação.
 
 Gate B confirma autorização humana válida, escopo, evidências suficientes e condições conhecidas. Não é nova revisão técnica nem formulário universal. Uma autorização explícita e suficientemente delimitada na conversa pode constituí-lo. Usar o modo rápido para operação simples; usar o completo quando risco ou múltiplas condições justificarem. Copiar somente o bloco escolhido, substituir colchetes e omitir campos inaplicáveis.
 
@@ -171,3 +171,5 @@ Avaliar o template na integração com Codex e no piloto real, com autorização
 | --- | --- | --- |
 | 1.0 | Candidate | Modos rápido/completo, estados da decisão, evidências, limites, execução/verificação e dois exemplos sintéticos; validação de uso permanece posterior. |
 | 1.1 | Candidate | Gate A de usabilidade de 13/10/2026: referência à entrega consolidada e estados atuais de testes. Preserva decisão humana, escopo e ações protegidas. |
+
+Revisão corretiva 1.1.1 (13/10/2026): referências normativas sem versão fixa e consistência com a taxonomia de testes vigente, quando pertinente. Preserva Gates, responsabilidades e estado canônico. Ajuste documental autorizado na revisão final para publicação; não comprova nova validação operacional.

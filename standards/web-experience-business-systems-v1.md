@@ -1,12 +1,12 @@
-# My Easy Development System Web Experience & Business Systems v1.2
+# My Easy Development System Web Experience & Business Systems v1.2.1
 
 ## A. Identificação, escopo e aplicação
 
 | Campo | Definição |
 | --- | --- |
-| Nome oficial | My Easy Development System Web Experience & Business Systems v1.2 |
+| Nome oficial | My Easy Development System Web Experience & Business Systems v1.2.1 |
 | Identificador | Standard 02 |
-| Versão | 1.2 |
+| Versão | 1.2.1 |
 | Estado canônico | Stable |
 | Finalidade | Estabelecer critérios operacionais de engenharia, design, experiência e qualidade para interfaces orientadas a objetivos editoriais, comerciais e operacionais. |
 | Aplicabilidade | Websites institucionais premium, landing pages, páginas comerciais, portais, aplicações web, dashboards, sistemas empresariais, interfaces administrativas e interfaces locais/desktop, conforme a superfície. |
@@ -27,7 +27,7 @@ Classificar cada superfície antes de definir controles. Um mesmo produto pode c
 
 ### Relação com o sistema e limites
 
-O [Product System v4.0](product-system-v4.md) permanece a fonte central de processo, governança, Gates, engenharia, resultados de testes e entrega. Este Standard acrescenta critérios de experiência e interface; não reproduz o ciclo central nem amplia autorização.
+O [Product System](product-system-v4.md) permanece a fonte central de processo, governança, Gates, engenharia, resultados de testes e entrega. Este Standard acrescenta critérios de experiência e interface; não reproduz o ciclo central nem amplia autorização.
 
 Usar as Skills canônicas em `.agents/skills/` para procedimentos especializados, conforme a seção Q. Consultar Standards especializados existentes e pertinentes; referências a documentos futuros indicam evolução, sem criar dependência de documento ausente. Resolver conflito material conforme o Product System antes da ação afetada.
 
@@ -257,7 +257,7 @@ Validar consistência factual e descoberta técnica. Se houver avaliação em fe
 
 ## M. Segurança e privacidade da experiência
 
-Aplicar o baseline do Product System à superfície da interface. Vera aprofunda riscos de arquitetura, dados e confiança quando pertinente. Esta seção trata consequências visíveis e integração de controles; não especifica o futuro Authentication & Security Standard.
+Aplicar o baseline do Product System à superfície da interface. Vera aprofunda riscos de arquitetura, dados e confiança quando pertinente. Esta seção trata consequências visíveis e integração de controles; [Authentication & Security](authentication-security-v1.md) detalha identidade e acesso.
 
 - Exibir, coletar e exportar apenas dados necessários ao perfil e à tarefa; considerar telas compartilhadas, histórico, downloads e notificações.
 - Evitar identificadores sensíveis em URLs, mensagens, telemetria e conteúdo acessível ao cliente quando não necessários ou autorizados.
@@ -385,8 +385,10 @@ Na entrega, explicitar cobertura, limitações de ambiente ou ferramenta, valida
 
 Revisar este Standard diante de conflito, falha recorrente ou nova necessidade comprovada. A revisão deve identificar regra, evidência, impacto e compatibilidade com Product System e Skills, seguindo a governança de evolução do Product System. Não alterar outros documentos sem escopo próprio.
 
-Futuras especializações, incluindo Authentication & Security, podem detalhar controles e procedimentos sem repetir este conteúdo nem enfraquecer o baseline. Até sua materialização, aplicar os documentos existentes pertinentes. A classificação Stable não substitui evidência de uso e validação operacional.
+As especializações existentes detalham controles sem repetir este conteúdo nem enfraquecer o baseline. Consultar o [inventário atual](README.md). A classificação Stable não substitui evidência de uso e validação operacional.
 
 Revisão 1.1, Gate A de usabilidade de 13/10/2026: imagens conforme ferramentas disponíveis, assets locais, geração distinta de otimização e QA de site em navegador real. Preserva escopo e Gates; revisão documental não comprova execução de produto.
 
 Revisão 1.2, autorizada no escopo de design e UI/UX: exploração de três direções, identidade contextual, tokens e aceite visual com crítica, correção e reinspeção. Nenhuma estética universal é criada; o julgamento editorial e o aceite humano continuam distintos de resultados técnicos.
+
+Revisão corretiva 1.2.1 (13/10/2026): referências normativas sem versão fixa e consistência com a taxonomia de testes vigente, quando pertinente. Preserva Gates, responsabilidades e estado canônico. Ajuste documental autorizado na revisão final para publicação; não comprova nova validação operacional.

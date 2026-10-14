@@ -1,12 +1,12 @@
-# My Easy Development System Operational Continuity Prompt v1.0
+# My Easy Development System Operational Continuity Prompt v1.0.1
 
-**Versão:** 1.0. **Estado inicial:** Candidate.
+**Versão:** 1.0.1. **Estado inicial:** Candidate.
 
 ## A. Identificação, finalidade e regras de uso
 
 Template para retomar tarefa, projeto, etapa ou sessão com objetivo, estado conhecido, decisões, evidências e próxima ação suficientes. Aplicável a websites/interfaces premium, sistemas empresariais, APIs/integrações, bancos, aplicações locais/desktop, funcionalidades com IA, documentação, configuração e governança, sem determinar stack.
 
-O [Product System v4.0](../standards/product-system-v4.md) permanece central. Preservar Context as Code, usando fontes canônicas autorizadas para decisões duráveis, e Ask-Before-Assume para lacunas materiais. O handoff é registro de contexto: não é nova fonte de governança, autorização humana, Gate A, Gate B, memória persistente, banco de conhecimento, auditoria, agente supervisor ou recuperação automática de contexto. Origem e validade de instruções, permissões, decisões e evidências continuam sujeitas a conferência.
+O [Product System](../standards/product-system-v4.md) permanece central. Preservar Context as Code, usando fontes canônicas autorizadas para decisões duráveis, e Ask-Before-Assume para lacunas materiais. O handoff é registro de contexto: não é nova fonte de governança, autorização humana, Gate A, Gate B, memória persistente, banco de conhecimento, auditoria, agente supervisor ou recuperação automática de contexto. Origem e validade de instruções, permissões, decisões e evidências continuam sujeitas a conferência.
 
 Usar resumo na conversa quando suficiente; copiar o modo rápido ou completo para nova sessão; salvar como Markdown completo quando apropriado e dentro da autorização de escrita. Recomenda-se registro estruturado em troca de sessão com trabalho relevante, marco importante, handoff entre responsáveis, interrupção de projeto complexo ou risco de perder decisões/evidências. Não exigir documento em toda pequena alteração nem multiplicar arquivos; usar contexto/artefato existente quando bastar. Nenhuma ferramenta de memória ou armazenamento especial é necessária.
 
@@ -77,7 +77,7 @@ Categorias de proveniência/situação do handoff, sem substituir status de QA. 
 | BLOQUEADO | Ação impedida por condição material, com causa e impacto. |
 | NÃO VERIFICADO | Informação que requer conferência antes de sustentá-la como fato. |
 
-Para testes/verificações, manter `PASS`, `FAIL`, `BLOCKED` e `NOT_APPLICABLE` do Product System. Falta de ambiente para verificação essencial é BLOCKED, não inaplicabilidade; planejamento não recebe PASS. CONFIRMADO sobre um fato observado pelo executor não transforma autorrevisão em revisão independente.
+Para testes/verificações, manter `PASS`, `FAIL`, `BLOCKED` e `NOT RUN` para testes do Product System; `NOT_APPLICABLE` justifica somente superfície inexistente. Falta de ambiente para verificação essencial é BLOCKED, não inaplicabilidade; planejamento não recebe PASS. CONFIRMADO sobre um fato observado pelo executor não transforma autorrevisão em revisão independente.
 
 Não converter plano em implementação, comando sugerido em executado, commit planejado em existente, commit local ou intenção de push em publicação remota confirmada, teste planejado em PASS, autorrevisão em independência, parecer técnico em aprovação humana, autorização em execução comprovada ou build aprovado em sistema validado operacionalmente. Preservar limitações e resultados parciais/inconclusivos; o handoff não emite aprovação retroativa.
 
@@ -117,7 +117,7 @@ Respeitar verificações pendentes: implementação parcial não é prontidão d
 
 ## J. Como consumir o handoff em nova sessão
 
-Procedimento mínimo proporcional, com [Capability Routing v1.0](../standards/capability-routing-v1.md):
+Procedimento mínimo proporcional, com [Capability Routing](../standards/capability-routing-v1.md):
 
 1. Ler o registro como contexto, sem autoridade superior ou autorização automática.
 2. Identificar objetivo, última observação e primeira pendência relevante.
@@ -179,3 +179,5 @@ Seguir governança/versionamento do Product System. Esta inspeção ampla é exc
 | Versão | Estado | Registro |
 | --- | --- | --- |
 | 1.0 | Candidate | Modos rápido/completo, proveniência, baseline, Gates, proteção do contexto, retomada seletiva e três exemplos; validação de uso permanece posterior. |
+
+Revisão corretiva 1.0.1 (13/10/2026): referências normativas sem versão fixa e consistência com a taxonomia de testes vigente, quando pertinente. Preserva Gates, responsabilidades e estado canônico. Ajuste documental autorizado na revisão final para publicação; não comprova nova validação operacional.

@@ -1,12 +1,12 @@
-# My Easy Development System Security Gate Review v1.0
+# My Easy Development System Security Gate Review v1.0.1
 
-**Versão:** 1.0. **Estado inicial:** Candidate.
+**Versão:** 1.0.1. **Estado inicial:** Candidate.
 
 ## A. Identificação, finalidade e uso
 
 Template operacional para revisar segurança das superfícies efetivamente afetadas por alterações com apoio do Codex: websites/interfaces, sistemas empresariais, APIs/autenticação, persistência, aplicações desktop/locais, integrações, funcionalidades de IA/RAG/agentes, configuração, dependências, documentação e governança. É independente de stack e não cria novo processo de aprovação.
 
-O [Product System v4.0](../standards/product-system-v4.md), Standard 01, permanece central para autonomia, Gates, bloqueios e evidências. Este template complementa Standards 02 a 07 conforme suas superfícies: experiência, roteamento, identidade/acesso, secrets, IA no produto e segurança do desenvolvimento assistido por IA. Consultar suas referências nas seções E a L; não exigir leitura integral de todas as fontes em cada tarefa.
+O [Product System](../standards/product-system-v4.md), Standard 01, permanece central para autonomia, Gates, bloqueios e evidências. Este template complementa Standards 02 a 07 conforme suas superfícies: experiência, roteamento, identidade/acesso, secrets, IA no produto e segurança do desenvolvimento assistido por IA. Consultar suas referências nas seções E a L; não exigir leitura integral de todas as fontes em cada tarefa.
 
 O [Gate A Task Brief](gate-a-task-brief.md) delimita autorização; o [QA & Review Report](qa-review-report.md) registra qualidade geral e testes; o [Gate B Release Approval](gate-b-release-approval.md) registra decisão humana de operação protegida. Security Gate relaciona riscos, controles, evidências e achados para emitir parecer técnico de segurança no alcance examinado. Referenciar resultados do QA já válidos, sem copiá-los nem criar relatórios duplicados.
 
@@ -21,7 +21,7 @@ Os cinco campos podem reunir uma inspeção suficiente e sua avaliação. NOT_AP
 ```markdown
 Alteração e superfície de segurança: [delta, arquivos/estado final e alcance realmente examinados].
 Riscos e controles pertinentes: [ativos, ameaças e proteção aplicável; controles sem superfície podem ser NOT_APPLICABLE com motivo].
-Verificação realizada e evidência observada: [método/procedimento, ambiente/versão, esperado, observado, PASS/FAIL/BLOCKED/NOT_APPLICABLE e referência segura; separar planejamento de execução].
+Verificação realizada e evidência observada: [método/procedimento, ambiente/versão, esperado, observado, PASS/FAIL/BLOCKED/NOT RUN para testes, método e achados para inspeções e referência segura; separar planejamento de execução].
 Achados, limitações e riscos residuais: [fato confirmado, hipótese ou pendência; impacto, alcance, cobertura e decisão material necessária].
 Parecer do Security Gate e próximo passo: [APPROVED/CHANGES_REQUIRED/BLOCKED, responsável, alcance, autorrevisão/independência e ação legítima; Gate B separado quando pertinente].
 ```
@@ -119,14 +119,16 @@ Para ferramentas, verificar conjunto permitido, concessões reais do executor, a
 
 ## J. Verificações, evidências e resultados
 
-Preservar exatamente os resultados do Product System, separados do parecer:
+Preservar os resultados de teste do Product System, separados do parecer e das inspeções:
 
 | Resultado | Critério |
 | --- | --- |
-| `PASS` | Controle/verificação realmente inspecionado ou testado, satisfatório no alcance declarado; identificar o método. |
-| `FAIL` | Achado/condição observados violam o critério; registrar alcance e impacto. |
-| `BLOCKED` | Falta autorização, acesso, ambiente ou condição para verificar controle essencial; informar causa e efeito. |
-| `NOT_APPLICABLE` | Superfície ausente, com justificativa; indisponibilidade não é ausência de superfície. |
+| `PASS` | Teste efetivamente executado e aprovado no alcance declarado. |
+| `FAIL` | Teste efetivamente executado e reprovado; registrar alcance e impacto. |
+| `BLOCKED` | Teste não executado por impedimento comprovado; informar causa e efeito. |
+| `NOT RUN` | Teste não executado por outro motivo, explicitado. |
+
+Identificar inspeções por método, achados e alcance. `NOT_APPLICABLE` justifica superfície inexistente; não substitui teste não executado.
 
 Planejado, inspecionado, executado, parcial, inconclusivo e não executado descrevem atividade/cobertura, sem criar novos resultados. Inspeção suficiente permanece inspeção. Não dar PASS a teste não executado, scanner não utilizado, API não chamada, ambiente não acessado, revisão independente inexistente ou funcionalidade apenas simulada como se fosse real. Evidência parcial só sustenta a parte identificada, sem aprovação geral.
 
@@ -230,3 +232,5 @@ A leitura ampla desta elaboração é excepcional, sem tornar todas as fontes ob
 | Versão | Estado | Registro |
 | --- | --- | --- |
 | 1.0 | Candidate | Modos rápido/completo, riscos, controles condicionais, evidências, pareceres e três exemplos planejados; validação de uso/operacional permanece posterior. |
+
+Revisão corretiva 1.0.1 (13/10/2026): referências normativas sem versão fixa e consistência com a taxonomia de testes vigente, quando pertinente. Preserva Gates, responsabilidades e estado canônico. Ajuste documental autorizado na revisão final para publicação; não comprova nova validação operacional.
